@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Scopri le creazioni artigianali di Nonna Emma: lavori a maglia, ricami e progetti fatti a mano.">
     <title>Nonna Emma | Creazioni Artigianali</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +19,8 @@
     </svg>
 
     <header class="navbar">
-        <div class="logo">Nonna Emma 🧶</div>
-        <nav>
+        <a class="logo" href="index.html">Nonna Emma 🧶</a>
+        <nav aria-label="Navigazione principale">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#creazioni">Creazioni</a></li>
@@ -54,12 +55,15 @@
                 </div>
                 <div class="card stitch-border">
                     <!-- INSERISCI QUI LA TUA FOTO: images/ricamo/piccoloprincipe.jpeg -->
-                    <img src="images/ricamo/piccoloprincipe.jpeg" alt="Ricamo Piccolo Principe">
-                    <div class="card-info">
-                        <!-- PERSONALIZZA QUI IL TITOLO E LA DESCRIZIONE DELLA CREAZIONE. -->
-                        <h3>Ricami Decorativi</h3>
-                        <p>Dettagli floreali e personalizzazioni delicate.</p>
-                    </div>
+                    <a class="card-link" href="ricamo.html" aria-label="Scopri i ricami decorativi">
+                        <img src="images/ricamo/piccoloprincipe.jpeg" alt="Ricamo Piccolo Principe">
+                        <div class="card-info">
+                            <!-- PERSONALIZZA QUI IL TITOLO E LA DESCRIZIONE DELLA CREAZIONE. -->
+                            <h3>Ricami Decorativi</h3>
+                            <p>Dettagli floreali e personalizzazioni delicate.</p>
+                            <span class="card-cta">Scopri i progetti →</span>
+                        </div>
+                    </a>
                 </div>
                 <div class="card stitch-border">
                     <!-- INSERISCI QUI LA TUA FOTO: images/cucito/luna.jpeg -->

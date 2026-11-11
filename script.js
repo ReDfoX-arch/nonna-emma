@@ -115,6 +115,8 @@ document.querySelectorAll("[data-carousel]").forEach((carosello) => {
             viewport.getBoundingClientRect().left -
             (viewport.clientWidth - progetto.getBoundingClientRect().width) / 2;
 
+        progettoAttivo = indice;
+        aggiornaControlli();
         viewport.scrollTo({
             left: posizione,
             behavior: riduciMovimento ? "auto" : "smooth",

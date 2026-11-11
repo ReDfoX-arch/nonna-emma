@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Scopri i ricami decorativi fatti a mano da Nonna Emma.">
+    <title>Ricami Decorativi | Nonna Emma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- FILO DECORATIVO: LA LINEA SI COMPLETA MAN MANO CHE SCORRI LA PAGINA. -->
+    <svg class="filo-scroll" viewBox="0 0 64 1000" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="filo-traccia" pathLength="1000" d="M32 0 C8 65 56 105 32 170 S8 275 32 340 S56 445 32 510 S8 615 32 680 S56 785 32 850 S8 945 32 1000" />
+        <path class="filo-percorso" pathLength="1000" d="M32 0 C8 65 56 105 32 170 S8 275 32 340 S56 445 32 510 S8 615 32 680 S56 785 32 850 S8 945 32 1000" />
+    </svg>
+
+    <header class="navbar">
+        <a class="logo" href="index.html">Nonna Emma 🧶</a>
+        <nav aria-label="Navigazione principale">
+            <ul>
+                <li><a href="index.html">← Torna alla Home</a></li>
+                <li><a href="maglia.html">Lavori a Maglia</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="portfolio portfolio-progetti">
+        <p class="eyebrow">Fatti a mano, con amore</p>
+        <h1>Ricami Decorativi</h1>
+        <!-- PERSONALIZZA QUI IL TESTO INTRODUTTIVO DELLA PAGINA. -->
+        <p class="portfolio-intro">Piccoli dettagli, colori e storie cuciti punto dopo punto. Sfoglia i ricami e gira le schede per scoprire altri dettagli.</p>
+
+        <section class="project-gallery" aria-label="Galleria dei ricami decorativi">
+            <div class="carousel-controls">
+                <button class="carousel-arrow" type="button" data-carousel-prev aria-label="Mostra il ricamo precedente">
+                    <span aria-hidden="true">←</span>
+                </button>
+                <p class="carousel-status" data-carousel-status aria-live="polite" aria-atomic="true">Progetto 1 di 3</p>
+                <button class="carousel-arrow" type="button" data-carousel-next aria-label="Mostra il ricamo successivo">
+                    <span aria-hidden="true">→</span>
+                </button>
+            </div>
+
+            <div class="carousel-viewport" data-carousel>
+                <div class="carousel-track">
+                    <article class="project-slide">
+                        <div class="project-card stitch-border" data-project-card>
+                            <div class="project-card-inner">
+                                <div class="project-face project-front">
+                                    <figure>
+                                        <!-- INSERISCI QUI LA TUA FOTO: images/ricamo/caminante.jpeg -->
+                                        <img src="images/ricamo/caminante.jpeg" alt="Lavoro di ricamo Caminante" loading="eager">
+                                        <figcaption class="card-info">
+                                            <!-- PERSONALIZZA QUI IL TITOLO E LA DESCRIZIONE DEL PROGETTO. -->
+                                            <h2>Caminante</h2>
+                                            <p>Un ricamo fatto a mano, curato nei dettagli e nei colori.</p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                                <div class="project-face project-back" aria-hidden="true">
+                                    <span class="back-icon" aria-hidden="true">🪡</span>
+                                    <p class="eyebrow">Dietro ogni punto</p>
+                                    <h2>Un ricamo unico</h2>
+                                    <!-- PERSONALIZZA QUI I DETTAGLI DELLA LAVORAZIONE O INSERISCI IL PERCORSO REALE DI UNA FOTO DEL RETRO. -->
+                                    <p>Racconta qui la tecnica, i materiali e l'ispirazione di questo progetto.</p>
+                                </div>
+                            </div>
+                            <button class="flip-toggle" type="button" aria-expanded="false">Gira la scheda <span aria-hidden="true">↻</span></button>
+                        </div>
+                    </article>
+
+                    <article class="project-slide">
+                        <div class="project-card stitch-border" data-project-card>
+                            <div class="project-card-inner">
+                                <div class="project-face project-front">
+                                    <figure>
+                                        <!-- INSERISCI QUI LA TUA FOTO: images/ricamo/piccoloprincipe.jpeg -->
+                                        <img src="images/ricamo/piccoloprincipe.jpeg" alt="Ricamo ispirato al Piccolo Principe" loading="lazy">
+                                        <figcaption class="card-info">
+                                            <!-- PERSONALIZZA QUI IL TITOLO E LA DESCRIZIONE DEL PROGETTO. -->
+                                            <h2>Piccolo Principe</h2>
+                                            <p>Un soggetto ricamato a mano con attenzione a ogni piccolo dettaglio.</p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                                <div class="project-face project-back" aria-hidden="true">
+                                    <span class="back-icon" aria-hidden="true">🧶</span>
+                                    <p class="eyebrow">Dietro ogni punto</p>
+                                    <h2>Un pensiero speciale</h2>
+                                    <!-- PERSONALIZZA QUI I DETTAGLI DELLA LAVORAZIONE O INSERISCI IL PERCORSO REALE DI UNA FOTO DEL RETRO. -->
+                                    <p>Racconta qui la tecnica, i materiali e l'ispirazione di questo progetto.</p>
+                                </div>
+                            </div>
+                            <button class="flip-toggle" type="button" aria-expanded="false">Gira la scheda <span aria-hidden="true">↻</span></button>
+                        </div>
+                    </article>
+
+                    <article class="project-slide">
+                        <div class="project-card stitch-border" data-project-card>
+                            <div class="project-card-inner">
+                                <div class="project-face project-front">
+                                    <figure>
+                                        <!-- INSERISCI QUI LA TUA FOTO: images/ricamo/uccfoglie.jpeg -->
+                                        <img src="images/ricamo/uccfoglie.jpeg" alt="Ricamo di uccellini e foglie" loading="lazy">
+                                        <figcaption class="card-info">
+                                            <!-- PERSONALIZZA QUI IL TITOLO E LA DESCRIZIONE DEL PROGETTO. -->
+                                            <h2>Uccellini e Foglie</h2>
+                                            <p>Un motivo ispirato alla natura, realizzato punto dopo punto.</p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                                <div class="project-face project-back" aria-hidden="true">
+                                    <span class="back-icon" aria-hidden="true">🪡</span>
+                                    <p class="eyebrow">Dietro ogni punto</p>
+                                    <h2>Un tocco di natura</h2>
+                                    <!-- PERSONALIZZA QUI I DETTAGLI DELLA LAVORAZIONE O INSERISCI IL PERCORSO REALE DI UNA FOTO DEL RETRO. -->
+                                    <p>Racconta qui la tecnica, i materiali e l'ispirazione di questo progetto.</p>
+                                </div>
+                            </div>
+                            <button class="flip-toggle" type="button" aria-expanded="false">Gira la scheda <span aria-hidden="true">↻</span></button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <p class="swipe-hint">Puoi scorrere con le frecce o con un gesto laterale ♡</p>
+        </section>
+
+        <a href="index.html#contatti" class="btn-primary project-contact">Hai un progetto in mente? Scrivimi</a>
+    </main>
+
+    <footer>
+        <p class="copyright">© 2026 Nonna Emma. Realizzato con 🧶 e tanto amore.</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
