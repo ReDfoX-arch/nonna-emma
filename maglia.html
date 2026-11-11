@@ -3,49 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Scopri i lavori a maglia realizzati a mano da Nonna Emma.">
     <title>Lavori a Maglia | Nonna Emma</title>
-    <!-- Richiamiamo lo stesso font e lo stesso stile della Home! -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- FILO DECORATIVO: LA LINEA SI COMPLETA MAN MANO CHE SCORRI LA PAGINA. -->
+    <svg class="filo-scroll" viewBox="0 0 64 1000" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="filo-traccia" pathLength="1000" d="M32 0 C8 65 56 105 32 170 S8 275 32 340 S56 445 32 510 S8 615 32 680 S56 785 32 850 S8 945 32 1000" />
+        <path class="filo-percorso" pathLength="1000" d="M32 0 C8 65 56 105 32 170 S8 275 32 340 S56 445 32 510 S8 615 32 680 S56 785 32 850 S8 945 32 1000" />
+    </svg>
 
-    <!-- Intestazione con pulsante per tornare indietro -->
     <header class="navbar">
-        <div class="logo">Nonna Emma 🧶</div>
-        <nav>
+        <a class="logo" href="index.html">Nonna Emma 🧶</a>
+        <nav aria-label="Navigazione principale">
             <ul>
                 <li><a href="index.html">← Torna alla Home</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="portfolio">
-        <h2>Lavori a Maglia</h2>
-        <p style="margin-bottom: 40px;">Tutto il calore della pura lana intrecciata a mano. Qui puoi vedere tutti i miei progetti realizzati coi ferri.</p>
-        
-        <div class="gallery-grid">
-            <!-- Foto 1 -->
-            <a href="maglia.html" style="text-decoration: none; color: inherit;">
-                <div class="card stitch-border">
-                    <img src="images/maglia/m_babyhat.jpeg" alt="Cappellino a maglia">
-                    <div class="card-info">
-                        <h3>Cappellino Baby</h3>
-                        <p>Morbido e caldo, pensato per la pelle delicata dei più piccoli.</p>
-                    </div>
-                </div>
-            </a>
-            
-            <!-- Foto 2 (Ho visto che avevi m_calzine.jpeg nella cartella!) -->
-            <div class="card stitch-border">
-                <img src="images/maglia/m_calzine.jpeg" alt="Calzine a maglia">
-                <div class="card-info">
-                    <h3>Calzine di Lana</h3>
-                    <p>Lavorazione classica per tenere i piedi al caldo durante l'inverno.</p>
+    <main class="portfolio portfolio-progetti">
+        <p class="eyebrow">Fatti a mano, con amore</p>
+        <h1>Lavori a Maglia</h1>
+        <!-- PERSONALIZZA QUI IL TESTO INTRODUTTIVO DELLA PAGINA. -->
+        <p class="portfolio-intro">Ogni filo intreccia una piccola storia. Sfoglia i progetti e gira le schede per scoprire i dettagli della lavorazione.</p>
+
+        <section class="project-gallery" aria-label="Galleria dei progetti a maglia">
+            <div class="carousel-controls">
+                <button class="carousel-arrow" type="button" data-carousel-prev aria-label="Mostra il progetto precedente">
+                    <span aria-hidden="true">←</span>
+                </button>
+                <p class="carousel-status" data-carousel-status aria-live="polite" aria-atomic="true">Progetto 1 di 2</p>
+                <button class="carousel-arrow" type="button" data-carousel-next aria-label="Mostra il progetto successivo">
+                    <span aria-hidden="true">→</span>
+                </button>
+            </div>
+
+            <div class="carousel-viewport" data-carousel>
+                <div class="carousel-track">
+                    <article class="project-slide">
+                        <div class="project-card stitch-border" data-project-card>
+                            <div class="project-card-inner">
+                                <div class="project-face project-front">
+                                    <figure>
+                                        <!-- INSERISCI QUI LA TUA FOTO: images/maglia/babyhat.jpeg -->
+                                        <img src="images/maglia/babyhat.jpeg" alt="Cappellino da neonato lavorato a maglia" loading="eager">
+                                        <figcaption class="card-info">
+                                            <!-- PERSONALIZZA QUI IL TITOLO E LA DESCRIZIONE DEL PROGETTO. -->
+                                            <h2>Cappellino Baby</h2>
+                                            <p>Morbido e caldo, pensato per la pelle delicata dei più piccoli.</p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                                <div class="project-face project-back" aria-hidden="true">
+                                    <span class="back-icon" aria-hidden="true">🧶</span>
+                                    <p class="eyebrow">Dietro ogni punto</p>
+                                    <h2>Un abbraccio di lana</h2>
+                                    <p>Un capo soffice, lavorato con cura e attenzione ai dettagli. La forma avvolgente accompagna i più piccoli nelle giornate fresche.</p>
+                                    <!-- INSERISCI QUI LA FOTO DEL RETRO: images/maglia/babyhat-retro.jpeg. PER MOSTRARLA, DECOMMENTA LA RIGA IMG. -->
+                                    <!--
+                                    <img src="images/maglia/babyhat-retro.jpeg" alt="Retro del cappellino Baby" loading="lazy">
+                                    -->
+                                </div>
+                            </div>
+                            <button class="flip-toggle" type="button" aria-expanded="false">Gira la scheda <span aria-hidden="true">↻</span></button>
+                        </div>
+                    </article>
+
+                    <article class="project-slide">
+                        <div class="project-card stitch-border" data-project-card>
+                            <div class="project-card-inner">
+                                <div class="project-face project-front">
+                                    <figure>
+                                        <!-- INSERISCI QUI LA TUA FOTO: images/maglia/calzine.jpeg -->
+                                        <img src="images/maglia/calzine.jpeg" alt="Calzine di lana fatte a mano" loading="lazy">
+                                        <figcaption class="card-info">
+                                            <!-- PERSONALIZZA QUI IL TITOLO E LA DESCRIZIONE DEL PROGETTO. -->
+                                            <h2>Calzine di Lana</h2>
+                                            <p>Lavorazione classica per tenere i piedini al caldo durante l'inverno.</p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                                <div class="project-face project-back" aria-hidden="true">
+                                    <span class="back-icon" aria-hidden="true">🪡</span>
+                                    <p class="eyebrow">Dietro ogni punto</p>
+                                    <h2>Piccole, morbide, uniche</h2>
+                                    <p>Ogni paio è realizzato a mano, punto dopo punto, con filati scelti per la loro morbidezza e il calore avvolgente.</p>
+                                    <!-- INSERISCI QUI LA FOTO DEL RETRO: images/maglia/calzine-retro.jpeg. PER MOSTRARLA, DECOMMENTA LA RIGA IMG. -->
+                                    <!--
+                                    <img src="images/maglia/calzine-retro.jpeg" alt="Retro delle calzine di lana" loading="lazy">
+                                    -->
+                                </div>
+                            </div>
+                            <button class="flip-toggle" type="button" aria-expanded="false">Gira la scheda <span aria-hidden="true">↻</span></button>
+                        </div>
+                    </article>
                 </div>
             </div>
-        </div>
+
+            <p class="swipe-hint">Puoi scorrere con le frecce o con un gesto laterale ♡</p>
+        </section>
+
+        <a href="index.html#contatti" class="btn-primary project-contact">Hai un progetto in mente? Scrivimi</a>
     </main>
 
+    <footer>
+        <p class="copyright">© 2026 Nonna Emma. Realizzato con 🧶 e tanto amore.</p>
+    </footer>
+
+    <script src="script.js" defer></script>
 </body>
 </html>

@@ -11,6 +11,12 @@
 </head>
 <body>
 
+    <!-- FILO DECORATIVO: LA LINEA SI COMPLETA MAN MANO CHE SCORRI LA PAGINA. -->
+    <svg class="filo-scroll" viewBox="0 0 64 1000" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="filo-traccia" pathLength="1000" d="M32 0 C8 65 56 105 32 170 S8 275 32 340 S56 445 32 510 S8 615 32 680 S56 785 32 850 S8 945 32 1000" />
+        <path class="filo-percorso" pathLength="1000" d="M32 0 C8 65 56 105 32 170 S8 275 32 340 S56 445 32 510 S8 615 32 680 S56 785 32 850 S8 945 32 1000" />
+    </svg>
+
     <header class="navbar">
         <div class="logo">Nonna Emma 🧶</div>
         <nav>
@@ -36,20 +42,27 @@
             <h2>Le Mie Creazioni</h2>
             <div class="gallery-grid">
                 <div class="card stitch-border">
-                    <img src="images/maglia/babyhat.jpeg" alt="Cappellino a maglia">
-                    <div class="card-info">
-                        <h3>Lavori a Maglia</h3>
-                        <p>Lavorazione senza cuciture con ferri circolari.</p>
-                    </div>
+                    <!-- INSERISCI QUI LA TUA FOTO: images/maglia/babyhat.jpeg -->
+                    <a class="card-link" href="maglia.html" aria-label="Scopri i lavori a maglia">
+                        <img src="images/maglia/babyhat.jpeg" alt="Cappellino a maglia">
+                        <div class="card-info">
+                            <h3>Lavori a Maglia</h3>
+                            <p>Lavorazione senza cuciture con ferri circolari.</p>
+                            <span class="card-cta">Scopri i progetti →</span>
+                        </div>
+                    </a>
                 </div>
                 <div class="card stitch-border">
+                    <!-- INSERISCI QUI LA TUA FOTO: images/ricamo/piccoloprincipe.jpeg -->
                     <img src="images/ricamo/piccoloprincipe.jpeg" alt="Ricamo Piccolo Principe">
                     <div class="card-info">
+                        <!-- PERSONALIZZA QUI IL TITOLO E LA DESCRIZIONE DELLA CREAZIONE. -->
                         <h3>Ricami Decorativi</h3>
                         <p>Dettagli floreali e personalizzazioni delicate.</p>
                     </div>
                 </div>
                 <div class="card stitch-border">
+                    <!-- INSERISCI QUI LA TUA FOTO: images/cucito/luna.jpeg -->
                     <img src="images/cucito/luna.jpeg" alt="Fiocco per neonato">
                     <div class="card-info">
                         <h3>Progetti di Sartoria</h3>
@@ -57,6 +70,7 @@
                     </div>
                 </div>
                 <div class="card stitch-border">
+                    <!-- INSERISCI QUI LA TUA FOTO: images/punto/fiore0.jpeg -->
                     <img src="images/punto/fiore0.jpeg" alt="Quadretto con ricamo a punto croce">
                     <div class="card-info">
                         <h3>Creazioni di Punto Croce</h3>
@@ -86,5 +100,6 @@
         <p class="copyright">© 2026 Nonna Emma. Realizzato con 🧶 e tanto amore.</p>
     </footer>
 
+    <script src="script.js" defer></script>
 </body>
 </html>
