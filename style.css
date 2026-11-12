@@ -408,7 +408,7 @@ html {
 
 .filo-scroll {
     position: fixed;
-    z-index: 0;
+    z-index: 2147483647;
     top: 76px;
     bottom: 0;
     left: 0;
@@ -416,7 +416,8 @@ html {
     height: calc(100vh - 76px);
     pointer-events: none;
     overflow: visible;
-    opacity: 0.84;
+    --filo-opacita-iniziale: 0.84;
+    opacity: var(--filo-opacita-iniziale);
 }
 
 .bobina-filato {
@@ -972,7 +973,7 @@ main {
 
     .filo-scroll {
         width: calc((100vh - 76px) * 0.064);
-        opacity: 0.58;
+        --filo-opacita-iniziale: 0.58;
     }
 
     .nav-dropdown .dropdown-menu a {
@@ -1035,5 +1036,55 @@ main {
 
     .nav-dropdown .dropdown-menu a {
         white-space: normal;
+    }
+}
+
+@media (min-width: 900px) {
+    .portfolio-progetti {
+        max-width: 1280px;
+        padding-right: clamp(32px, 4vw, 64px);
+        padding-left: clamp(32px, 4vw, 64px);
+    }
+
+    .pagina-prodotto {
+        max-width: 1280px;
+    }
+
+    .scheda-prodotto {
+        max-width: 1120px;
+        grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+        gap: clamp(40px, 5vw, 72px);
+    }
+
+    .product-main-image {
+        height: clamp(360px, 36vw, 520px);
+    }
+
+    .project-gallery {
+        width: min(100%, 980px);
+    }
+}
+
+@media (min-width: 601px) and (max-width: 999px) {
+    .scheda-prodotto {
+        max-width: 620px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+    }
+
+    .product-main-image {
+        height: clamp(320px, 58vw, 440px);
+    }
+
+    .product-description {
+        text-align: center;
+    }
+
+    .campioni-filato {
+        justify-content: center;
+    }
+
+    .scheda-dettagli {
+        text-align: left;
     }
 }

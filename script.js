@@ -7,6 +7,9 @@ if (filoScroll) {
     const bobinaFilato = filoScroll.querySelector(".bobina-filato");
     const estremitaFilo = filoScroll.querySelector(".filo-estremita");
     const lunghezzaFilo = filoPercorso.getTotalLength();
+    const opacitaIniziale = Number.parseFloat(
+        getComputedStyle(filoScroll).getPropertyValue("--filo-opacita-iniziale")
+    );
     let aggiornamentoFiloInAttesa = false;
 
     const aggiornaFilo = () => {
@@ -30,9 +33,12 @@ if (filoScroll) {
             "--filo-avanzamento",
             String(trattoRimanente)
         );
+        filoScroll.style.opacity = String(
+            opacitaIniziale * (1 - avanzamento * 0.7)
+        );
         bobinaFilato.setAttribute(
             "transform",
-            `translate(${puntoFilo.x - 32} ${puntoFilo.y - 66}) rotate(${avanzamento * 720} 32 43)`
+            `rotate(${avanzamento * 720} 32 43)`
         );
         estremitaFilo.setAttribute("cx", String(puntoFilo.x));
         estremitaFilo.setAttribute("cy", String(puntoFilo.y));
