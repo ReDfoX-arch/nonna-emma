@@ -6,6 +6,7 @@ if (filoScroll) {
     const filoPercorso = filoScroll.querySelector(".filo-percorso");
     const bobinaFilato = filoScroll.querySelector(".bobina-filato");
     const estremitaFilo = filoScroll.querySelector(".filo-estremita");
+    const lunghezzaFilo = filoPercorso.getTotalLength();
     let aggiornamentoFiloInAttesa = false;
 
     const aggiornaFilo = () => {
@@ -21,7 +22,6 @@ if (filoScroll) {
             )
         );
         const trattoRimanente = 1000 * (1 - avanzamento);
-        const lunghezzaFilo = filoPercorso.getTotalLength();
         const puntoFilo = filoPercorso.getPointAtLength(
             lunghezzaFilo * avanzamento
         );
@@ -30,9 +30,9 @@ if (filoScroll) {
             "--filo-avanzamento",
             String(trattoRimanente)
         );
-        bobinaFilato.style.setProperty(
-            "--rotazione-bobina",
-            `${avanzamento * 720}deg`
+        bobinaFilato.setAttribute(
+            "transform",
+            `translate(${puntoFilo.x - 32} ${puntoFilo.y - 66}) rotate(${avanzamento * 720} 32 43)`
         );
         estremitaFilo.setAttribute("cx", String(puntoFilo.x));
         estremitaFilo.setAttribute("cy", String(puntoFilo.y));
@@ -56,6 +56,25 @@ if (filoScroll) {
     window.addEventListener("load", pianificaAggiornamentoFilo, { once: true });
     aggiornaFilo();
 }
+
+document.querySelectorAll(".nav-dropdown").forEach((menu) => {
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        menu.addEventListener("pointerenter", () => {
+            menu.open = true;
+        });
+        menu.addEventListener("pointerleave", () => {
+            menu.open = false;
+        });
+    }
+
+    document.addEventListener("click", (evento) => {
+        if (!menu.contains(evento.target)) menu.open = false;
+    });
+
+    document.addEventListener("keydown", (evento) => {
+        if (evento.key === "Escape") menu.open = false;
+    });
+});
 
 document.querySelectorAll("[data-project-card]").forEach((scheda) => {
     const pulsanti = scheda.querySelectorAll(".flip-toggle");
@@ -161,3 +180,101 @@ document.querySelectorAll("[data-carousel]").forEach((carosello) => {
     });
     aggiornaControlli();
 });
+
+document.querySelectorAll("[data-product-gallery]").forEach((galleria) => {
+    const immaginePrincipale = galleria.querySelector("[data-gallery-main]");
+    const miniature = galleria.querySelectorAll("[data-gallery-thumb]");
+
+    miniature.forEach((miniatura) => {
+        miniatura.addEventListener("click", () => {
+            immaginePrincipale.src = miniatura.dataset.src;
+            immaginePrincipale.alt = miniatura.dataset.alt;
+            miniature.forEach((elemento) => {
+                elemento.setAttribute(
+                    "aria-pressed",
+                    String(elemento === miniatura)
+                );
+            });
+        });
+    });
+});
+
+document.querySelectorAll("[data-color-picker]").forEach((selettore) => {
+    const campioni = selettore.querySelectorAll("[data-color-value]");
+    const coloreSelezionato = selettore.querySelector("[data-selected-color]");
+    const campoColore = document.querySelector("[data-color-input]");
+
+    campioni.forEach((campione) => {
+        campione.addEventListener("click", () => {
+            const colore = campione.dataset.colorValue;
+            coloreSelezionato.textContent = colore;
+            if (campoColore) campoColore.value = colore;
+
+            const collegamentoOrdine = document.querySelector("[data-order-link]");
+            if (collegamentoOrdine) {
+                const destinazione = new URL(collegamentoOrdine.href);
+                destinazione.searchParams.set("colore", colore);
+                collegamentoOrdine.href = destinazione.href;
+            }
+
+            campioni.forEach((elemento) => {
+                elemento.setAttribute(
+                    "aria-pressed",
+                    String(elemento === campione)
+                );
+            });
+        });
+    });
+});
+
+const moduloOrdine = document.querySelector("#order-form");
+
+if (moduloOrdine) {
+    const prodottoRichiesto = new URLSearchParams(window.location.search).get(
+        "prodotto"
+    );
+    const sceltaProdotto = moduloOrdine.elements.namedItem("prodotto");
+    const prodottiDisponibili = Array.from(sceltaProdotto.options).map(
+        (opzione) => opzione.value
+    );
+
+    if (prodottoRichiesto && prodottiDisponibili.includes(prodottoRichiesto)) {
+        sceltaProdotto.value = prodottoRichiesto;
+    }
+
+    const coloreRichiesto = new URLSearchParams(window.location.search).get(
+        "colore"
+    );
+    const campoColore = moduloOrdine.querySelector("[data-color-input]");
+    const selettoreColore = moduloOrdine.querySelector("[data-color-picker]");
+    const opzioneColore = Array.from(
+        selettoreColore.querySelectorAll("[data-color-value]")
+    ).find((campione) => campione.dataset.colorValue === coloreRichiesto);
+
+    if (opzioneColore) opzioneColore.click();
+
+    if (campoColore && !opzioneColore && coloreRichiesto) {
+        campoColore.value = coloreRichiesto;
+        selettoreColore.querySelector("[data-selected-color]").textContent =
+            coloreRichiesto;
+    }
+
+    moduloOrdine.addEventListener("submit", (evento) => {
+        evento.preventDefault();
+        if (!moduloOrdine.reportValidity()) return;
+
+        const dati = new FormData(moduloOrdine);
+        const righe = Array.from(dati.entries()).map(([campo, valore]) => {
+            const testo =
+                campo === "prodotto"
+                    ? sceltaProdotto.selectedOptions[0].textContent
+                    : valore;
+            return `${campo}: ${testo}`;
+        });
+        const oggetto = encodeURIComponent("Richiesta personalizzata | Nonna Emma");
+        const corpo = encodeURIComponent(righe.join("\n"));
+
+        window.location.href =
+            `mailto:nonnaemma.site@gmail.com?subject=${oggetto}&body=${corpo}`;
+    });
+}
