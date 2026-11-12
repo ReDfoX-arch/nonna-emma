@@ -7,29 +7,46 @@
     <title>Ricami Decorativi | Nonna Emma</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- FILO DECORATIVO: LA LINEA SI COMPLETA MAN MANO CHE SCORRI LA PAGINA. -->
     <svg class="filo-scroll" viewBox="0 0 64 1000" preserveAspectRatio="xMidYMin meet" aria-hidden="true" focusable="false">
         <defs>
-            <linearGradient id="colore-bobina" x1="0" x2="1" y1="0" y2="1">
+            <radialGradient id="lana-gomitolo" cx="30%" cy="24%" r="76%">
+                <stop offset="0" stop-color="#FFF1E7" />
+                <stop offset=".38" stop-color="#E9B99F" />
+                <stop offset=".72" stop-color="#D48C70" />
+                <stop offset="1" stop-color="#A9634D" />
+            </radialGradient>
+            <linearGradient id="lana-filo" x1="0" x2="1" y1="0" y2="1">
                 <stop offset="0" stop-color="#E9B99F" />
-                <stop offset="0.5" stop-color="#D48C70" />
-                <stop offset="1" stop-color="#B96F56" />
+                <stop offset=".5" stop-color="#C77C61" />
+                <stop offset="1" stop-color="#A9634D" />
             </linearGradient>
+            <filter id="ombra-gomitolo" x="-35%" y="-35%" width="170%" height="180%">
+                <feDropShadow dx="1" dy="3" stdDeviation="2.2" flood-color="#705044" flood-opacity=".34" />
+            </filter>
+            <clipPath id="taglio-gomitolo">
+                <circle cx="32" cy="40" r="27" />
+            </clipPath>
         </defs>
         <g class="bobina-filato">
-            <rect x="20" y="24" width="24" height="38" rx="11" fill="url(#colore-bobina)" />
-            <ellipse cx="32" cy="25" rx="12" ry="5" fill="#F5D7C6" stroke="#B96F56" stroke-width="1.5" />
-            <ellipse cx="32" cy="61" rx="12" ry="5" fill="#C77C61" stroke="#A9634D" stroke-width="1.5" />
-            <path d="M23 34 C28 30 36 38 41 34 M23 42 C28 38 36 46 41 42 M23 50 C28 46 36 54 41 50" fill="none" stroke="#F8DDCE" stroke-linecap="round" stroke-width="2" opacity=".8" />
-            <circle cx="32" cy="25" r="2" fill="#9E5E49" />
+            <circle cx="32" cy="40" r="27" fill="url(#lana-gomitolo)" stroke="#A9634D" stroke-width="1.4" filter="url(#ombra-gomitolo)" />
+            <g clip-path="url(#taglio-gomitolo)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 42 C10 25 24 15 41 14 C56 14 65 27 61 41 C57 55 44 64 29 66 C15 67 5 59 4 48" stroke="#FBE8DC" stroke-width="3.2" opacity=".92" />
+                <path d="M8 55 C19 61 31 59 42 52 C53 45 58 34 54 25 C51 17 42 13 33 14" stroke="#A9634D" stroke-width="2.8" opacity=".72" />
+                <path d="M10 25 C17 37 28 44 41 46 C51 47 59 43 64 35" stroke="#F7D8C8" stroke-width="2.5" opacity=".9" />
+                <path d="M5 39 C18 45 31 47 43 42 C52 38 58 31 60 23" stroke="#B96F56" stroke-width="2.4" opacity=".76" />
+                <path d="M15 67 C12 54 18 43 29 36 C40 29 53 29 63 35" stroke="#FBE8DC" stroke-width="2.2" opacity=".82" />
+                <path d="M21 13 C24 24 22 34 16 43 C11 51 10 58 14 66" stroke="#C77C61" stroke-width="2.1" opacity=".72" />
+            </g>
+            <ellipse cx="23" cy="23" rx="8" ry="4.5" fill="#FFF8F1" opacity=".38" transform="rotate(-32 23 23)" />
         </g>
-        <path class="filo-traccia" pathLength="1000" d="M32 66 C32 82 48 86 42 110 C34 145 12 158 24 193 S50 251 34 286 S12 347 30 382 S52 443 34 478 S12 539 30 574 S52 635 34 670 S12 731 30 766 S52 827 34 862 S12 923 32 1000" />
-        <path class="filo-percorso" pathLength="1000" d="M32 66 C32 82 48 86 42 110 C34 145 12 158 24 193 S50 251 34 286 S12 347 30 382 S52 443 34 478 S12 539 30 574 S52 635 34 670 S12 731 30 766 S52 827 34 862 S12 923 32 1000" />
-        <circle class="filo-estremita" cx="32" cy="66" r="4" />
+        <path class="filo-traccia" pathLength="1000" d="M32 68 C32 82 29 91 32 106 C36 126 36 139 32 158 C28 179 28 193 32 213 C36 233 36 247 32 267 C28 287 28 301 32 321 C36 341 36 355 32 375 C28 395 28 409 32 429 C36 449 36 463 32 483 C28 503 28 517 32 537 C36 557 36 571 32 591 C28 611 28 625 32 645 C36 665 36 679 32 699 C28 719 28 733 32 753 C36 773 36 787 32 807 C28 827 28 841 32 861 C36 881 36 895 32 915 C28 935 28 949 32 969 C34 981 33 991 32 1000" />
+        <path class="filo-percorso" pathLength="1000" d="M32 68 C32 82 29 91 32 106 C36 126 36 139 32 158 C28 179 28 193 32 213 C36 233 36 247 32 267 C28 287 28 301 32 321 C36 341 36 355 32 375 C28 395 28 409 32 429 C36 449 36 463 32 483 C28 503 28 517 32 537 C36 557 36 571 32 591 C28 611 28 625 32 645 C36 665 36 679 32 699 C28 719 28 733 32 753 C36 773 36 787 32 807 C28 827 28 841 32 861 C36 881 36 895 32 915 C28 935 28 949 32 969 C34 981 33 991 32 1000" />
+        <circle class="filo-estremita" cx="32" cy="68" r="3.5" />
     </svg>
 
     <header class="navbar">

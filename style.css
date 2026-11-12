@@ -6,7 +6,7 @@
     --sage-green: #C2D3C2;
     --soft-peach: #FCEBE3;
     --stitch-color: #B38B7D;
-    --font-titoli: 'Cormorant Garamond', Georgia, serif;
+    --font-titoli: 'Dancing Script', 'Segoe Script', cursive;
 }
 
 * {
@@ -32,12 +32,8 @@ body {
 
 h1, h2, h3 {
     font-family: var(--font-titoli);
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 15px;
-}
-
-h1, h2 {
-    font-style: italic;
 }
 
 .navbar {
@@ -442,20 +438,22 @@ html {
 }
 
 .filo-traccia {
-    stroke: rgba(179, 139, 125, 0.2);
-    stroke-width: 5px;
+    stroke: rgba(179, 139, 125, 0.34);
+    stroke-width: 7px;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: var(--filo-avanzamento, 1000);
 }
 
 .filo-percorso {
-    stroke: #C77C61;
-    stroke-width: 3.5px;
+    stroke: url(#lana-filo);
+    stroke-width: 4.5px;
     stroke-dasharray: 1000;
     stroke-dashoffset: var(--filo-avanzamento, 1000);
-    filter: drop-shadow(0 1px 1px rgba(90, 74, 66, 0.16));
+    filter: drop-shadow(0 1px 2px rgba(90, 74, 66, 0.24));
 }
 
 .filo-estremita {
-    fill: #C77C61;
+    fill: #B96F56;
     stroke: var(--bg-cream);
     stroke-width: 2px;
     filter: drop-shadow(0 1px 2px rgba(90, 74, 66, 0.22));

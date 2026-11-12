@@ -38,7 +38,7 @@ if (filoScroll) {
         );
         bobinaFilato.setAttribute(
             "transform",
-            `rotate(${avanzamento * 720} 32 43)`
+            `rotate(${avanzamento * 1080} 32 40)`
         );
         estremitaFilo.setAttribute("cx", String(puntoFilo.x));
         estremitaFilo.setAttribute("cy", String(puntoFilo.y));
