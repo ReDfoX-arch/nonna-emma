@@ -77,9 +77,10 @@ h1, h2, h3 {
 .logo-immagine {
     display: block;
     flex: 0 0 auto;
-    width: clamp(84px, 7.5vw, 108px);
+    width: clamp(150px, 15vw, 220px);
     height: auto;
     object-fit: contain;
+    filter: drop-shadow(0 6px 10px rgba(90, 74, 66, 0.12));
 }
 
 nav ul {
@@ -303,7 +304,7 @@ footer h2 {
 
 @media (max-width: 600px) {
     .logo-immagine {
-        width: clamp(84px, 22vw, 90px);
+        width: clamp(110px, 36vw, 145px);
     }
 }
 
