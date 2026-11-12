@@ -466,7 +466,7 @@ html {
 
 .filo-scroll {
     position: fixed;
-    z-index: 2147483647;
+    z-index: 1;
     top: var(--filo-top, 76px);
     bottom: 0;
     right: 10px;
