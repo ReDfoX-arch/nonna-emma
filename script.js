@@ -75,6 +75,37 @@ if (filoScroll) {
     aggiornaFilo();
 }
 
+document.querySelectorAll(".navbar").forEach((intestazione) => {
+    const pulsanteMenu = intestazione.querySelector(".menu-toggle");
+    const navigazione = intestazione.querySelector("nav");
+
+    if (!pulsanteMenu || !navigazione) return;
+
+    const impostaMenuAperto = (aperto) => {
+        intestazione.classList.toggle("menu-aperto", aperto);
+        pulsanteMenu.setAttribute("aria-expanded", String(aperto));
+        pulsanteMenu.setAttribute(
+            "aria-label",
+            aperto ? "Chiudi il menu" : "Apri il menu"
+        );
+    };
+
+    pulsanteMenu.addEventListener("click", () => {
+        impostaMenuAperto(pulsanteMenu.getAttribute("aria-expanded") !== "true");
+    });
+
+    navigazione.addEventListener("click", (evento) => {
+        if (evento.target.closest("a")) impostaMenuAperto(false);
+    });
+
+    document.addEventListener("keydown", (evento) => {
+        if (evento.key === "Escape" && intestazione.classList.contains("menu-aperto")) {
+            impostaMenuAperto(false);
+            pulsanteMenu.focus();
+        }
+    });
+});
+
 document.querySelectorAll(".nav-dropdown").forEach((menu) => {
     if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
         menu.addEventListener("pointerenter", () => {
