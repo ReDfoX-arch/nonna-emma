@@ -44,7 +44,7 @@ if (filoScroll) {
         filoScroll.style.opacity = String(
             opacitaIniziale * (1 - avanzamento * 0.7)
         );
-        bobinaFilato.style.transform = `rotate(${window.scrollY * 0.12}deg)`;
+        bobinaFilato.style.transform = `rotate(${window.scrollY * 0.18}deg)`;
 
         if (estremitaFilo) {
             estremitaFilo.setAttribute("cx", String(puntoFilo.x));

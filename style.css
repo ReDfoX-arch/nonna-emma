@@ -321,7 +321,7 @@ footer h2 {
     }
 
     .bobina-filato image {
-        transform: scale(2) translateY(-4px);
+        transform: scale(1.8) translateY(8px);
     }
 
     .filo-scroll {
@@ -486,7 +486,7 @@ html {
 }
 
 .bobina-filato image {
-    transform: scale(2.5) translateY(-6px);
+    transform: scale(2.2) translateY(10px);
     transform-box: fill-box;
     transform-origin: center;
 }
