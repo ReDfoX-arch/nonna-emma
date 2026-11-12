@@ -6,8 +6,7 @@
     --sage-green: #C2D3C2;
     --soft-peach: #FCEBE3;
     --stitch-color: #B38B7D;
-    --font-titoli: 'Dancing Script', 'Segoe Script', cursive;
-    --font-marchio: 'Fredoka', 'Quicksand', sans-serif;
+    --font-titoli: 'Satisfy', 'Segoe Script', cursive;
 }
 
 * {
@@ -33,7 +32,8 @@ body {
 
 h1, h2, h3 {
     font-family: var(--font-titoli);
-    font-weight: 700;
+    font-weight: 400;
+    line-height: 1.2;
     margin-bottom: 15px;
 }
 
@@ -68,98 +68,17 @@ h1, h2, h3 {
     display: inline-flex;
     flex: 0 0 auto;
     align-items: center;
-    gap: clamp(8px, 1vw, 13px);
+    gap: 0;
     min-width: 0;
     color: var(--yarn-terracotta);
     text-decoration: none;
 }
 
-.logo-mark {
-    position: relative;
+.logo-immagine {
     display: block;
     flex: 0 0 auto;
-    width: clamp(48px, 4.2vw, 58px);
-    aspect-ratio: 1;
-    isolation: isolate;
-}
-
-.logo-mark::before,
-.logo-mark::after {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 94%;
-    height: 5px;
-    border: 1px solid rgba(115, 77, 56, 0.42);
-    border-radius: 999px;
-    background: linear-gradient(180deg, #F9E6CC 0%, #C38D66 48%, #936447 100%);
-    box-shadow: 0 2px 3px rgba(90, 74, 66, 0.22);
-    clip-path: polygon(0 50%, 9% 0, 100% 0, 100% 100%, 9% 100%);
-    content: "";
-}
-
-.logo-mark::before {
-    transform: translate(-50%, -50%) rotate(42deg);
-}
-
-.logo-mark::after {
-    transform: translate(-50%, -50%) rotate(-42deg);
-}
-
-.logo-mark-ball {
-    position: absolute;
-    z-index: 1;
-    inset: 9%;
-    display: block;
-    overflow: hidden;
-    border-radius: 50%;
-    filter: drop-shadow(0 2px 3px rgba(90, 58, 45, 0.18));
-}
-
-.logo-mark-ball img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.logo-text {
-    display: inline-block;
-    color: #B96F56;
-    background: linear-gradient(180deg, #D9977A 0%, #C77C61 55%, #A9634D 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 0.35px rgba(153, 85, 63, 0.52);
-    font-family: var(--font-marchio);
-    font-size: clamp(1.45rem, 2.2vw, 1.9rem);
-    font-weight: 700;
-    letter-spacing: -0.035em;
-    line-height: 1.08;
-    white-space: nowrap;
-    text-shadow:
-        0 1px 0 rgba(255, 248, 241, 0.9),
-        0 2px 0 #F2CCB9,
-        0 4px 0 #D99578,
-        0 6px 0 #B96F56,
-        0 8px 11px rgba(90, 74, 66, 0.2);
-}
-
-.logo-wordmark-immagine {
-    display: block;
-    width: clamp(130px, 14vw, 190px);
-    max-width: calc(100vw - 84px);
-    max-height: 48px;
-    object-fit: contain;
-    object-position: left center;
-}
-
-.logo-mark--immagine::before,
-.logo-mark--immagine::after {
-    display: none;
-}
-
-.logo-mark--immagine {
+    width: clamp(84px, 7.5vw, 108px);
+    height: auto;
     object-fit: contain;
 }
 
@@ -205,15 +124,6 @@ nav a:hover {
     font-family: var(--font-titoli);
     font-size: clamp(2.35rem, 5vw, 4rem);
     color: var(--yarn-terracotta);
-}
-
-.titolo-lana {
-    color: #BF745A;
-    text-shadow:
-        0 2px 0 #FBE4D8,
-        0 4px 0 #DFA98F,
-        0 7px 12px rgba(90, 74, 66, 0.16);
-    -webkit-text-stroke: 0.35px rgba(166, 94, 70, 0.32);
 }
 
 .hero p {
@@ -323,7 +233,7 @@ nav a:hover {
 .card-info h3 {
     color: var(--yarn-terracotta);
     font-size: clamp(1.25rem, 1.45vw, 1.45rem);
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .about {
@@ -392,12 +302,8 @@ footer h2 {
 }
 
 @media (max-width: 600px) {
-    .logo-mark {
-        width: 48px;
-    }
-
-    .logo-text {
-        font-size: clamp(1.45rem, 6vw, 1.75rem);
+    .logo-immagine {
+        width: clamp(84px, 22vw, 90px);
     }
 }
 
@@ -539,11 +445,11 @@ html {
 .filo-scroll {
     position: fixed;
     z-index: 2147483647;
-    top: 76px;
+    top: var(--filo-top, 76px);
     bottom: 0;
     left: 0;
-    width: calc((100vh - 76px) * 0.064);
-    height: calc(100vh - 76px);
+    width: calc((100vh - var(--filo-top, 76px)) * 0.064);
+    height: calc(100vh - var(--filo-top, 76px));
     pointer-events: none;
     overflow: visible;
     --filo-opacita-iniziale: 0.84;
@@ -605,7 +511,6 @@ html {
 
 .portfolio-progetti h1.titolo-pagina-lana {
     color: #BF745A;
-    text-shadow: 0 2px 0 #FBE4D8, 0 4px 0 #DFA98F, 0 7px 12px rgba(90, 74, 66, 0.14);
 }
 
 .eyebrow {
@@ -1154,9 +1059,15 @@ main {
 
 @media (max-width: 768px) {
     .filo-scroll {
-        top: 110px;
-        height: calc(100vh - 110px);
-        width: calc((100vh - 110px) * 0.064);
+        z-index: 1001;
+        right: 0;
+        left: auto;
+    }
+
+    .bobina-filato image {
+        transform: scale(0.7);
+        transform-box: fill-box;
+        transform-origin: center;
     }
 
     .navbar nav,
@@ -1177,10 +1088,8 @@ main {
 }
 
 @media (max-width: 350px) {
-    .filo-scroll {
-        top: 146px;
-        height: calc(100vh - 146px);
-        width: calc((100vh - 146px) * 0.064);
+    .portfolio h2 {
+        font-size: 2rem;
     }
 }
 

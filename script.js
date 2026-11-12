@@ -3,6 +3,7 @@
 const filoScroll = document.querySelector(".filo-scroll");
 
 if (filoScroll) {
+    const intestazione = document.querySelector(".navbar");
     const filoPercorso = filoScroll.querySelector(".filo-percorso");
     const bobinaFilato = filoScroll.querySelector(".bobina-filato");
     const estremitaFilo = filoScroll.querySelector(".filo-estremita");
@@ -11,6 +12,13 @@ if (filoScroll) {
         getComputedStyle(filoScroll).getPropertyValue("--filo-opacita-iniziale")
     );
     let aggiornamentoFiloInAttesa = false;
+
+    const aggiornaPosizioneFilo = () => {
+        filoScroll.style.setProperty(
+            "--filo-top",
+            `${intestazione.getBoundingClientRect().height + 1}px`
+        );
+    };
 
     const aggiornaFilo = () => {
         const altezzaScorribile =
@@ -36,10 +44,7 @@ if (filoScroll) {
         filoScroll.style.opacity = String(
             opacitaIniziale * (1 - avanzamento * 0.7)
         );
-        bobinaFilato.setAttribute(
-            "transform",
-            `rotate(${window.scrollY * 0.12} 32 32)`
-        );
+        bobinaFilato.style.transform = `rotate(${window.scrollY * 0.12}deg)`;
         estremitaFilo.setAttribute("cx", String(puntoFilo.x));
         estremitaFilo.setAttribute("cy", String(puntoFilo.y));
         aggiornamentoFiloInAttesa = false;
@@ -58,6 +63,9 @@ if (filoScroll) {
     window.addEventListener("resize", pianificaAggiornamentoFilo, {
         passive: true,
     });
+    const osservatoreIntestazione = new ResizeObserver(aggiornaPosizioneFilo);
+    osservatoreIntestazione.observe(intestazione);
+    aggiornaPosizioneFilo();
     window.addEventListener("pageshow", pianificaAggiornamentoFilo);
     window.addEventListener("load", pianificaAggiornamentoFilo, { once: true });
     aggiornaFilo();
