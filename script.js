@@ -3,19 +3,39 @@
 const filoScroll = document.querySelector(".filo-scroll");
 
 if (filoScroll) {
+    const filoPercorso = filoScroll.querySelector(".filo-percorso");
+    const bobinaFilato = filoScroll.querySelector(".bobina-filato");
+    const estremitaFilo = filoScroll.querySelector(".filo-estremita");
     let aggiornamentoFiloInAttesa = false;
 
     const aggiornaFilo = () => {
         const altezzaScorribile =
             document.documentElement.scrollHeight - window.innerHeight;
-        const avanzamento =
-            altezzaScorribile > 0 ? window.scrollY / altezzaScorribile : 0;
+        const avanzamento = Math.min(
+            1,
+            Math.max(
+                0,
+                altezzaScorribile > 0
+                    ? window.scrollY / altezzaScorribile
+                    : 0
+            )
+        );
         const trattoRimanente = 1000 * (1 - avanzamento);
+        const lunghezzaFilo = filoPercorso.getTotalLength();
+        const puntoFilo = filoPercorso.getPointAtLength(
+            lunghezzaFilo * avanzamento
+        );
 
         filoScroll.style.setProperty(
             "--filo-avanzamento",
             String(trattoRimanente)
         );
+        bobinaFilato.style.setProperty(
+            "--rotazione-bobina",
+            `${avanzamento * 720}deg`
+        );
+        estremitaFilo.setAttribute("cx", String(puntoFilo.x));
+        estremitaFilo.setAttribute("cy", String(puntoFilo.y));
         aggiornamentoFiloInAttesa = false;
     };
 
@@ -32,6 +52,8 @@ if (filoScroll) {
     window.addEventListener("resize", pianificaAggiornamentoFilo, {
         passive: true,
     });
+    window.addEventListener("pageshow", pianificaAggiornamentoFilo);
+    window.addEventListener("load", pianificaAggiornamentoFilo, { once: true });
     aggiornaFilo();
 }
 
