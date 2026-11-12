@@ -66,22 +66,30 @@ h1, h2, h3 {
 
 .logo {
     display: inline-flex;
-    flex: 0 0 auto;
     align-items: center;
-    gap: 0;
-    min-width: 0;
+    gap: 10px;
     color: var(--yarn-terracotta);
     text-decoration: none;
-    line-height: 0;
+    line-height: 1;
 }
 
 .logo-immagine {
     display: block;
     flex: 0 0 auto;
-    width: clamp(170px, 16vw, 240px);
+    width: clamp(72px, 6vw, 110px);
     height: auto;
     object-fit: contain;
     filter: drop-shadow(0 8px 18px rgba(90, 74, 66, 0.12));
+}
+
+.logo-testo {
+    font-family: var(--font-titoli);
+    font-size: clamp(1.4rem, 2vw, 2.1rem);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #B87358;
+    white-space: nowrap;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.7), 0 3px 8px rgba(90, 74, 66, 0.12);
 }
 
 nav ul {
@@ -305,7 +313,19 @@ footer h2 {
 
 @media (max-width: 600px) {
     .logo-immagine {
-        width: clamp(130px, 38vw, 170px);
+        width: clamp(64px, 20vw, 96px);
+    }
+
+    .logo-testo {
+        font-size: clamp(1.15rem, 5vw, 1.6rem);
+    }
+
+    .bobina-filato image {
+        transform: scale(2) translateY(-4px);
+    }
+
+    .filo-scroll {
+        right: 8px;
     }
 }
 
@@ -449,7 +469,8 @@ html {
     z-index: 2147483647;
     top: var(--filo-top, 76px);
     bottom: 0;
-    left: 0;
+    right: 10px;
+    left: auto;
     width: calc((100vh - var(--filo-top, 76px)) * 0.064);
     height: calc(100vh - var(--filo-top, 76px));
     pointer-events: none;
@@ -465,7 +486,7 @@ html {
 }
 
 .bobina-filato image {
-    transform: scale(1.35);
+    transform: scale(2.5) translateY(-6px);
     transform-box: fill-box;
     transform-origin: center;
 }
