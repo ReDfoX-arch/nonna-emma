@@ -16,6 +16,7 @@
 }
 
 body {
+    --filo-margine-contenuti: max(64px, 7vw, 12vh);
     font-family: 'Quicksand', sans-serif;
     background-color: var(--bg-cream);
     background-image:
@@ -28,6 +29,11 @@ body {
     color: var(--text-brown);
     line-height: 1.6;
     scroll-behavior: smooth;
+}
+
+main,
+footer {
+    padding-right: var(--filo-margine-contenuti);
 }
 
 h1, h2, h3 {
@@ -474,8 +480,6 @@ html {
     height: calc(100vh - var(--filo-top, 76px));
     pointer-events: none;
     overflow: visible;
-    --filo-opacita-iniziale: 0.84;
-    opacity: var(--filo-opacita-iniziale);
 }
 
 .bobina-filato {
@@ -1031,10 +1035,6 @@ main {
         height: 250px;
     }
 
-    .filo-scroll {
-        --filo-opacita-iniziale: 0.58;
-    }
-
     .nav-dropdown .dropdown-menu a {
         white-space: normal;
     }
@@ -1091,6 +1091,10 @@ main {
         transform: scale(1.15);
         transform-box: fill-box;
         transform-origin: center;
+    }
+
+    body {
+        --filo-margine-contenuti: max(72px, 9vh);
     }
 
     .navbar nav,
@@ -1280,4 +1284,12 @@ main {
     .navbar.stitch-border {
         padding-left: 76px;
     }
+}
+
+.portfolio-progetti {
+    padding-right: max(56px, var(--filo-margine-contenuti));
+}
+
+footer {
+    padding-right: var(--filo-margine-contenuti);
 }

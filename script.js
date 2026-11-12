@@ -6,11 +6,6 @@ if (filoScroll) {
     const intestazione = document.querySelector(".navbar");
     const filoPercorso = filoScroll.querySelector(".filo-percorso");
     const bobinaFilato = filoScroll.querySelector(".bobina-filato");
-    const estremitaFilo = filoScroll.querySelector(".filo-estremita");
-    const lunghezzaFilo = filoPercorso.getTotalLength();
-    const opacitaIniziale = Number.parseFloat(
-        getComputedStyle(filoScroll).getPropertyValue("--filo-opacita-iniziale")
-    );
     let aggiornamentoFiloInAttesa = false;
 
     const aggiornaPosizioneFilo = () => {
@@ -33,23 +28,12 @@ if (filoScroll) {
             )
         );
         const trattoRimanente = 1000 * (1 - avanzamento);
-        const puntoFilo = filoPercorso.getPointAtLength(
-            lunghezzaFilo * avanzamento
-        );
 
         filoScroll.style.setProperty(
             "--filo-avanzamento",
             String(trattoRimanente)
         );
-        filoScroll.style.opacity = String(
-            opacitaIniziale * (1 - avanzamento * 0.7)
-        );
         bobinaFilato.style.transform = `rotate(${window.scrollY * 0.18}deg)`;
-
-        if (estremitaFilo) {
-            estremitaFilo.setAttribute("cx", String(puntoFilo.x));
-            estremitaFilo.setAttribute("cy", String(puntoFilo.y));
-        }
 
         aggiornamentoFiloInAttesa = false;
     };
