@@ -72,15 +72,16 @@ h1, h2, h3 {
     min-width: 0;
     color: var(--yarn-terracotta);
     text-decoration: none;
+    line-height: 0;
 }
 
 .logo-immagine {
     display: block;
     flex: 0 0 auto;
-    width: clamp(150px, 15vw, 220px);
+    width: clamp(170px, 16vw, 240px);
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 6px 10px rgba(90, 74, 66, 0.12));
+    filter: drop-shadow(0 8px 18px rgba(90, 74, 66, 0.12));
 }
 
 nav ul {
@@ -304,7 +305,7 @@ footer h2 {
 
 @media (max-width: 600px) {
     .logo-immagine {
-        width: clamp(110px, 36vw, 145px);
+        width: clamp(130px, 38vw, 170px);
     }
 }
 
@@ -463,6 +464,12 @@ html {
     transition: transform 120ms linear;
 }
 
+.bobina-filato image {
+    transform: scale(1.35);
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
 .filo-traccia,
 .filo-percorso {
     fill: none;
@@ -483,13 +490,6 @@ html {
     stroke-dasharray: 1000;
     stroke-dashoffset: var(--filo-avanzamento, 1000);
     filter: drop-shadow(0 1px 2px rgba(90, 74, 66, 0.24));
-}
-
-.filo-estremita {
-    fill: #B96F56;
-    stroke: var(--bg-cream);
-    stroke-width: 2px;
-    filter: drop-shadow(0 1px 2px rgba(90, 74, 66, 0.22));
 }
 
 .portfolio-progetti {
@@ -1066,7 +1066,7 @@ main {
     }
 
     .bobina-filato image {
-        transform: scale(0.7);
+        transform: scale(1.15);
         transform-box: fill-box;
         transform-origin: center;
     }

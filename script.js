@@ -45,8 +45,12 @@ if (filoScroll) {
             opacitaIniziale * (1 - avanzamento * 0.7)
         );
         bobinaFilato.style.transform = `rotate(${window.scrollY * 0.12}deg)`;
-        estremitaFilo.setAttribute("cx", String(puntoFilo.x));
-        estremitaFilo.setAttribute("cy", String(puntoFilo.y));
+
+        if (estremitaFilo) {
+            estremitaFilo.setAttribute("cx", String(puntoFilo.x));
+            estremitaFilo.setAttribute("cy", String(puntoFilo.y));
+        }
+
         aggiornamentoFiloInAttesa = false;
     };
 
