@@ -250,6 +250,7 @@ const inizializzaCatalogo = async () => {
         );
 
         if (grigliaHome) {
+            grigliaHome.dataset.categoryCount = categorieCreazioni.length;
             grigliaHome.replaceChildren(
                 ...categorieCreazioni.map(creaSchedaCategoria)
             );

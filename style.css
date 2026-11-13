@@ -1720,6 +1720,43 @@ main {
     }
 }
 
+.home-categories {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.home-categories[data-category-count="4"] {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.home-categories[data-category-count="5"] {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.home-categories[data-category-count="5"] > .catalog-card {
+    grid-column: span 2;
+}
+
+.home-categories[data-category-count="5"] > .catalog-card:nth-child(4) {
+    grid-column: 2 / span 2;
+}
+
+.home-categories[data-category-count="5"] > .catalog-card:nth-child(5) {
+    grid-column: 4 / span 2;
+}
+
+@media (max-width: 600px) {
+    .home-categories,
+    .home-categories[data-category-count="4"],
+    .home-categories[data-category-count="5"] {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .home-categories[data-category-count="5"] > .catalog-card:nth-child(4),
+    .home-categories[data-category-count="5"] > .catalog-card:nth-child(5) {
+        grid-column: auto;
+    }
+}
+
 .portfolio-progetti {
     padding-right: var(--filo-margine-contenuti);
 }
