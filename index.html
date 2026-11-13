@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Satisfy&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="512x512" href="images/decorazioni/favicon-gomitolo.png">
-    <link rel="stylesheet" href="style.css?v=20261113-ui2">
+    <link rel="stylesheet" href="style.css?v=20261113-tag1">
 </head>
 <body>
 
@@ -76,6 +76,21 @@
             <h2>Le Mie Creazioni</h2>
             <p class="portfolio-intro">Scegli una categoria per esplorare tutti i progetti e le loro fotografie.</p>
             <div class="gallery-grid catalog-grid home-categories" data-home-categories></div>
+        </section>
+
+        <section id="tutte-le-creazioni" class="portfolio">
+            <h2>Tutte le creazioni</h2>
+            <p class="portfolio-intro">Esplora i progetti e filtra per parole chiave.</p>
+            <section class="tag-filter stitch-border" data-tag-filter hidden aria-labelledby="home-tag-filter-title">
+                <h2 id="home-tag-filter-title">Filtra per parole chiave</h2>
+                <p>Seleziona uno o più tag: vedrai le creazioni che ne contengono almeno uno.</p>
+                <div class="tag-filter-options" data-tag-filters role="group" aria-label="Parole chiave disponibili"></div>
+                <div class="tag-filter-results">
+                    <p data-tag-filter-status aria-live="polite"></p>
+                    <button class="tag-filter-clear" type="button" data-clear-tag-filters hidden>Rimuovi filtri</button>
+                </div>
+            </section>
+            <section class="catalog-grid home-project-grid" data-home-project-grid aria-label="Tutte le creazioni"></section>
         </section>
 
         <section id="about" class="about">

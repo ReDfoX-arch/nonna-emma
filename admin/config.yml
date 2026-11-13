@@ -75,10 +75,24 @@ collections:
                     name: immagini
                     widget: list
                     min: 1
-                    field:
-                      label: Foto
-                      name: immagine
-                      widget: image
+                    summary: "{{fields.percorso}}"
+                    collapsed: true
+                    label_singular: Aggiungi foto
+                    fields:
+                      - label: Foto
+                        name: percorso
+                        widget: image
+                      - label: Parole chiave
+                        name: tag
+                        widget: list
+                        required: false
+                        label_singular: Aggiungi parola chiave
+                        field:
+                          label: Parola chiave
+                          name: parola
+                          widget: string
+                          required: true
+                        hint: Aggiungi i tag che descrivono questa foto.
                     hint: Aggiungi una foto per volta; usa l'ordine desiderato nella galleria.
                   - label: Pagina speciale
                     name: pagina

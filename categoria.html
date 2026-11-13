@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Satisfy&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="512x512" href="images/decorazioni/favicon-gomitolo.png">
-    <link rel="stylesheet" href="style.css?v=20261113-ui2">
+    <link rel="stylesheet" href="style.css?v=20261113-tag1">
 </head>
 <body>
     <svg class="filo-scroll" viewBox="0 0 64 1000" preserveAspectRatio="xMidYMin meet" aria-hidden="true" focusable="false">
@@ -62,6 +62,15 @@
         <p class="eyebrow" data-category-eyebrow>Collezione artigianale</p>
         <h1 class="titolo-pagina-lana" data-category-title>Creazioni</h1>
         <p class="portfolio-intro" data-category-description></p>
+        <section class="tag-filter stitch-border" data-tag-filter hidden aria-labelledby="tag-filter-title">
+            <h2 id="tag-filter-title">Filtra per parole chiave</h2>
+            <p>Seleziona uno o più tag: vedrai le creazioni che ne contengono almeno uno.</p>
+            <div class="tag-filter-options" data-tag-filters role="group" aria-label="Parole chiave disponibili"></div>
+            <div class="tag-filter-results">
+                <p data-tag-filter-status aria-live="polite"></p>
+                <button class="tag-filter-clear" type="button" data-clear-tag-filters hidden>Rimuovi filtri</button>
+            </div>
+        </section>
         <section class="catalog-grid" data-category-grid aria-label="Progetti della categoria"></section>
     </main>
 

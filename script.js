@@ -134,6 +134,12 @@ const verificaCatalogo = (catalogo) => {
         && !percorso.includes("\\")
         && !percorso.split("/").includes("..")
         && /\.(?:avif|gif|jpe?g|png|webp)$/i.test(percorso);
+    const tagValidi = (tags) =>
+        tags === undefined
+        || (
+            Array.isArray(tags)
+            && tags.every((tag) => typeof tag === "string" && tag.trim())
+        );
 
     catalogo.categorie.forEach((categoria) => {
         if (
@@ -160,7 +166,11 @@ const verificaCatalogo = (catalogo) => {
                 || !elemento.alt.trim()
                 || !Array.isArray(elemento.immagini)
                 || !elemento.immagini.length
-                || !elemento.immagini.every(percorsoImmagineValido)
+                || !elemento.immagini.every((immagine) =>
+                    immagine
+                    && percorsoImmagineValido(immagine.percorso)
+                    && tagValidi(immagine.tag)
+                )
                 || (elemento.pagina && elemento.pagina !== "prodotto.html")
             ) {
                 throw new Error("Un progetto non è valido o ha un identificativo duplicato.");
@@ -172,6 +182,130 @@ const verificaCatalogo = (catalogo) => {
     return catalogo.categorie;
 };
 
+const chiaveTag = (tag) => tag.trim().toLocaleLowerCase("it");
+let coloriPerTag = new Map();
+
+const raccogliTagUnici = (tags) => {
+    const tagUnici = new Map();
+
+    tags.forEach((tag) => {
+        const testo = tag.trim();
+        const chiave = chiaveTag(testo);
+        if (!tagUnici.has(chiave)) tagUnici.set(chiave, testo);
+    });
+
+    return [...tagUnici.values()];
+};
+
+const creaEtichettaTag = (testo, pulsante = false) => {
+    const etichetta = document.createElement(pulsante ? "button" : "span");
+    etichetta.className = "creation-tag";
+    etichetta.dataset.tagColor = String(coloriPerTag.get(chiaveTag(testo)) || 0);
+    etichetta.textContent = testo;
+
+    if (pulsante) {
+        etichetta.type = "button";
+        etichetta.setAttribute("aria-pressed", "false");
+        etichetta.classList.add("tag-filter-button");
+    }
+
+    return etichetta;
+};
+
+const creaElencoTag = (tags) => {
+    const elenco = document.createElement("div");
+    elenco.className = "creation-tags";
+    elenco.setAttribute("role", "list");
+    elenco.setAttribute("aria-label", "Parole chiave");
+    aggiornaElencoTag(elenco, tags);
+
+    return elenco;
+};
+
+const aggiornaElencoTag = (elenco, tags) => {
+    const etichette = raccogliTagUnici(tags).map((tag) => {
+        const etichetta = creaEtichettaTag(tag);
+        etichetta.setAttribute("role", "listitem");
+        return etichetta;
+    });
+
+    elenco.hidden = etichette.length === 0;
+    elenco.replaceChildren(...etichette);
+};
+
+const tagDellaCreazione = (elemento) =>
+    raccogliTagUnici(elemento.immagini.flatMap((immagine) => immagine.tag || []));
+
+const inizializzaFiltroTag = (creazioni, griglia) => {
+    const barraFiltro = document.querySelector("[data-tag-filter]");
+    const opzioniFiltro = document.querySelector("[data-tag-filters]");
+    const statoFiltro = document.querySelector("[data-tag-filter-status]");
+    const pulsanteAzzera = document.querySelector("[data-clear-tag-filters]");
+
+    if (!barraFiltro || !opzioniFiltro || !statoFiltro || !pulsanteAzzera) return;
+
+    const schede = Array.from(griglia.children);
+    const tagPerCreazione = creazioni.map(tagDellaCreazione);
+    const tagDisponibili = raccogliTagUnici(tagPerCreazione.flat());
+
+    if (!tagDisponibili.length) {
+        barraFiltro.hidden = true;
+        return;
+    }
+
+    barraFiltro.hidden = false;
+    const selezionati = new Set();
+    const pulsanti = new Map();
+
+    const aggiornaRisultati = () => {
+        let visibili = 0;
+
+        schede.forEach((scheda, indice) => {
+            const tagCreazione = new Set(
+                tagPerCreazione[indice].map(chiaveTag)
+            );
+            const corrisponde =
+                !selezionati.size
+                || [...selezionati].some((tag) => tagCreazione.has(tag));
+            scheda.hidden = !corrisponde;
+            if (corrisponde) visibili += 1;
+        });
+
+        statoFiltro.textContent = visibili === 0
+            ? "Nessuna creazione corrisponde ai tag selezionati."
+            : `${visibili} ${visibili === 1 ? "creazione" : "creazioni"} trovate.`;
+        pulsanteAzzera.hidden = !selezionati.size;
+    };
+
+    tagDisponibili.forEach((tag) => {
+        const chiave = chiaveTag(tag);
+        const pulsante = creaEtichettaTag(tag, true);
+
+        pulsante.addEventListener("click", () => {
+            if (selezionati.has(chiave)) {
+                selezionati.delete(chiave);
+                pulsante.setAttribute("aria-pressed", "false");
+            } else {
+                selezionati.add(chiave);
+                pulsante.setAttribute("aria-pressed", "true");
+            }
+            aggiornaRisultati();
+        });
+
+        pulsanti.set(chiave, pulsante);
+    });
+
+    opzioniFiltro.replaceChildren(...pulsanti.values());
+    pulsanteAzzera.addEventListener("click", () => {
+        selezionati.clear();
+        pulsanti.forEach((pulsante) =>
+            pulsante.setAttribute("aria-pressed", "false")
+        );
+        aggiornaRisultati();
+    });
+    aggiornaRisultati();
+};
+
 const creaSchedaCategoria = (categoria) => {
     const collegamento = document.createElement("a");
     collegamento.className = "card catalog-card stitch-border";
@@ -180,7 +314,7 @@ const creaSchedaCategoria = (categoria) => {
     collegamento.setAttribute("aria-label", `Esplora ${categoria.nome}`);
 
     const immagine = document.createElement("img");
-    immagine.src = categoria.elementi[0].immagini[0];
+    immagine.src = categoria.elementi[0].immagini[0].percorso;
     immagine.alt = categoria.elementi[0].alt;
 
     const contenuto = document.createElement("div");
@@ -209,7 +343,7 @@ const creaSchedaProgetto = (elemento) => {
     collegamento.setAttribute("aria-label", `Scopri ${elemento.nome}`);
 
     const immagine = document.createElement("img");
-    immagine.src = elemento.immagini[0];
+    immagine.src = elemento.immagini[0].percorso;
     immagine.alt = elemento.alt;
 
     const contenuto = document.createElement("div");
@@ -224,17 +358,32 @@ const creaSchedaProgetto = (elemento) => {
         ? `${elemento.immagini.length} foto · Guarda il progetto →`
         : "Guarda il progetto →";
 
-    contenuto.append(titolo, descrizione, invito);
+    contenuto.append(
+        titolo,
+        descrizione,
+        creaElencoTag(tagDellaCreazione(elemento)),
+        invito
+    );
     collegamento.append(immagine, contenuto);
     return collegamento;
 };
 
 const inizializzaCatalogo = async () => {
     const grigliaHome = document.querySelector("[data-home-categories]");
+    const grigliaHomeProgetti = document.querySelector("[data-home-project-grid]");
     const paginaCategoria = document.querySelector("[data-category-grid]");
     const paginaElemento = document.querySelector("[data-item-gallery]");
+    const tagPaginaProdotto = document.querySelector("[data-product-tags]");
 
-    if (!grigliaHome && !paginaCategoria && !paginaElemento) return;
+    if (
+        !grigliaHome
+        && !grigliaHomeProgetti
+        && !paginaCategoria
+        && !paginaElemento
+        && !tagPaginaProdotto
+    ) {
+        return;
+    }
 
     try {
         const risposta = await fetch("content/catalogo.json", {
@@ -248,12 +397,37 @@ const inizializzaCatalogo = async () => {
         const elementiCreazioni = categorieCreazioni.flatMap((categoria) =>
             categoria.elementi.map((elemento) => ({ ...elemento, categoria }))
         );
+        coloriPerTag = new Map(
+            raccogliTagUnici(
+                elementiCreazioni.flatMap(tagDellaCreazione)
+            ).map((tag, indice) => [chiaveTag(tag), indice % 6])
+        );
+
+        if (tagPaginaProdotto) {
+            const progettoProdotto = elementiCreazioni.find(
+                (progetto) => progetto.id === tagPaginaProdotto.dataset.productTags
+            );
+            if (!progettoProdotto) {
+                throw new Error("Il progetto della pagina prodotto non è presente nel catalogo.");
+            }
+            aggiornaElencoTag(
+                tagPaginaProdotto,
+                progettoProdotto.immagini[0].tag || []
+            );
+        }
 
         if (grigliaHome) {
             grigliaHome.dataset.categoryCount = categorieCreazioni.length;
             grigliaHome.replaceChildren(
                 ...categorieCreazioni.map(creaSchedaCategoria)
             );
+        }
+
+        if (grigliaHomeProgetti) {
+            grigliaHomeProgetti.replaceChildren(
+                ...elementiCreazioni.map(creaSchedaProgetto)
+            );
+            inizializzaFiltroTag(elementiCreazioni, grigliaHomeProgetti);
         }
 
         if (paginaCategoria) {
@@ -274,6 +448,7 @@ const inizializzaCatalogo = async () => {
                 paginaCategoria.replaceChildren(
                     ...categoria.elementi.map(creaSchedaProgetto)
                 );
+                inizializzaFiltroTag(categoria.elementi, paginaCategoria);
             } else {
                 document.querySelector("[data-category-eyebrow]").textContent =
                     "Collezioni Nonna Emma";
@@ -309,6 +484,8 @@ const inizializzaCatalogo = async () => {
                     document.querySelector("[data-item-image]");
                 const statoGalleria =
                     document.querySelector("[data-item-status]");
+                const tagImmagine =
+                    document.querySelector("[data-item-tags]");
                 const miniature =
                     document.querySelector("[data-item-thumbnails]");
                 let immagineAttiva = 0;
@@ -316,11 +493,13 @@ const inizializzaCatalogo = async () => {
                 const selezionaImmagine = (indice) => {
                     immagineAttiva =
                         (indice + elemento.immagini.length) % elemento.immagini.length;
-                    immaginePrincipale.src = elemento.immagini[immagineAttiva];
+                    const foto = elemento.immagini[immagineAttiva];
+                    immaginePrincipale.src = foto.percorso;
                     immaginePrincipale.alt =
                         `${elemento.alt}, foto ${immagineAttiva + 1}`;
                     statoGalleria.textContent =
                         `Foto ${immagineAttiva + 1} di ${elemento.immagini.length}`;
+                    aggiornaElencoTag(tagImmagine, foto.tag || []);
                     miniature.querySelectorAll("button").forEach(
                         (pulsante, indiceMiniatura) => {
                             pulsante.setAttribute(
@@ -331,7 +510,7 @@ const inizializzaCatalogo = async () => {
                     );
                 };
 
-                elemento.immagini.forEach((percorso, indice) => {
+                elemento.immagini.forEach((foto, indice) => {
                     const pulsante = document.createElement("button");
                     pulsante.className = "item-thumbnail";
                     pulsante.type = "button";
@@ -344,7 +523,7 @@ const inizializzaCatalogo = async () => {
                         String(indice === 0)
                     );
                     const immagine = document.createElement("img");
-                    immagine.src = percorso;
+                    immagine.src = foto.percorso;
                     immagine.alt = "";
                     immagine.setAttribute("aria-hidden", "true");
                     pulsante.append(immagine);
@@ -383,8 +562,10 @@ const inizializzaCatalogo = async () => {
         console.error("Impossibile caricare il catalogo delle creazioni.", errore);
         mostraErroreCatalogo([
             grigliaHome,
+            grigliaHomeProgetti,
             paginaCategoria,
             paginaElemento && paginaElemento.querySelector("[data-item-content]"),
+            tagPaginaProdotto,
         ]);
     }
 };

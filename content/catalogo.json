@@ -10,7 +10,10 @@
           "nome": "Cappellino Baby",
           "descrizione": "Un cappellino morbido e caldo, lavorato a mano.",
           "immagini": [
-            "images/uploads/maglia-babyhat.jpeg"
+            {
+              "percorso": "images/uploads/maglia-babyhat.jpeg",
+              "tag": []
+            }
           ],
           "alt": "Cappellino baby lavorato a maglia"
         },
@@ -19,7 +22,10 @@
           "nome": "Calzine di Lana",
           "descrizione": "Calzine fatte a mano, disponibili in diversi colori.",
           "immagini": [
-            "images/uploads/maglia-calzine.jpeg"
+            {
+              "percorso": "images/uploads/maglia-calzine.jpeg",
+              "tag": []
+            }
           ],
           "alt": "Calzine di lana fatte a mano",
           "pagina": "prodotto.html"
@@ -29,7 +35,10 @@
           "nome": "Papera",
           "descrizione": "Una piccola creazione lavorata a maglia.",
           "immagini": [
-            "images/uploads/maglia-papera.jpeg"
+            {
+              "percorso": "images/uploads/maglia-papera.jpeg",
+              "tag": []
+            }
           ],
           "alt": "Creazione a maglia a forma di papera"
         },
@@ -38,7 +47,10 @@
           "nome": "Pecora",
           "descrizione": "Una piccola creazione lavorata a maglia.",
           "immagini": [
-            "images/uploads/maglia-pecora.jpeg"
+            {
+              "percorso": "images/uploads/maglia-pecora.jpeg",
+              "tag": []
+            }
           ],
           "alt": "Creazione a maglia a forma di pecora"
         }
@@ -54,7 +66,10 @@
           "nome": "Astucci",
           "descrizione": "Un astuccio decorato con ricami fatti a mano.",
           "immagini": [
-            "images/uploads/ricamo-astuccio.jpeg"
+            {
+              "percorso": "images/uploads/ricamo-astuccio.jpeg",
+              "tag": []
+            }
           ],
           "alt": "Astuccio ricamato"
         },
@@ -63,15 +78,42 @@
           "nome": "Piante e Animali",
           "descrizione": "Alcune proposte di ricami a tema piante e animali.",
           "immagini": [
-            "images/uploads/ricamo-rane.jpeg",
-            "images/uploads/ricamo-rana_sing.jpeg",
-            "images/uploads/ricamo-pesci.jpeg",
-            "images/uploads/ricamo-frutto0.jpeg",
-            "images/uploads/ricamo-frutto1.jpeg",
-            "images/uploads/ricamo-frutto2.jpeg",
-            "images/uploads/ricamo-frutto3.jpeg",
-            "images/uploads/ricamo-frutto4.jpeg",
-            "images/uploads/ricamo-frutto5.jpeg"
+            {
+              "percorso": "images/uploads/ricamo-rane.jpeg",
+              "tag": []
+            },
+            {
+              "percorso": "images/uploads/ricamo-rana_sing.jpeg",
+              "tag": []
+            },
+            {
+              "percorso": "images/uploads/ricamo-pesci.jpeg",
+              "tag": []
+            },
+            {
+              "percorso": "images/uploads/ricamo-frutto0.jpeg",
+              "tag": []
+            },
+            {
+              "percorso": "images/uploads/ricamo-frutto1.jpeg",
+              "tag": []
+            },
+            {
+              "percorso": "images/uploads/ricamo-frutto2.jpeg",
+              "tag": []
+            },
+            {
+              "percorso": "images/uploads/ricamo-frutto3.jpeg",
+              "tag": []
+            },
+            {
+              "percorso": "images/uploads/ricamo-frutto4.jpeg",
+              "tag": []
+            },
+            {
+              "percorso": "images/uploads/ricamo-frutto5.jpeg",
+              "tag": []
+            }
           ],
           "alt": "Ricami di piante e animali, con rane, pesci e frutti"
         },
@@ -80,8 +122,14 @@
           "nome": "Decorazioni",
           "descrizione": "Ricami a tema floreale, geometrico, mandala e altri.",
           "immagini": [
-            "images/uploads/ricamo-uccfoglie.jpeg",
-            "images/uploads/ricamo-mandala.jpeg"
+            {
+              "percorso": "images/uploads/ricamo-uccfoglie.jpeg",
+              "tag": []
+            },
+            {
+              "percorso": "images/uploads/ricamo-mandala.jpeg",
+              "tag": []
+            }
           ],
           "alt": "Ricami decorativi con uccello tra le foglie e mandala"
         },
@@ -90,8 +138,14 @@
           "nome": "Frasi e Figure",
           "descrizione": "Ricami di testi e piccole figure su tessuto. ",
           "immagini": [
-            "images/uploads/ricamo-piccoloprincipe.jpeg",
-            "images/uploads/ricamo-caminante.jpeg"
+            {
+              "percorso": "images/uploads/ricamo-piccoloprincipe.jpeg",
+              "tag": []
+            },
+            {
+              "percorso": "images/uploads/ricamo-caminante.jpeg",
+              "tag": []
+            }
           ],
           "alt": "Ricami con frasi e figure"
         }
@@ -107,7 +161,10 @@
           "nome": "Fiocco Luna",
           "descrizione": "Un accessorio in stoffa realizzato a mano.",
           "immagini": [
-            "images/uploads/cucito-luna.jpeg"
+            {
+              "percorso": "images/uploads/cucito-luna.jpeg",
+              "tag": []
+            }
           ],
           "alt": "Fiocco per neonato in tessuto"
         },
@@ -116,7 +173,10 @@
           "nome": "Progetto di Cucito",
           "descrizione": "Un progetto sartoriale realizzato a mano.",
           "immagini": [
-            "images/uploads/cucito-scap_obj.jpeg"
+            {
+              "percorso": "images/uploads/cucito-scap_obj.jpeg",
+              "tag": []
+            }
           ],
           "alt": "Progetto di cucito fatto a mano"
         }
@@ -132,10 +192,22 @@
           "nome": "Fiore Ricamato",
           "descrizione": "Quattro fotografie dello stesso progetto floreale.",
           "immagini": [
-            "images/uploads/punto-fiore0.jpeg",
-            "images/uploads/punto-fiore1.jpeg",
-            "images/uploads/punto-fiore2.jpeg",
-            "images/uploads/punto-fiore3.jpeg"
+            {
+              "percorso": "images/uploads/punto-fiore0.jpeg",
+              "tag": []
+            },
+            {
+              "percorso": "images/uploads/punto-fiore1.jpeg",
+              "tag": []
+            },
+            {
+              "percorso": "images/uploads/punto-fiore2.jpeg",
+              "tag": []
+            },
+            {
+              "percorso": "images/uploads/punto-fiore3.jpeg",
+              "tag": []
+            }
           ],
           "alt": "Ricamo floreale a punto croce"
         },
@@ -144,9 +216,18 @@
           "nome": "Segnalibro",
           "descrizione": "Un segnalibro ricamato, mostrato in tre fotografie.",
           "immagini": [
-            "images/uploads/punto-segnalibro0.jpeg",
-            "images/uploads/punto-segnalibro1.jpeg",
-            "images/uploads/punto-segnalibro2.jpeg"
+            {
+              "percorso": "images/uploads/punto-segnalibro0.jpeg",
+              "tag": []
+            },
+            {
+              "percorso": "images/uploads/punto-segnalibro1.jpeg",
+              "tag": []
+            },
+            {
+              "percorso": "images/uploads/punto-segnalibro2.jpeg",
+              "tag": []
+            }
           ],
           "alt": "Segnalibro ricamato a punto croce"
         }
@@ -162,7 +243,10 @@
           "nome": "Carota in Feltro",
           "descrizione": "Una decorazione a forma di carota in feltro.",
           "immagini": [
-            "images/uploads/feltro-carota.jpeg"
+            {
+              "percorso": "images/uploads/feltro-carota.jpeg",
+              "tag": []
+            }
           ],
           "alt": "Carota realizzata in feltro"
         },
@@ -171,7 +255,10 @@
           "nome": "Ghiande in Feltro",
           "descrizione": "Piccole ghiande decorative in feltro.",
           "immagini": [
-            "images/uploads/feltro-ghiande.jpeg"
+            {
+              "percorso": "images/uploads/feltro-ghiande.jpeg",
+              "tag": []
+            }
           ],
           "alt": "Ghiande decorative in feltro"
         }
@@ -187,7 +274,10 @@
           "nome": "Gioiello Foglia",
           "descrizione": "Un gioiello artigianale con motivo a foglia.",
           "immagini": [
-            "images/uploads/gioielli-gioielli_leaf.jpeg"
+            {
+              "percorso": "images/uploads/gioielli-gioielli_leaf.jpeg",
+              "tag": []
+            }
           ],
           "alt": "Gioiello artigianale a forma di foglia"
         },
@@ -196,7 +286,10 @@
           "nome": "Collezione di Gioielli",
           "descrizione": "Una selezione di gioielli realizzati a mano.",
           "immagini": [
-            "images/uploads/gioielli-gioielli_tot.jpeg"
+            {
+              "percorso": "images/uploads/gioielli-gioielli_tot.jpeg",
+              "tag": []
+            }
           ],
           "alt": "Collezione di gioielli artigianali"
         }

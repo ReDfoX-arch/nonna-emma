@@ -1757,6 +1757,141 @@ main {
     }
 }
 
+.creation-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 10px 0 12px;
+}
+
+.creation-tags[hidden],
+.tag-filter[hidden],
+.tag-filter-clear[hidden] {
+    display: none;
+}
+
+.creation-tag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 4px 11px;
+    border: 1px solid;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.creation-tag[data-tag-color="0"] {
+    border-color: #e7c2b5;
+    background: #f8e5de;
+    color: #704637;
+}
+
+.creation-tag[data-tag-color="1"] {
+    border-color: #bfd2bd;
+    background: #e7f0e5;
+    color: #3e5b42;
+}
+
+.creation-tag[data-tag-color="2"] {
+    border-color: #c0d0df;
+    background: #e7eff6;
+    color: #3f566b;
+}
+
+.creation-tag[data-tag-color="3"] {
+    border-color: #d3c4df;
+    background: #f0eaf5;
+    color: #5e4a6d;
+}
+
+.creation-tag[data-tag-color="4"] {
+    border-color: #e2d0a6;
+    background: #f7f0dc;
+    color: #68572f;
+}
+
+.creation-tag[data-tag-color="5"] {
+    border-color: #e0bfd0;
+    background: #f5e7ee;
+    color: #69475a;
+}
+
+.tag-filter {
+    width: min(100%, 1120px);
+    margin: 24px auto;
+    padding: clamp(18px, 3vw, 28px);
+    text-align: left;
+}
+
+.tag-filter h2 {
+    margin-bottom: 6px;
+    color: var(--yarn-terracotta-hover);
+    font-size: clamp(1.35rem, 2vw, 1.7rem);
+}
+
+.tag-filter > p {
+    margin-bottom: 14px;
+}
+
+.tag-filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.tag-filter-button {
+    font: inherit;
+    cursor: pointer;
+    transition: box-shadow 160ms ease, transform 160ms ease;
+}
+
+.tag-filter-button:hover {
+    transform: translateY(-1px);
+}
+
+.tag-filter-button[aria-pressed="true"] {
+    box-shadow: 0 0 0 3px rgba(132, 85, 66, 0.2);
+}
+
+.tag-filter-results {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 16px;
+    margin-top: 14px;
+}
+
+.tag-filter-results p {
+    margin: 0;
+}
+
+.tag-filter-clear {
+    padding: 4px 0;
+    border: 0;
+    background: transparent;
+    color: var(--yarn-terracotta-hover);
+    font: inherit;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+}
+
+.catalog-card[hidden] {
+    display: none;
+}
+
+.single-item-gallery .creation-tags {
+    justify-content: center;
+}
+
+.home-project-grid {
+    margin-top: 24px;
+}
+
 .portfolio-progetti {
     padding-right: var(--filo-margine-contenuti);
 }

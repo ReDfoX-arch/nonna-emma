@@ -72,7 +72,7 @@ Il pannello è una pagina statica: GitHub Pages non può nascondere la risposta 
 
 - Apri **Catalogo del sito → Categorie e progetti**.
 - Per aggiungere un progetto, apri la categoria desiderata e seleziona **Aggiungi progetto**. Inserisci un identificativo nuovo in minuscolo e senza spazi, nome, descrizione, testo alternativo e almeno una foto.
-- Nel campo **Foto del progetto**, seleziona l'aggiunta di un'immagine per caricarla dal computer oppure scegli una foto già presente nella libreria. Le nuove immagini vengono salvate in `images/uploads`; aggiungile una per volta. L'ordine nell'elenco è l'ordine della galleria.
+- Nel campo **Foto del progetto**, aggiungi una foto per volta, caricala dal computer oppure scegli un'immagine già presente nella libreria. Le nuove immagini vengono salvate in `images/uploads`; l'ordine nell'elenco è l'ordine della galleria. Per ogni foto puoi aggiungere parole chiave: saranno mostrate sulle schede della creazione, sulla foto ingrandita e usate nei filtri della home e della categoria. I clienti selezionano i tag disponibili, senza digitare testo.
 - Per una categoria nuova usa **Aggiungi categoria** e poi aggiungi i progetti al suo interno.
 - Non cambiare gli identificativi dopo la pubblicazione: sono usati negli indirizzi delle pagine.
 - Lascia vuoto **Pagina speciale**, tranne per le calzine che usano `prodotto.html`.
