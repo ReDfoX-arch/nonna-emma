@@ -109,213 +109,74 @@ document.querySelectorAll(".nav-dropdown").forEach((menu) => {
     });
 });
 
-const categorieCreazioni = [
-    {
-        id: "maglia",
-        nome: "Lavori a Maglia",
-        descrizione: "Capi e accessori morbidi realizzati a mano con filati scelti.",
-        elementi: [
-            {
-                id: "cappellino-baby",
-                nome: "Cappellino Baby",
-                descrizione: "Un cappellino morbido e caldo, lavorato a mano.",
-                immagini: ["images/maglia/babyhat.jpeg"],
-                alt: "Cappellino baby lavorato a maglia",
-            },
-            {
-                id: "calzine-lana",
-                nome: "Calzine di Lana",
-                descrizione: "Calzine fatte a mano, disponibili in diversi colori.",
-                immagini: ["images/maglia/calzine.jpeg"],
-                alt: "Calzine di lana fatte a mano",
-                pagina: "prodotto.html",
-            },
-            {
-                id: "papera",
-                nome: "Papera",
-                descrizione: "Una piccola creazione lavorata a maglia.",
-                immagini: ["images/maglia/papera.jpeg"],
-                alt: "Creazione a maglia a forma di papera",
-            },
-            {
-                id: "pecora",
-                nome: "Pecora",
-                descrizione: "Una piccola creazione lavorata a maglia.",
-                immagini: ["images/maglia/pecora.jpeg"],
-                alt: "Creazione a maglia a forma di pecora",
-            },
-        ],
-    },
-    {
-        id: "ricamo",
-        nome: "Ricami Decorativi",
-        descrizione: "Ricami e decorazioni realizzati punto dopo punto.",
-        elementi: [
-            {
-                id: "astuccio",
-                nome: "Astuccio Ricamato",
-                descrizione: "Un astuccio decorato con ricami fatti a mano.",
-                immagini: ["images/ricamo/astuccio.jpeg"],
-                alt: "Astuccio ricamato",
-            },
-            {
-                id: "caminante",
-                nome: "Il Caminante",
-                descrizione: "Un ricamo decorativo realizzato a mano.",
-                immagini: ["images/ricamo/caminante.jpeg"],
-                alt: "Ricamo decorativo Il Caminante",
-            },
-            {
-                id: "frutta",
-                nome: "Frutta Ricamata",
-                descrizione: "Una serie di fotografie dello stesso progetto ricamato.",
-                immagini: Array.from({ length: 6 }, (_, indice) =>
-                    `images/ricamo/frutto${indice}.jpeg`
-                ),
-                alt: "Ricamo a tema frutta",
-            },
-            {
-                id: "mandala",
-                nome: "Mandala",
-                descrizione: "Un ricamo decorativo a mandala.",
-                immagini: ["images/ricamo/mandala.jpeg"],
-                alt: "Ricamo mandala",
-            },
-            {
-                id: "pesci",
-                nome: "Pesci",
-                descrizione: "Un ricamo decorativo a tema marino.",
-                immagini: ["images/ricamo/pesci.jpeg"],
-                alt: "Ricamo decorativo con pesci",
-            },
-            {
-                id: "piccolo-principe",
-                nome: "Piccolo Principe",
-                descrizione: "Un ricamo ispirato al Piccolo Principe.",
-                immagini: ["images/ricamo/piccoloprincipe.jpeg"],
-                alt: "Ricamo del Piccolo Principe",
-            },
-            {
-                id: "rana",
-                nome: "Rana",
-                descrizione: "Un ricamo decorativo a forma di rana.",
-                immagini: ["images/ricamo/rana_sing.jpeg"],
-                alt: "Ricamo con una rana",
-            },
-            {
-                id: "rane",
-                nome: "Rane",
-                descrizione: "Un ricamo decorativo con rane.",
-                immagini: ["images/ricamo/rane.jpeg"],
-                alt: "Ricamo con rane",
-            },
-            {
-                id: "uccello-foglie",
-                nome: "Uccello tra le Foglie",
-                descrizione: "Un ricamo decorativo con uccello e foglie.",
-                immagini: ["images/ricamo/uccfoglie.jpeg"],
-                alt: "Ricamo con uccello tra le foglie",
-            },
-        ],
-    },
-    {
-        id: "cucito",
-        nome: "Cucito e Sartoria",
-        descrizione: "Accessori e progetti realizzati con ago, filo e tessuti.",
-        elementi: [
-            {
-                id: "luna",
-                nome: "Fiocco Luna",
-                descrizione: "Un accessorio in stoffa realizzato a mano.",
-                immagini: ["images/cucito/luna.jpeg"],
-                alt: "Fiocco per neonato in tessuto",
-            },
-            {
-                id: "scap-obj",
-                nome: "Progetto di Cucito",
-                descrizione: "Un progetto sartoriale realizzato a mano.",
-                immagini: ["images/cucito/scap_obj.jpeg"],
-                alt: "Progetto di cucito fatto a mano",
-            },
-        ],
-    },
-    {
-        id: "punto",
-        nome: "Punto Croce",
-        descrizione: "Piccole decorazioni e accessori ricamati a punto croce.",
-        elementi: [
-            {
-                id: "fiore",
-                nome: "Fiore Ricamato",
-                descrizione: "Quattro fotografie dello stesso progetto floreale.",
-                immagini: Array.from({ length: 4 }, (_, indice) =>
-                    `images/punto/fiore${indice}.jpeg`
-                ),
-                alt: "Ricamo floreale a punto croce",
-            },
-            {
-                id: "segnalibro",
-                nome: "Segnalibro",
-                descrizione: "Un segnalibro ricamato, mostrato in tre fotografie.",
-                immagini: Array.from({ length: 3 }, (_, indice) =>
-                    `images/punto/segnalibro${indice}.jpeg`
-                ),
-                alt: "Segnalibro ricamato a punto croce",
-            },
-        ],
-    },
-    {
-        id: "feltro",
-        nome: "Creazioni in Feltro",
-        descrizione: "Decorazioni e piccoli oggetti realizzati in feltro.",
-        elementi: [
-            {
-                id: "carota",
-                nome: "Carota in Feltro",
-                descrizione: "Una decorazione a forma di carota in feltro.",
-                immagini: ["images/Feltro/carota.jpeg"],
-                alt: "Carota realizzata in feltro",
-            },
-            {
-                id: "ghiande",
-                nome: "Ghiande in Feltro",
-                descrizione: "Piccole ghiande decorative in feltro.",
-                immagini: ["images/Feltro/ghiande.jpeg"],
-                alt: "Ghiande decorative in feltro",
-            },
-        ],
-    },
-    {
-        id: "gioielli",
-        nome: "Gioielli",
-        descrizione: "Gioielli artigianali e accessori decorativi.",
-        elementi: [
-            {
-                id: "gioielli-foglia",
-                nome: "Gioiello Foglia",
-                descrizione: "Un gioiello artigianale con motivo a foglia.",
-                immagini: ["images/Gioielli/gioielli_leaf.jpeg"],
-                alt: "Gioiello artigianale a forma di foglia",
-            },
-            {
-                id: "gioielli-collezione",
-                nome: "Collezione di Gioielli",
-                descrizione: "Una selezione di gioielli realizzati a mano.",
-                immagini: ["images/Gioielli/gioielli_tot.jpeg"],
-                alt: "Collezione di gioielli artigianali",
-            },
-        ],
-    },
-];
+const mostraErroreCatalogo = (destinazioni) => {
+    destinazioni.filter(Boolean).forEach((destinazione) => {
+        const messaggio = document.createElement("p");
+        messaggio.className = "portfolio-intro";
+        messaggio.setAttribute("role", "status");
+        messaggio.textContent =
+            "Il catalogo non è disponibile al momento. Riprova tra poco.";
+        destinazione.replaceChildren(messaggio);
+    });
+};
 
-const elementiCreazioni = categorieCreazioni.flatMap((categoria) =>
-    categoria.elementi.map((elemento) => ({ ...elemento, categoria }))
-);
+const verificaCatalogo = (catalogo) => {
+    if (!catalogo || !Array.isArray(catalogo.categorie) || !catalogo.categorie.length) {
+        throw new Error("Il catalogo deve contenere almeno una categoria.");
+    }
+
+    const idCategorie = new Set();
+    const idProgetti = new Set();
+    const slugValido = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+    const percorsoImmagineValido = (percorso) =>
+        typeof percorso === "string"
+        && percorso.startsWith("images/")
+        && !percorso.includes("\\")
+        && !percorso.split("/").includes("..")
+        && /\.(?:avif|gif|jpe?g|png|webp)$/i.test(percorso);
+
+    catalogo.categorie.forEach((categoria) => {
+        if (
+            !categoria
+            || !slugValido.test(categoria.id)
+            || idCategorie.has(categoria.id)
+            || typeof categoria.nome !== "string"
+            || !categoria.nome.trim()
+            || !Array.isArray(categoria.elementi)
+            || !categoria.elementi.length
+        ) {
+            throw new Error("Una categoria non è valida o ha un identificativo duplicato.");
+        }
+        idCategorie.add(categoria.id);
+
+        categoria.elementi.forEach((elemento) => {
+            if (
+                !elemento
+                || !slugValido.test(elemento.id)
+                || idProgetti.has(elemento.id)
+                || typeof elemento.nome !== "string"
+                || !elemento.nome.trim()
+                || typeof elemento.alt !== "string"
+                || !elemento.alt.trim()
+                || !Array.isArray(elemento.immagini)
+                || !elemento.immagini.length
+                || !elemento.immagini.every(percorsoImmagineValido)
+                || (elemento.pagina && elemento.pagina !== "prodotto.html")
+            ) {
+                throw new Error("Un progetto non è valido o ha un identificativo duplicato.");
+            }
+            idProgetti.add(elemento.id);
+        });
+    });
+
+    return catalogo.categorie;
+};
 
 const creaSchedaCategoria = (categoria) => {
     const collegamento = document.createElement("a");
     collegamento.className = "card catalog-card stitch-border";
-    collegamento.href = `categoria.html?categoria=${encodeURIComponent(categoria.id)}`;
+    collegamento.href =
+        `categoria.html?categoria=${encodeURIComponent(categoria.id)}`;
     collegamento.setAttribute("aria-label", `Esplora ${categoria.nome}`);
 
     const immagine = document.createElement("img");
@@ -340,139 +201,194 @@ const creaSchedaCategoria = (categoria) => {
     return collegamento;
 };
 
-const grigliaCategorieHome = document.querySelector("[data-home-categories]");
+const creaSchedaProgetto = (elemento) => {
+    const collegamento = document.createElement("a");
+    collegamento.className = "card catalog-card stitch-border";
+    collegamento.href = elemento.pagina
+        || `creazione.html?elemento=${encodeURIComponent(elemento.id)}`;
+    collegamento.setAttribute("aria-label", `Scopri ${elemento.nome}`);
 
-if (grigliaCategorieHome) {
-    categorieCreazioni.forEach((categoria) =>
-        grigliaCategorieHome.append(creaSchedaCategoria(categoria))
-    );
-}
+    const immagine = document.createElement("img");
+    immagine.src = elemento.immagini[0];
+    immagine.alt = elemento.alt;
 
-const paginaCategoria = document.querySelector("[data-category-grid]");
+    const contenuto = document.createElement("div");
+    contenuto.className = "card-info";
+    const titolo = document.createElement("h2");
+    titolo.textContent = elemento.nome;
+    const descrizione = document.createElement("p");
+    descrizione.textContent = elemento.descrizione;
+    const invito = document.createElement("span");
+    invito.className = "card-cta";
+    invito.textContent = elemento.immagini.length > 1
+        ? `${elemento.immagini.length} foto · Guarda il progetto →`
+        : "Guarda il progetto →";
 
-if (paginaCategoria) {
-    const idCategoria = new URLSearchParams(window.location.search).get("categoria");
-    const categoria = categorieCreazioni.find((elemento) => elemento.id === idCategoria);
+    contenuto.append(titolo, descrizione, invito);
+    collegamento.append(immagine, contenuto);
+    return collegamento;
+};
 
-    if (categoria) {
-        document.title = `${categoria.nome} | Nonna Emma`;
-        document.querySelector("[data-category-eyebrow]").textContent =
-            `${categoria.elementi.length} progetti`;
-        document.querySelector("[data-category-title]").textContent = categoria.nome;
-        document.querySelector("[data-category-description]").textContent =
-            categoria.descrizione;
+const inizializzaCatalogo = async () => {
+    const grigliaHome = document.querySelector("[data-home-categories]");
+    const paginaCategoria = document.querySelector("[data-category-grid]");
+    const paginaElemento = document.querySelector("[data-item-gallery]");
 
-        categoria.elementi.forEach((elemento) => {
-            const collegamento = document.createElement("a");
-            collegamento.className = "card catalog-card stitch-border";
-            collegamento.href = elemento.pagina
-                || `creazione.html?elemento=${encodeURIComponent(elemento.id)}`;
-            collegamento.setAttribute("aria-label", `Scopri ${elemento.nome}`);
+    if (!grigliaHome && !paginaCategoria && !paginaElemento) return;
 
-            const immagine = document.createElement("img");
-            immagine.src = elemento.immagini[0];
-            immagine.alt = elemento.alt;
-
-            const contenuto = document.createElement("div");
-            contenuto.className = "card-info";
-            const titolo = document.createElement("h2");
-            titolo.textContent = elemento.nome;
-            const descrizione = document.createElement("p");
-            descrizione.textContent = elemento.descrizione;
-            const invito = document.createElement("span");
-            invito.className = "card-cta";
-            invito.textContent = elemento.immagini.length > 1
-                ? `${elemento.immagini.length} foto · Guarda il progetto →`
-                : "Guarda il progetto →";
-
-            contenuto.append(titolo, descrizione, invito);
-            collegamento.append(immagine, contenuto);
-            paginaCategoria.append(collegamento);
+    try {
+        const risposta = await fetch("content/catalogo.json", {
+            cache: "no-cache",
         });
-    } else {
-        document.querySelector("[data-category-eyebrow]").textContent =
-            "Collezioni Nonna Emma";
-        document.querySelector("[data-category-title]").textContent =
-            "Categoria non trovata";
-        document.querySelector("[data-category-description]").textContent =
-            "Scegli una categoria per esplorare i progetti.";
-        categorieCreazioni.forEach((elemento) =>
-            paginaCategoria.append(creaSchedaCategoria(elemento))
+        if (!risposta.ok) {
+            throw new Error(`Caricamento catalogo non riuscito: ${risposta.status}`);
+        }
+
+        const categorieCreazioni = verificaCatalogo(await risposta.json());
+        const elementiCreazioni = categorieCreazioni.flatMap((categoria) =>
+            categoria.elementi.map((elemento) => ({ ...elemento, categoria }))
         );
-    }
-}
 
-const paginaElemento = document.querySelector("[data-item-gallery]");
+        if (grigliaHome) {
+            grigliaHome.replaceChildren(
+                ...categorieCreazioni.map(creaSchedaCategoria)
+            );
+        }
 
-if (paginaElemento) {
-    const idElemento = new URLSearchParams(window.location.search).get("elemento");
-    const elemento = elementiCreazioni.find((progetto) => progetto.id === idElemento);
+        if (paginaCategoria) {
+            const idCategoria =
+                new URLSearchParams(window.location.search).get("categoria");
+            const categoria = categorieCreazioni.find(
+                (elemento) => elemento.id === idCategoria
+            );
 
-    if (elemento) {
-        document.title = `${elemento.nome} | Nonna Emma`;
-        document.querySelector("[data-item-category]").textContent =
-            elemento.categoria.nome;
-        document.querySelector("[data-item-title]").textContent = elemento.nome;
-        document.querySelector("[data-item-description]").textContent =
-            elemento.descrizione;
-        document.querySelector("[data-item-category-link]").href =
-            `categoria.html?categoria=${encodeURIComponent(elemento.categoria.id)}`;
-
-        const immaginePrincipale = document.querySelector("[data-item-image]");
-        const statoGalleria = document.querySelector("[data-item-status]");
-        const miniature = document.querySelector("[data-item-thumbnails]");
-        const precedente = document.querySelector("[data-item-previous]");
-        const successiva = document.querySelector("[data-item-next]");
-        let immagineAttiva = 0;
-
-        const selezionaImmagine = (indice) => {
-            immagineAttiva = (indice + elemento.immagini.length)
-                % elemento.immagini.length;
-            immaginePrincipale.src = elemento.immagini[immagineAttiva];
-            immaginePrincipale.alt = `${elemento.alt}, foto ${immagineAttiva + 1}`;
-            statoGalleria.textContent =
-                `Foto ${immagineAttiva + 1} di ${elemento.immagini.length}`;
-            miniature.querySelectorAll("button").forEach((pulsante, indiceMiniatura) => {
-                pulsante.setAttribute(
-                    "aria-pressed",
-                    String(indiceMiniatura === immagineAttiva)
+            if (categoria) {
+                document.title = `${categoria.nome} | Nonna Emma`;
+                document.querySelector("[data-category-eyebrow]").textContent =
+                    `${categoria.elementi.length} progetti`;
+                document.querySelector("[data-category-title]").textContent =
+                    categoria.nome;
+                document.querySelector("[data-category-description]").textContent =
+                    categoria.descrizione;
+                paginaCategoria.replaceChildren(
+                    ...categoria.elementi.map(creaSchedaProgetto)
                 );
-            });
-        };
+            } else {
+                document.querySelector("[data-category-eyebrow]").textContent =
+                    "Collezioni Nonna Emma";
+                document.querySelector("[data-category-title]").textContent =
+                    "Categoria non trovata";
+                document.querySelector("[data-category-description]").textContent =
+                    "Scegli una categoria per esplorare i progetti.";
+                paginaCategoria.replaceChildren(
+                    ...categorieCreazioni.map(creaSchedaCategoria)
+                );
+            }
+        }
 
-        elemento.immagini.forEach((percorso, indice) => {
-            const pulsante = document.createElement("button");
-            pulsante.className = "item-thumbnail";
-            pulsante.type = "button";
-            pulsante.setAttribute("aria-label", `Mostra foto ${indice + 1}`);
-            pulsante.setAttribute("aria-pressed", String(indice === 0));
-            const immagine = document.createElement("img");
-            immagine.src = percorso;
-            immagine.alt = "";
-            immagine.setAttribute("aria-hidden", "true");
-            pulsante.append(immagine);
-            pulsante.addEventListener("click", () => selezionaImmagine(indice));
-            miniature.append(pulsante);
-        });
+        if (paginaElemento) {
+            const idElemento =
+                new URLSearchParams(window.location.search).get("elemento");
+            const elemento = elementiCreazioni.find(
+                (progetto) => progetto.id === idElemento
+            );
 
-        precedente.addEventListener("click", () =>
-            selezionaImmagine(immagineAttiva - 1)
-        );
-        successiva.addEventListener("click", () =>
-            selezionaImmagine(immagineAttiva + 1)
-        );
-        paginaElemento.querySelector("[data-order-link]").href = "ordine.html";
-        selezionaImmagine(0);
-    } else {
-        document.querySelector("[data-item-category]").textContent =
-            "Collezioni Nonna Emma";
-        document.querySelector("[data-item-title]").textContent =
-            "Progetto non trovato";
-        document.querySelector("[data-item-description]").textContent =
-            "Torna alle categorie per scegliere un progetto.";
-        paginaElemento.querySelector("[data-item-content]").hidden = true;
+            if (elemento) {
+                document.title = `${elemento.nome} | Nonna Emma`;
+                document.querySelector("[data-item-category]").textContent =
+                    elemento.categoria.nome;
+                document.querySelector("[data-item-title]").textContent =
+                    elemento.nome;
+                document.querySelector("[data-item-description]").textContent =
+                    elemento.descrizione || "";
+                document.querySelector("[data-item-category-link]").href =
+                    `categoria.html?categoria=${encodeURIComponent(elemento.categoria.id)}`;
+
+                const immaginePrincipale =
+                    document.querySelector("[data-item-image]");
+                const statoGalleria =
+                    document.querySelector("[data-item-status]");
+                const miniature =
+                    document.querySelector("[data-item-thumbnails]");
+                let immagineAttiva = 0;
+
+                const selezionaImmagine = (indice) => {
+                    immagineAttiva =
+                        (indice + elemento.immagini.length) % elemento.immagini.length;
+                    immaginePrincipale.src = elemento.immagini[immagineAttiva];
+                    immaginePrincipale.alt =
+                        `${elemento.alt}, foto ${immagineAttiva + 1}`;
+                    statoGalleria.textContent =
+                        `Foto ${immagineAttiva + 1} di ${elemento.immagini.length}`;
+                    miniature.querySelectorAll("button").forEach(
+                        (pulsante, indiceMiniatura) => {
+                            pulsante.setAttribute(
+                                "aria-pressed",
+                                String(indiceMiniatura === immagineAttiva)
+                            );
+                        }
+                    );
+                };
+
+                elemento.immagini.forEach((percorso, indice) => {
+                    const pulsante = document.createElement("button");
+                    pulsante.className = "item-thumbnail";
+                    pulsante.type = "button";
+                    pulsante.setAttribute(
+                        "aria-label",
+                        `Mostra foto ${indice + 1}`
+                    );
+                    pulsante.setAttribute(
+                        "aria-pressed",
+                        String(indice === 0)
+                    );
+                    const immagine = document.createElement("img");
+                    immagine.src = percorso;
+                    immagine.alt = "";
+                    immagine.setAttribute("aria-hidden", "true");
+                    pulsante.append(immagine);
+                    pulsante.addEventListener("click", () =>
+                        selezionaImmagine(indice)
+                    );
+                    miniature.append(pulsante);
+                });
+
+                paginaElemento
+                    .querySelector("[data-item-previous]")
+                    .addEventListener("click", () =>
+                        selezionaImmagine(immagineAttiva - 1)
+                    );
+                paginaElemento
+                    .querySelector("[data-item-next]")
+                    .addEventListener("click", () =>
+                        selezionaImmagine(immagineAttiva + 1)
+                    );
+                paginaElemento.querySelector("[data-order-link]").href =
+                    "ordine.html";
+                selezionaImmagine(0);
+            } else {
+                document.querySelector("[data-item-category]").textContent =
+                    "Collezioni Nonna Emma";
+                document.querySelector("[data-item-title]").textContent =
+                    "Progetto non trovato";
+                document.querySelector("[data-item-description]").textContent =
+                    "Torna alle categorie per scegliere un progetto.";
+                paginaElemento.querySelector("[data-item-content]").hidden = true;
+            }
+        }
+
+        window.dispatchEvent(new Event("resize"));
+    } catch (errore) {
+        console.error("Impossibile caricare il catalogo delle creazioni.", errore);
+        mostraErroreCatalogo([
+            grigliaHome,
+            paginaCategoria,
+            paginaElemento && paginaElemento.querySelector("[data-item-content]"),
+        ]);
     }
-}
+};
+
+void inizializzaCatalogo();
 
 document.querySelectorAll("[data-project-card]").forEach((scheda) => {
     const pulsanti = scheda.querySelectorAll(".flip-toggle");

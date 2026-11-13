@@ -1,0 +1,80 @@
+backend:
+  name: github
+  repo: ReDfoX-arch/nonna-emma
+  branch: main
+  base_url: https://SOSTITUISCI-CON-URL-DEL-WORKER.workers.dev
+  auth_endpoint: auth
+
+site_url: https://redfox-arch.github.io/nonna-emma/
+display_url: https://redfox-arch.github.io/nonna-emma/
+publish_mode: simple
+locale: it
+
+media_folder: images/uploads
+public_folder: images/uploads
+
+collections:
+  - name: catalogo
+    label: Catalogo del sito
+    files:
+      - name: catalogo
+        label: Categorie e progetti
+        file: content/catalogo.json
+        fields:
+          - label: Categorie
+            name: categorie
+            widget: list
+            summary: "{{fields.nome}}"
+            collapsed: true
+            min: 1
+            label_singular: Aggiungi categoria
+            fields:
+              - label: Identificativo (URL)
+                name: id
+                widget: string
+                hint: "Minuscolo, senza spazi (es. decorazioni). Non cambiarlo dopo la pubblicazione."
+                pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Usa lettere minuscole, numeri e trattini.']
+              - label: Nome categoria
+                name: nome
+                widget: string
+              - label: Descrizione
+                name: descrizione
+                widget: text
+              - label: Progetti
+                name: elementi
+                widget: list
+                summary: "{{fields.nome}}"
+                collapsed: true
+                min: 1
+                label_singular: Aggiungi progetto
+                fields:
+                  - label: Identificativo (URL)
+                    name: id
+                    widget: string
+                    hint: "Minuscolo, senza spazi (es. cestino-uncinetto). Non cambiarlo dopo la pubblicazione."
+                    pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Usa lettere minuscole, numeri e trattini.']
+                  - label: Nome progetto
+                    name: nome
+                    widget: string
+                  - label: Descrizione
+                    name: descrizione
+                    widget: text
+                  - label: Testo alternativo delle foto
+                    name: alt
+                    widget: string
+                    hint: Descrivi brevemente il soggetto delle immagini.
+                  - label: Foto del progetto
+                    name: immagini
+                    widget: list
+                    min: 1
+                    field:
+                      label: Foto
+                      name: immagine
+                      widget: image
+                    hint: Aggiungi una foto per volta; usa l'ordine desiderato nella galleria.
+                  - label: Pagina speciale
+                    name: pagina
+                    widget: string
+                    required: false
+                    hint: "Lascia vuoto per la galleria standard. Usa prodotto.html solo per le calzine."
+                    pattern: ['^prodotto\.html$', 'Lascia vuoto oppure inserisci prodotto.html.']

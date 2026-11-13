@@ -1,0 +1,9 @@
+name = "nonna-emma-decap-auth"
+main = "worker.mjs"
+compatibility_date = "2026-11-13"
+workers_dev = true
+
+[vars]
+CMS_ORIGIN = "https://redfox-arch.github.io"
+CMS_ADMIN_PATH = "/nonna-emma/admin/"
+GITHUB_REPOSITORY = "ReDfoX-arch/nonna-emma"
