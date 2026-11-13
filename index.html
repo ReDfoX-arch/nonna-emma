@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Satisfy&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="512x512" href="images/decorazioni/favicon-gomitolo.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20261113-cartamodello">
 </head>
 <body>
 
@@ -137,6 +137,34 @@
     <footer id="contatti">
         <h2>Parliamo di un progetto?</h2>
         <p>Per commissioni personalizzate o informazioni, scrivimi un messaggio.</p>
+        <section class="cartamodello stitch-border" aria-labelledby="titolo-cartamodello">
+            <h3 id="titolo-cartamodello">Disegniamo insieme la tua idea</h3>
+            <p class="cartamodello-intro">Lascia i tuoi dettagli: si aprirà il programma email con il messaggio già pronto.</p>
+            <form class="cartamodello-form" id="home-contact-form">
+                <label for="contatto-nome">Il tuo nome
+                    <input id="contatto-nome" name="Nome" type="text" autocomplete="name" required maxlength="100">
+                </label>
+                <label for="contatto-email">La tua email
+                    <input id="contatto-email" name="Email" type="email" autocomplete="email" required maxlength="160">
+                </label>
+                <label for="contatto-progetto">Che cosa vorresti realizzare?
+                    <select id="contatto-progetto" name="Progetto" required>
+                        <option value="" disabled selected>Scegli una creazione</option>
+                        <option value="Lavoro a maglia">Lavoro a maglia</option>
+                        <option value="Ricamo personalizzato">Ricamo personalizzato</option>
+                        <option value="Cucito e sartoria">Cucito e sartoria</option>
+                        <option value="Punto croce">Punto croce</option>
+                        <option value="Borsa / tote bag">Borsa / tote bag</option>
+                        <option value="Altro">Un'altra idea</option>
+                    </select>
+                </label>
+                <label for="contatto-dettagli">Raccontami la tua idea
+                    <textarea id="contatto-dettagli" name="Dettagli" rows="4" maxlength="2000" placeholder="Occasione, colori, misure o altri dettagli..."></textarea>
+                </label>
+                <button class="cartamodello-submit" type="submit">Prepara il messaggio <span aria-hidden="true">✉</span></button>
+                <p class="cartamodello-feedback" id="home-contact-feedback" aria-live="polite"></p>
+            </form>
+        </section>
         <a href="mailto:nonnaemma.site@gmail.com" class="btn-secondary">Invia un'Email</a>
         <div class="social-links">
             <p>O trovami su <a href="https://www.instagram.com/nonnaemmaa/?hl=it">Instagram</a></p>

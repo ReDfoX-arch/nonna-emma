@@ -311,3 +311,21 @@ if (moduloOrdine) {
             `mailto:nonnaemma.site@gmail.com?subject=${oggetto}&body=${corpo}`;
     });
 }
+
+const moduloContattoHome = document.querySelector("#home-contact-form");
+
+if (moduloContattoHome) {
+    moduloContattoHome.addEventListener("submit", (evento) => {
+        evento.preventDefault();
+        if (!moduloContattoHome.reportValidity()) return;
+
+        const righe = Array.from(new FormData(moduloContattoHome).entries()).map(
+            ([campo, valore]) => `${campo}: ${valore}`
+        );
+        const oggetto = encodeURIComponent("Una nuova idea | Nonna Emma");
+        const corpo = encodeURIComponent(righe.join("\n"));
+
+        window.location.href =
+            `mailto:nonnaemma.site@gmail.com?subject=${oggetto}&body=${corpo}`;
+    });
+}
