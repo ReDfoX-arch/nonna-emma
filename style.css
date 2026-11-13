@@ -16,7 +16,7 @@
 }
 
 body {
-    --filo-margine-contenuti: max(64px, 7vw, 12vh);
+    --filo-margine-contenuti: clamp(48px, 4vw, 64px);
     font-family: 'Quicksand', sans-serif;
     background-color: var(--bg-cream);
     background-image:
@@ -29,11 +29,6 @@ body {
     color: var(--text-brown);
     line-height: 1.6;
     scroll-behavior: smooth;
-}
-
-main,
-footer {
-    padding-right: var(--filo-margine-contenuti);
 }
 
 h1, h2, h3 {
@@ -325,13 +320,6 @@ footer h2 {
         font-size: clamp(1.15rem, 5vw, 1.6rem);
     }
 
-    .bobina-filato image {
-        transform: scale(1.8) translateY(8px);
-    }
-
-    .filo-scroll {
-        right: 8px;
-    }
 }
 
 /* LA GALLERIA E IL FILO RESTANO DECORATIVI SENZA OSTACOLARE I CONTENUTI. */
@@ -1083,18 +1071,18 @@ main {
 @media (max-width: 768px) {
     .filo-scroll {
         z-index: 1001;
-        right: 0;
+        right: 11px;
         left: auto;
     }
 
     .bobina-filato image {
-        transform: scale(1.15);
+        transform: scale(1);
         transform-box: fill-box;
         transform-origin: center;
     }
 
     body {
-        --filo-margine-contenuti: max(72px, 9vh);
+        --filo-margine-contenuti: max(48px, 6vh);
     }
 
     .navbar nav,
@@ -1287,9 +1275,41 @@ main {
 }
 
 .portfolio-progetti {
-    padding-right: max(56px, var(--filo-margine-contenuti));
+    padding-right: var(--filo-margine-contenuti);
+}
+
+.hero {
+    padding-right: calc(20px + var(--filo-margine-contenuti));
+}
+
+.portfolio {
+    padding-right: calc(50px + var(--filo-margine-contenuti));
+}
+
+.portfolio-progetti {
+    padding-right: var(--filo-margine-contenuti);
+}
+
+.about {
+    padding-right: calc(20px + var(--filo-margine-contenuti));
 }
 
 footer {
-    padding-right: var(--filo-margine-contenuti);
+    padding-right: calc(20px + var(--filo-margine-contenuti));
+}
+
+@media (max-width: 768px) {
+    .portfolio {
+        padding-right: calc(20px + var(--filo-margine-contenuti));
+    }
+
+    .portfolio-progetti {
+        padding-right: calc(20px + var(--filo-margine-contenuti));
+    }
+}
+
+@media (min-width: 769px) {
+    .pagina-galleria .filo-scroll {
+        right: clamp(88px, 11vw, 148px);
+    }
 }
