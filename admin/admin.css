@@ -94,17 +94,23 @@ body {
     border: 0 !important;
     border-radius: 999px !important;
     background: #A9634D !important;
-    box-shadow: 0 8px 18px rgba(169, 99, 77, 0.2);
+    box-shadow: 0 5px 0 #794332, 0 9px 18px rgba(90, 55, 40, 0.22), inset 0 1px 2px rgba(255, 255, 255, 0.24);
     color: #fff !important;
     font-family: "Quicksand", Arial, sans-serif;
     font-size: 0.95rem;
     font-weight: 700;
-    transition: background-color 160ms ease, transform 160ms ease;
+    transition: background-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
 }
 
 #nc-root [class*="AuthenticationPage"] button:hover {
     background: #BF7A5F !important;
-    transform: translateY(-1px);
+    transform: translateY(-2px) rotate(-0.7deg);
+    box-shadow: 0 7px 0 #794332, 0 12px 20px rgba(90, 55, 40, 0.24), inset 0 1px 2px rgba(255, 255, 255, 0.24);
+}
+
+#nc-root [class*="AuthenticationPage"] button:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #794332, 0 4px 10px rgba(90, 55, 40, 0.2);
 }
 
 #nc-root [class*="AuthenticationPage"] button:focus-visible,
