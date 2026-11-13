@@ -68,15 +68,16 @@ Il nome utente autorizzato deve anche avere il permesso **Write** sul repository
 
 Il pannello è una pagina statica: GitHub Pages non può nascondere la risposta HTML di `/admin/`. Chiunque può raggiungere la schermata di accesso, ma il Worker accetta l'OAuth solo se avviato dal percorso esatto del pannello e consegna il token esclusivamente agli account autorizzati con permesso di scrittura; gli altri non possono aprire la dashboard né salvare. I contenuti del catalogo sono pubblici, come il resto del sito.
 
-## Aggiungere e modificare progetti
+## Aggiungere e modificare progetti e foto
 
 - Apri **Catalogo del sito → Categorie e progetti**.
-- Le foto già presenti nel sito sono disponibili nella libreria del campo **Foto del progetto**. Le nuove immagini caricate vengono salvate in `images/uploads` e inserite automaticamente nella galleria.
-- Per un nuovo progetto usa **Aggiungi progetto**, inserisci un identificativo nuovo in minuscolo e senza spazi, poi nome, descrizione, testo alternativo e almeno una foto.
-- Aggiungi le foto una per volta nel campo **Foto del progetto**. L'ordine nell'elenco è l'ordine della galleria.
+- Per aggiungere un progetto, apri la categoria desiderata e seleziona **Aggiungi progetto**. Inserisci un identificativo nuovo in minuscolo e senza spazi, nome, descrizione, testo alternativo e almeno una foto.
+- Nel campo **Foto del progetto**, seleziona l'aggiunta di un'immagine per caricarla dal computer oppure scegli una foto già presente nella libreria. Le nuove immagini vengono salvate in `images/uploads`; aggiungile una per volta. L'ordine nell'elenco è l'ordine della galleria.
 - Per una categoria nuova usa **Aggiungi categoria** e poi aggiungi i progetti al suo interno.
 - Non cambiare gli identificativi dopo la pubblicazione: sono usati negli indirizzi delle pagine.
 - Lascia vuoto **Pagina speciale**, tranne per le calzine che usano `prodotto.html`.
+- Dopo le modifiche, seleziona **Salva** e poi **Pubblica**/**Publish now** nella schermata di conferma. Con `publish_mode: simple` Decap crea il commit direttamente su `main`; non serve unire manualmente un ramo o una pull request. Il sito pubblico si aggiorna quando GitHub Pages termina la pubblicazione.
+- L'anteprima a destra dell'editor è disattivata per lasciare più spazio alla modifica. La selezione e il caricamento delle foto restano disponibili nel campo **Foto del progetto**.
 
 ## Costi e limiti
 

@@ -72,7 +72,8 @@
             "images/uploads/ricamo-frutto3.jpeg",
             "images/uploads/ricamo-frutto4.jpeg",
             "images/uploads/ricamo-frutto5.jpeg"
-          ]
+          ],
+          "alt": "Ricami di piante e animali, con rane, pesci e frutti"
         },
         {
           "id": "decorativi",
@@ -81,7 +82,8 @@
           "immagini": [
             "images/uploads/ricamo-uccfoglie.jpeg",
             "images/uploads/ricamo-mandala.jpeg"
-          ]
+          ],
+          "alt": "Ricami decorativi con uccello tra le foglie e mandala"
         },
         {
           "id": "frasi-e-figure",
@@ -90,7 +92,8 @@
           "immagini": [
             "images/uploads/ricamo-piccoloprincipe.jpeg",
             "images/uploads/ricamo-caminante.jpeg"
-          ]
+          ],
+          "alt": "Ricami con frasi e figure"
         }
       ]
     },

@@ -10,6 +10,9 @@ display_url: https://redfox-arch.github.io/nonna-emma/
 publish_mode: simple
 locale: it
 
+editor:
+  preview: false
+
 logo:
   src: ../images/decorazioni/logo-dashboard-nonna-emma.png
   show_in_header: true
@@ -66,6 +69,7 @@ collections:
                   - label: Testo alternativo delle foto
                     name: alt
                     widget: string
+                    required: true
                     hint: Descrivi brevemente il soggetto delle immagini.
                   - label: Foto del progetto
                     name: immagini
