@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Satisfy&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="512x512" href="images/decorazioni/favicon-gomitolo.png">
-    <link rel="stylesheet" href="style.css?v=20261113-cartamodello">
+    <link rel="stylesheet" href="style.css?v=20261113-catalogo">
 </head>
 <body>
 
@@ -48,14 +48,13 @@
                     <details class="nav-dropdown">
                         <summary>Creazioni <span aria-hidden="true">⌄</span></summary>
                         <ul class="dropdown-menu">
-                            <li><a href="#creazioni">Tutte le creazioni</a></li>
-                            <li><a href="prodotto.html">Lavori a maglia</a></li>
-                            <li><a href="maglia.html#baby">Baby</a></li>
-                            <li><a href="ricamo.html">Ricami</a></li>
-                            <li><a href="ordine.html?prodotto=borsa">Borse / tote bag su richiesta</a></li>
-                            <li><a href="#categoria-cucito">Cucito e sartoria</a></li>
-                            <li><a href="#categoria-punto">Punto croce</a></li>
-                            <!-- PER AGGIUNGERE UNA VOCE, DUPLICA UN LI E SOSTITUISCI TESTO E DESTINAZIONE. -->
+                            <li><a href="#creazioni">Tutte le categorie</a></li>
+                            <li><a href="categoria.html?categoria=maglia">Lavori a maglia</a></li>
+                            <li><a href="categoria.html?categoria=ricamo">Ricami</a></li>
+                            <li><a href="categoria.html?categoria=cucito">Cucito e sartoria</a></li>
+                            <li><a href="categoria.html?categoria=punto">Punto croce</a></li>
+                            <li><a href="categoria.html?categoria=feltro">Feltro</a></li>
+                            <li><a href="categoria.html?categoria=gioielli">Gioielli</a></li>
                         </ul>
                     </details>
                 </li>
@@ -75,55 +74,8 @@
 
         <section id="creazioni" class="portfolio">
             <h2>Le Mie Creazioni</h2>
-            <div class="gallery-grid">
-                <div class="card stitch-border">
-                    <!-- INSERISCI QUI LA TUA FOTO: images/maglia/calzine.jpeg -->
-                    <a class="card-link" href="prodotto.html" aria-label="Scopri le calzine di lana">
-                        <img src="images/maglia/calzine.jpeg" alt="Calzine di lana fatte a mano">
-                        <div class="card-info">
-                            <h3>Lavori a Maglia</h3>
-                            <p>Calzine e accessori morbidi, lavorati a mano.</p>
-                            <span class="card-cta">Scopri i progetti →</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="card stitch-border">
-                    <!-- INSERISCI QUI LA TUA FOTO: images/ricamo/piccoloprincipe.jpeg -->
-                    <a class="card-link" href="ricamo.html" aria-label="Scopri i ricami decorativi">
-                        <img src="images/ricamo/piccoloprincipe.jpeg" alt="Ricamo Piccolo Principe">
-                        <div class="card-info">
-                            <!-- PERSONALIZZA QUI IL TITOLO E LA DESCRIZIONE DELLA CREAZIONE. -->
-                            <h3>Ricami Decorativi</h3>
-                            <p>Dettagli floreali e personalizzazioni delicate.</p>
-                            <span class="card-cta">Scopri i progetti →</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="card stitch-border" id="categoria-cucito">
-                    <!-- INSERISCI QUI LA TUA FOTO: images/cucito/luna.jpeg -->
-                    <a class="card-link" href="ordine.html?prodotto=cucito" aria-label="Richiedi un progetto di sartoria">
-                        <img src="images/cucito/luna.jpeg" alt="Fiocco per neonato">
-                        <div class="card-info">
-                            <h3>Progetti di Sartoria</h3>
-                            <p>Abiti su misura e accessori in tessuti naturali.</p>
-                            <span class="card-cta">Chiedi informazioni →</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="card stitch-border" id="categoria-punto">
-                    <!-- INSERISCI QUI LA TUA FOTO: images/punto/fiore0.jpeg -->
-                    <a class="card-link" href="ordine.html?prodotto=punto-croce" aria-label="Richiedi una creazione a punto croce">
-                        <img src="images/punto/fiore0.jpeg" alt="Quadretto con ricamo a punto croce">
-                        <div class="card-info">
-                            <h3>Creazioni di Punto Croce</h3>
-                            <p>Dettagli unici e motivi floreali realizzati a mano su tela aida.</p>
-                            <span class="card-cta">Chiedi informazioni →</span>
-                        </div>
-                    </a>
-                </div>
-
-
-            </div>
+            <p class="portfolio-intro">Scegli una categoria per esplorare tutti i progetti e le loro fotografie.</p>
+            <div class="gallery-grid catalog-grid" data-home-categories></div>
         </section>
 
         <section id="about" class="about">
