@@ -6,41 +6,24 @@
       "descrizione": "Capi e accessori morbidi realizzati a mano con filati scelti.",
       "elementi": [
         {
-          "id": "cappellino-baby",
-          "nome": "Cappellino Baby",
-          "descrizione": "Un cappellino morbido e caldo, lavorato a mano.",
+          "id": "baby",
+          "nome": "Baby",
+          "descrizione": "Accessori e capi per neonati e bambini.",
+          "alt": "Alcuni esempi di accessori per neonati e bambini, tra cui bonnet, calze e altro.",
           "immagini": [
-            "images/uploads/maglia-babyhat.jpeg"
-          ],
-          "alt": "Cappellino baby lavorato a maglia"
-        },
-        {
-          "id": "calzine-lana",
-          "nome": "Calzine di Lana",
-          "descrizione": "Calzine fatte a mano, disponibili in diversi colori.",
-          "immagini": [
+            "images/uploads/maglia-babyhat.jpeg",
             "images/uploads/maglia-calzine.jpeg"
-          ],
-          "alt": "Calzine di lana fatte a mano",
-          "pagina": "prodotto.html"
+          ]
         },
         {
-          "id": "papera",
-          "nome": "Papera",
-          "descrizione": "Una piccola creazione lavorata a maglia.",
+          "id": "peluche",
+          "nome": "Peluches",
+          "descrizione": "Peluches a maglia imbottiti in cotone.",
+          "alt": "Peluche a maglia, imbottiti in cotone. Disponibili eventualmente anche vestitini appositi su misura, da concordare.",
           "immagini": [
-            "images/uploads/maglia-papera.jpeg"
-          ],
-          "alt": "Creazione a maglia a forma di papera"
-        },
-        {
-          "id": "pecora",
-          "nome": "Pecora",
-          "descrizione": "Una piccola creazione lavorata a maglia.",
-          "immagini": [
+            "images/uploads/maglia-papera.jpeg",
             "images/uploads/maglia-pecora.jpeg"
-          ],
-          "alt": "Creazione a maglia a forma di pecora"
+          ]
         }
       ]
     },
