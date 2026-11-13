@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Satisfy&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="512x512" href="images/decorazioni/favicon-gomitolo.png">
-    <link rel="stylesheet" href="style.css?v=20261113-tag1">
+    <link rel="stylesheet" href="style.css?v=20261114-tag2">
 </head>
 <body>
 
@@ -82,15 +82,19 @@
             <h2>Tutte le creazioni</h2>
             <p class="portfolio-intro">Esplora i progetti e filtra per parole chiave.</p>
             <section class="tag-filter stitch-border" data-tag-filter hidden aria-labelledby="home-tag-filter-title">
-                <h2 id="home-tag-filter-title">Filtra per parole chiave</h2>
-                <p>Seleziona uno o più tag: vedrai le creazioni che ne contengono almeno uno.</p>
+                <h2 id="home-tag-filter-title">Esplora per etichetta</h2>
+                <p>Scegli una o più etichette colorate per scoprire le creazioni corrispondenti.</p>
                 <div class="tag-filter-options" data-tag-filters role="group" aria-label="Parole chiave disponibili"></div>
                 <div class="tag-filter-results">
-                    <p data-tag-filter-status aria-live="polite"></p>
+                    <p data-tag-filter-status aria-live="polite">Scegli un'etichetta per vedere le creazioni.</p>
                     <button class="tag-filter-clear" type="button" data-clear-tag-filters hidden>Rimuovi filtri</button>
                 </div>
+                <div class="tag-slider" data-tag-slider hidden>
+                    <button class="tag-slider-arrow" type="button" data-tag-slider-previous aria-label="Scorri le creazioni a sinistra">←</button>
+                    <section class="catalog-grid home-project-grid" data-home-project-grid aria-label="Creazioni con le etichette selezionate"></section>
+                    <button class="tag-slider-arrow" type="button" data-tag-slider-next aria-label="Scorri le creazioni a destra">→</button>
+                </div>
             </section>
-            <section class="catalog-grid home-project-grid" data-home-project-grid aria-label="Tutte le creazioni"></section>
         </section>
 
         <section id="about" class="about">
@@ -139,6 +143,6 @@
         <p class="copyright">© 2026 Nonna Emma. Realizzato con 🧶 e tanto amore.</p>
     </footer>
 
-    <script src="script.js" defer></script>
+    <script src="script.js?v=20261114-tag2" defer></script>
 </body>
 </html>

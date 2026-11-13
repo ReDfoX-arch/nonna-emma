@@ -92,7 +92,7 @@ collections:
                           name: parola
                           widget: string
                           required: true
-                        hint: Aggiungi i tag che descrivono questa foto.
+                        hint: "Riutilizza i suggerimenti per mantenere le parole coerenti; il sito uniforma le maiuscole."
                     hint: Aggiungi una foto per volta; usa l'ordine desiderato nella galleria.
                   - label: Pagina speciale
                     name: pagina

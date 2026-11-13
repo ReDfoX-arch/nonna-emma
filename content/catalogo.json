@@ -62,6 +62,7 @@
           "id": "borse",
           "nome": "Tote-bag e borse",
           "descrizione": "Ricami di diverso tipo su borse in cotone.",
+          "alt": "Borse in cotone decorate con ricami artigianali.",
           "immagini": [
             {
               "percorso": "images/uploads/ricamo-piccoloprincipe.jpeg",
@@ -111,6 +112,7 @@
           "id": "vari",
           "nome": "Tessuti e superfici varie",
           "descrizione": "Astucci, canovacci, cuscini e altri tessuti con ricami.",
+          "alt": "Astucci, cuscini e canovacci decorati con ricami artigianali.",
           "immagini": [
             {
               "percorso": "images/uploads/ricamo-astuccio.jpeg",

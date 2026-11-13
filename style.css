@@ -1892,6 +1892,59 @@ main {
     margin-top: 24px;
 }
 
+.tag-slider {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(8px, 2vw, 18px);
+    width: min(100%, 1120px);
+    margin: 24px auto 0;
+}
+
+.tag-slider[hidden] {
+    display: none;
+}
+
+.tag-slider-arrow {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 1px dashed var(--stitch-color);
+    border-radius: 50%;
+    background: #FFFCF7;
+    color: var(--yarn-terracotta-hover);
+    font: inherit;
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 3px 0 rgba(132, 85, 66, 0.2);
+}
+
+.tag-slider-arrow:hover {
+    background: var(--soft-peach);
+}
+
+.home-project-grid.is-tag-slider {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 8px 4px 16px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: var(--stitch-color) transparent;
+}
+
+.home-project-grid.is-tag-slider > .catalog-card {
+    flex: 0 0 clamp(230px, 32%, 340px);
+    scroll-snap-align: start;
+}
+
+.home-project-grid.is-tag-slider > .catalog-card[hidden] {
+    display: none;
+}
+
 .portfolio-progetti {
     padding-right: var(--filo-margine-contenuti);
 }
@@ -1923,6 +1976,20 @@ footer {
 
     .portfolio-progetti {
         padding-right: calc(20px + var(--filo-margine-contenuti));
+    }
+}
+
+@media (max-width: 600px) {
+    .tag-slider {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .tag-slider-arrow {
+        display: none;
+    }
+
+    .home-project-grid.is-tag-slider > .catalog-card {
+        flex-basis: min(82%, 340px);
     }
 }
 

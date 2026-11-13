@@ -182,14 +182,31 @@ const verificaCatalogo = (catalogo) => {
     return catalogo.categorie;
 };
 
-const chiaveTag = (tag) => tag.trim().toLocaleLowerCase("it");
+const normalizzaTag = (tag) => {
+    const valore =
+        typeof tag === "string"
+            ? tag
+            : tag && typeof tag === "object"
+                ? tag.parola ?? tag.tag ?? ""
+                : "";
+    if (typeof valore !== "string") return "";
+
+    const testo = valore.trim().replace(/\s+/g, " ");
+    return testo
+        ? testo.charAt(0).toLocaleUpperCase("it")
+            + testo.slice(1).toLocaleLowerCase("it")
+        : "";
+};
+
+const chiaveTag = (tag) => normalizzaTag(tag).toLocaleLowerCase("it");
 let coloriPerTag = new Map();
 
 const raccogliTagUnici = (tags) => {
     const tagUnici = new Map();
 
     tags.forEach((tag) => {
-        const testo = tag.trim();
+        const testo = normalizzaTag(tag);
+        if (!testo) return;
         const chiave = chiaveTag(testo);
         if (!tagUnici.has(chiave)) tagUnici.set(chiave, testo);
     });
@@ -247,6 +264,10 @@ const inizializzaFiltroTag = (creazioni, griglia) => {
     const schede = Array.from(griglia.children);
     const tagPerCreazione = creazioni.map(tagDellaCreazione);
     const tagDisponibili = raccogliTagUnici(tagPerCreazione.flat());
+    const filtroHome = griglia.matches("[data-home-project-grid]");
+    const carosello = filtroHome
+        ? document.querySelector("[data-tag-slider]")
+        : null;
 
     if (!tagDisponibili.length) {
         barraFiltro.hidden = true;
@@ -265,16 +286,27 @@ const inizializzaFiltroTag = (creazioni, griglia) => {
                 tagPerCreazione[indice].map(chiaveTag)
             );
             const corrisponde =
-                !selezionati.size
-                || [...selezionati].some((tag) => tagCreazione.has(tag));
+                filtroHome
+                    ? selezionati.size > 0
+                        && [...selezionati].some((tag) => tagCreazione.has(tag))
+                    : !selezionati.size
+                        || [...selezionati].some((tag) => tagCreazione.has(tag));
             scheda.hidden = !corrisponde;
             if (corrisponde) visibili += 1;
         });
 
-        statoFiltro.textContent = visibili === 0
-            ? "Nessuna creazione corrisponde ai tag selezionati."
-            : `${visibili} ${visibili === 1 ? "creazione" : "creazioni"} trovate.`;
+        statoFiltro.textContent = !selezionati.size && filtroHome
+            ? "Scegli un'etichetta per vedere le creazioni."
+            : visibili === 0
+                ? "Nessuna creazione corrisponde ai tag selezionati."
+                : `${visibili} ${visibili === 1 ? "creazione" : "creazioni"} trovate.`;
         pulsanteAzzera.hidden = !selezionati.size;
+
+        if (filtroHome) {
+            const mostraCarosello = selezionati.size > 0 && visibili > 0;
+            griglia.hidden = !mostraCarosello;
+            carosello.hidden = !mostraCarosello;
+        }
     };
 
     tagDisponibili.forEach((tag) => {
@@ -296,6 +328,20 @@ const inizializzaFiltroTag = (creazioni, griglia) => {
     });
 
     opzioniFiltro.replaceChildren(...pulsanti.values());
+    if (filtroHome) {
+        griglia.classList.add("is-tag-slider");
+        const scorri = (direzione) =>
+            griglia.scrollBy({
+                left: direzione * griglia.clientWidth * 0.8,
+                behavior: "smooth",
+            });
+        document
+            .querySelector("[data-tag-slider-previous]")
+            .addEventListener("click", () => scorri(-1));
+        document
+            .querySelector("[data-tag-slider-next]")
+            .addEventListener("click", () => scorri(1));
+    }
     pulsanteAzzera.addEventListener("click", () => {
         selezionati.clear();
         pulsanti.forEach((pulsante) =>
@@ -393,7 +439,21 @@ const inizializzaCatalogo = async () => {
             throw new Error(`Caricamento catalogo non riuscito: ${risposta.status}`);
         }
 
-        const categorieCreazioni = verificaCatalogo(await risposta.json());
+        const catalogo = await risposta.json();
+        if (Array.isArray(catalogo?.categorie)) {
+            catalogo.categorie.forEach((categoria) => {
+                if (!Array.isArray(categoria?.elementi)) return;
+                categoria.elementi.forEach((elemento) => {
+                    if (!Array.isArray(elemento?.immagini)) return;
+                    elemento.immagini.forEach((immagine) => {
+                        if (Array.isArray(immagine?.tag)) {
+                            immagine.tag = immagine.tag.map(normalizzaTag);
+                        }
+                    });
+                });
+            });
+        }
+        const categorieCreazioni = verificaCatalogo(catalogo);
         const elementiCreazioni = categorieCreazioni.flatMap((categoria) =>
             categoria.elementi.map((elemento) => ({ ...elemento, categoria }))
         );
@@ -417,9 +477,10 @@ const inizializzaCatalogo = async () => {
         }
 
         if (grigliaHome) {
-            grigliaHome.dataset.categoryCount = categorieCreazioni.length;
+            const categoriePrincipali = categorieCreazioni.slice(0, 6);
+            grigliaHome.dataset.categoryCount = categoriePrincipali.length;
             grigliaHome.replaceChildren(
-                ...categorieCreazioni.map(creaSchedaCategoria)
+                ...categoriePrincipali.map(creaSchedaCategoria)
             );
         }
 
