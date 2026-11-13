@@ -2,7 +2,7 @@ backend:
   name: github
   repo: ReDfoX-arch/nonna-emma
   branch: main
-  base_url: https://nonna-emma-admin.workers.dev/
+  base_url: https://auth.nonna-emma-admin.workers.dev
   auth_endpoint: auth
 
 site_url: https://redfox-arch.github.io/nonna-emma/
