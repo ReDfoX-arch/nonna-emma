@@ -1,0 +1,204 @@
+:root {
+    color-scheme: light;
+    font-family: "Quicksand", Arial, sans-serif;
+    color: #5A4A42;
+    background: #FAF6F0;
+}
+
+html,
+body,
+#nc-root {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    background: #FAF6F0;
+    color: #5A4A42;
+    font-family: "Quicksand", Arial, sans-serif;
+}
+
+#nc-root [class*="AuthenticationPage"] {
+    box-sizing: border-box;
+    min-height: 100vh;
+    gap: 22px;
+    padding: 40px 24px;
+    background:
+        radial-gradient(ellipse at 12% 18%, rgba(194, 211, 194, 0.42), transparent 34%),
+        radial-gradient(ellipse at 88% 84%, rgba(252, 235, 227, 0.8), transparent 38%),
+        #FAF6F0;
+    color: #5A4A42;
+}
+
+#nc-root [class*="AuthenticationPage"]::before {
+    content: "AREA RISERVATA";
+    color: #8A6A5D;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+#nc-root [class*="AuthenticationPage"]::after {
+    content: "Accesso consentito solo all’account GitHub autorizzato.";
+    max-width: 320px;
+    color: #79685F;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+#nc-root [class*="AuthenticationPage"] [class*="CustomIconWrapper"] {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: min(340px, 88vw);
+    height: 118px;
+    border: 1px solid rgba(179, 139, 125, 0.3);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 16px 40px rgba(90, 74, 66, 0.1);
+}
+
+#nc-root [class*="AuthenticationPage"] [class*="CustomIconWrapper"]::after {
+    content: "Nonna Emma";
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    left: 124px;
+    transform: translateY(-50%);
+    color: #A9634D;
+    font-family: "Satisfy", cursive;
+    font-size: 2rem;
+    text-align: center;
+    white-space: nowrap;
+}
+
+#nc-root [class*="AuthenticationPage"] [class*="CustomIconWrapper"] img {
+    position: absolute;
+    top: 50%;
+    left: 28px;
+    display: block;
+    width: 88px !important;
+    height: 88px !important;
+    transform: translateY(-50%);
+    object-fit: contain;
+}
+
+#nc-root [class*="AuthenticationPage"] [class*="NetlifyCreditIcon"] {
+    display: none;
+}
+
+#nc-root [class*="AuthenticationPage"] button {
+    min-height: 50px;
+    padding: 0 26px;
+    border: 0 !important;
+    border-radius: 999px !important;
+    background: #A9634D !important;
+    box-shadow: 0 8px 18px rgba(169, 99, 77, 0.2);
+    color: #fff !important;
+    font-family: "Quicksand", Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: background-color 160ms ease, transform 160ms ease;
+}
+
+#nc-root [class*="AuthenticationPage"] button:hover {
+    background: #BF7A5F !important;
+    transform: translateY(-1px);
+}
+
+#nc-root [class*="AuthenticationPage"] button:focus-visible,
+#nc-root [class*="AuthenticationPage"] a:focus-visible {
+    outline: 3px solid #D48C70;
+    outline-offset: 4px;
+}
+
+#nc-root [class*="AuthenticationPage"] a {
+    color: #8A5E4E;
+    font-family: "Quicksand", Arial, sans-serif;
+    font-weight: 600;
+    text-decoration-color: rgba(138, 94, 78, 0.45);
+    text-underline-offset: 4px;
+}
+
+#nc-root [class*="AppHeader"] {
+    min-height: 64px;
+    border-bottom: 1px solid rgba(179, 139, 125, 0.24);
+    background: #FFFCF8 !important;
+    box-shadow: 0 3px 14px rgba(90, 74, 66, 0.06);
+}
+
+#nc-root [class*="AppHeader"] [class*="CustomIconWrapper"] {
+    display: flex;
+    width: 190px;
+    height: 48px;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+#nc-root [class*="AppHeader"] [class*="CustomIconWrapper"] img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+#nc-root [class*="AppHeader"] [class*="CustomIconWrapper"]::after {
+    content: "Nonna Emma";
+    color: #A9634D;
+    font-family: "Satisfy", cursive;
+    font-size: 1.65rem;
+    white-space: nowrap;
+}
+
+#nc-root [class*="Sidebar"] {
+    background: #F7F1E9;
+}
+
+#nc-root input:not([type="checkbox"]):not([type="radio"]),
+#nc-root textarea,
+#nc-root select {
+    border-color: #DDC8BD;
+    border-radius: 8px;
+    font-family: "Quicksand", Arial, sans-serif;
+}
+
+#nc-root input:focus,
+#nc-root textarea:focus,
+#nc-root select:focus {
+    border-color: #A9634D;
+    box-shadow: 0 0 0 2px rgba(212, 140, 112, 0.18);
+}
+
+#nc-root [class*="MediaLibrary"] img,
+#nc-root [class*="ImagePreview"] img,
+#nc-root [class*="AssetPreview"] img {
+    background: #FFFCF8;
+    object-fit: contain;
+}
+
+@media (max-width: 480px) {
+    #nc-root [class*="AuthenticationPage"] {
+        gap: 18px;
+        padding: 28px 18px;
+    }
+
+    #nc-root [class*="AuthenticationPage"] [class*="CustomIconWrapper"] {
+        height: 96px;
+    }
+
+    #nc-root [class*="AuthenticationPage"] [class*="CustomIconWrapper"] img {
+        left: 16px;
+        width: 70px !important;
+        height: 70px !important;
+    }
+
+    #nc-root [class*="AuthenticationPage"] [class*="CustomIconWrapper"]::after {
+        right: 10px;
+        left: 92px;
+        font-size: 1.65rem;
+    }
+}

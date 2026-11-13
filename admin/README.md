@@ -71,6 +71,7 @@ Il pannello è una pagina statica: GitHub Pages non può nascondere la risposta 
 ## Aggiungere e modificare progetti
 
 - Apri **Catalogo del sito → Categorie e progetti**.
+- Le foto già presenti nel sito sono disponibili nella libreria del campo **Foto del progetto**. Le nuove immagini caricate vengono salvate in `images/uploads` e inserite automaticamente nella galleria.
 - Per un nuovo progetto usa **Aggiungi progetto**, inserisci un identificativo nuovo in minuscolo e senza spazi, poi nome, descrizione, testo alternativo e almeno una foto.
 - Aggiungi le foto una per volta nel campo **Foto del progetto**. L'ordine nell'elenco è l'ordine della galleria.
 - Per una categoria nuova usa **Aggiungi categoria** e poi aggiungi i progetti al suo interno.

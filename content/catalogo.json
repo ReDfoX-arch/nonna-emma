@@ -9,14 +9,14 @@
           "id": "cappellino-baby",
           "nome": "Cappellino Baby",
           "descrizione": "Un cappellino morbido e caldo, lavorato a mano.",
-          "immagini": ["images/maglia/babyhat.jpeg"],
+          "immagini": ["images/uploads/maglia-babyhat.jpeg"],
           "alt": "Cappellino baby lavorato a maglia"
         },
         {
           "id": "calzine-lana",
           "nome": "Calzine di Lana",
           "descrizione": "Calzine fatte a mano, disponibili in diversi colori.",
-          "immagini": ["images/maglia/calzine.jpeg"],
+          "immagini": ["images/uploads/maglia-calzine.jpeg"],
           "alt": "Calzine di lana fatte a mano",
           "pagina": "prodotto.html"
         },
@@ -24,14 +24,14 @@
           "id": "papera",
           "nome": "Papera",
           "descrizione": "Una piccola creazione lavorata a maglia.",
-          "immagini": ["images/maglia/papera.jpeg"],
+          "immagini": ["images/uploads/maglia-papera.jpeg"],
           "alt": "Creazione a maglia a forma di papera"
         },
         {
           "id": "pecora",
           "nome": "Pecora",
           "descrizione": "Una piccola creazione lavorata a maglia.",
-          "immagini": ["images/maglia/pecora.jpeg"],
+          "immagini": ["images/uploads/maglia-pecora.jpeg"],
           "alt": "Creazione a maglia a forma di pecora"
         }
       ]
@@ -45,14 +45,14 @@
           "id": "astuccio",
           "nome": "Astuccio Ricamato",
           "descrizione": "Un astuccio decorato con ricami fatti a mano.",
-          "immagini": ["images/ricamo/astuccio.jpeg"],
+          "immagini": ["images/uploads/ricamo-astuccio.jpeg"],
           "alt": "Astuccio ricamato"
         },
         {
           "id": "caminante",
           "nome": "Il Caminante",
           "descrizione": "Un ricamo decorativo realizzato a mano.",
-          "immagini": ["images/ricamo/caminante.jpeg"],
+          "immagini": ["images/uploads/ricamo-caminante.jpeg"],
           "alt": "Ricamo decorativo Il Caminante"
         },
         {
@@ -60,12 +60,12 @@
           "nome": "Frutta Ricamata",
           "descrizione": "Una serie di fotografie dello stesso progetto ricamato.",
           "immagini": [
-            "images/ricamo/frutto0.jpeg",
-            "images/ricamo/frutto1.jpeg",
-            "images/ricamo/frutto2.jpeg",
-            "images/ricamo/frutto3.jpeg",
-            "images/ricamo/frutto4.jpeg",
-            "images/ricamo/frutto5.jpeg"
+            "images/uploads/ricamo-frutto0.jpeg",
+            "images/uploads/ricamo-frutto1.jpeg",
+            "images/uploads/ricamo-frutto2.jpeg",
+            "images/uploads/ricamo-frutto3.jpeg",
+            "images/uploads/ricamo-frutto4.jpeg",
+            "images/uploads/ricamo-frutto5.jpeg"
           ],
           "alt": "Ricamo a tema frutta"
         },
@@ -73,42 +73,42 @@
           "id": "mandala",
           "nome": "Mandala",
           "descrizione": "Un ricamo decorativo a mandala.",
-          "immagini": ["images/ricamo/mandala.jpeg"],
+          "immagini": ["images/uploads/ricamo-mandala.jpeg"],
           "alt": "Ricamo mandala"
         },
         {
           "id": "pesci",
           "nome": "Pesci",
           "descrizione": "Un ricamo decorativo a tema marino.",
-          "immagini": ["images/ricamo/pesci.jpeg"],
+          "immagini": ["images/uploads/ricamo-pesci.jpeg"],
           "alt": "Ricamo decorativo con pesci"
         },
         {
           "id": "piccolo-principe",
           "nome": "Piccolo Principe",
           "descrizione": "Un ricamo ispirato al Piccolo Principe.",
-          "immagini": ["images/ricamo/piccoloprincipe.jpeg"],
+          "immagini": ["images/uploads/ricamo-piccoloprincipe.jpeg"],
           "alt": "Ricamo del Piccolo Principe"
         },
         {
           "id": "rana",
           "nome": "Rana",
           "descrizione": "Un ricamo decorativo a forma di rana.",
-          "immagini": ["images/ricamo/rana_sing.jpeg"],
+          "immagini": ["images/uploads/ricamo-rana_sing.jpeg"],
           "alt": "Ricamo con una rana"
         },
         {
           "id": "rane",
           "nome": "Rane",
           "descrizione": "Un ricamo decorativo con rane.",
-          "immagini": ["images/ricamo/rane.jpeg"],
+          "immagini": ["images/uploads/ricamo-rane.jpeg"],
           "alt": "Ricamo con rane"
         },
         {
           "id": "uccello-foglie",
           "nome": "Uccello tra le Foglie",
           "descrizione": "Un ricamo decorativo con uccello e foglie.",
-          "immagini": ["images/ricamo/uccfoglie.jpeg"],
+          "immagini": ["images/uploads/ricamo-uccfoglie.jpeg"],
           "alt": "Ricamo con uccello tra le foglie"
         }
       ]
@@ -122,14 +122,14 @@
           "id": "luna",
           "nome": "Fiocco Luna",
           "descrizione": "Un accessorio in stoffa realizzato a mano.",
-          "immagini": ["images/cucito/luna.jpeg"],
+          "immagini": ["images/uploads/cucito-luna.jpeg"],
           "alt": "Fiocco per neonato in tessuto"
         },
         {
           "id": "scap-obj",
           "nome": "Progetto di Cucito",
           "descrizione": "Un progetto sartoriale realizzato a mano.",
-          "immagini": ["images/cucito/scap_obj.jpeg"],
+          "immagini": ["images/uploads/cucito-scap_obj.jpeg"],
           "alt": "Progetto di cucito fatto a mano"
         }
       ]
@@ -144,10 +144,10 @@
           "nome": "Fiore Ricamato",
           "descrizione": "Quattro fotografie dello stesso progetto floreale.",
           "immagini": [
-            "images/punto/fiore0.jpeg",
-            "images/punto/fiore1.jpeg",
-            "images/punto/fiore2.jpeg",
-            "images/punto/fiore3.jpeg"
+            "images/uploads/punto-fiore0.jpeg",
+            "images/uploads/punto-fiore1.jpeg",
+            "images/uploads/punto-fiore2.jpeg",
+            "images/uploads/punto-fiore3.jpeg"
           ],
           "alt": "Ricamo floreale a punto croce"
         },
@@ -156,9 +156,9 @@
           "nome": "Segnalibro",
           "descrizione": "Un segnalibro ricamato, mostrato in tre fotografie.",
           "immagini": [
-            "images/punto/segnalibro0.jpeg",
-            "images/punto/segnalibro1.jpeg",
-            "images/punto/segnalibro2.jpeg"
+            "images/uploads/punto-segnalibro0.jpeg",
+            "images/uploads/punto-segnalibro1.jpeg",
+            "images/uploads/punto-segnalibro2.jpeg"
           ],
           "alt": "Segnalibro ricamato a punto croce"
         }
@@ -173,14 +173,14 @@
           "id": "carota",
           "nome": "Carota in Feltro",
           "descrizione": "Una decorazione a forma di carota in feltro.",
-          "immagini": ["images/Feltro/carota.jpeg"],
+          "immagini": ["images/uploads/feltro-carota.jpeg"],
           "alt": "Carota realizzata in feltro"
         },
         {
           "id": "ghiande",
           "nome": "Ghiande in Feltro",
           "descrizione": "Piccole ghiande decorative in feltro.",
-          "immagini": ["images/Feltro/ghiande.jpeg"],
+          "immagini": ["images/uploads/feltro-ghiande.jpeg"],
           "alt": "Ghiande decorative in feltro"
         }
       ]
@@ -194,14 +194,14 @@
           "id": "gioielli-foglia",
           "nome": "Gioiello Foglia",
           "descrizione": "Un gioiello artigianale con motivo a foglia.",
-          "immagini": ["images/Gioielli/gioielli_leaf.jpeg"],
+          "immagini": ["images/uploads/gioielli-gioielli_leaf.jpeg"],
           "alt": "Gioiello artigianale a forma di foglia"
         },
         {
           "id": "gioielli-collezione",
           "nome": "Collezione di Gioielli",
           "descrizione": "Una selezione di gioielli realizzati a mano.",
-          "immagini": ["images/Gioielli/gioielli_tot.jpeg"],
+          "immagini": ["images/uploads/gioielli-gioielli_tot.jpeg"],
           "alt": "Collezione di gioielli artigianali"
         }
       ]

@@ -10,6 +10,10 @@ display_url: https://redfox-arch.github.io/nonna-emma/
 publish_mode: simple
 locale: it
 
+logo:
+  src: ../images/decorazioni/logo-completo-nonna-emma.png
+  show_in_header: true
+
 media_folder: images/uploads
 public_folder: images/uploads
 
