@@ -6,148 +6,177 @@
       "descrizione": "Capi e accessori morbidi realizzati a mano con filati scelti.",
       "elementi": [
         {
-          "id": "cappellino-baby",
-          "nome": "Cappellino Baby",
-          "descrizione": "Un cappellino morbido e caldo, lavorato a mano.",
+          "id": "baby",
+          "nome": "Baby",
+          "descrizione": "Accessori e capi per neonati e bambini.",
+          "alt": "Alcuni esempi di accessori per neonati e bambini, tra cui bonnet, calze e altro.",
           "immagini": [
             {
-              "percorso": "images/uploads/maglia-babyhat.jpeg",
-              "tag": []
-            }
-          ],
-          "alt": "Cappellino baby lavorato a maglia"
-        },
-        {
-          "id": "calzine-lana",
-          "nome": "Calzine di Lana",
-          "descrizione": "Calzine fatte a mano, disponibili in diversi colori.",
-          "immagini": [
+              "tag": [
+                "Baby",
+                "Maglia"
+              ],
+              "percorso": "images/uploads/maglia-babyhat.jpeg"
+            },
             {
               "percorso": "images/uploads/maglia-calzine.jpeg",
-              "tag": []
+              "tag": [
+                "Baby",
+                "Maglia"
+              ]
             }
-          ],
-          "alt": "Calzine di lana fatte a mano",
-          "pagina": "prodotto.html"
+          ]
         },
         {
-          "id": "papera",
-          "nome": "Papera",
-          "descrizione": "Una piccola creazione lavorata a maglia.",
+          "id": "peluche",
+          "nome": "Peluches",
+          "descrizione": "Peluches a maglia imbottiti in cotone.",
+          "alt": "Peluches a maglia, imbottiti in cotone. Disponibili eventualmente anche vestitini appositi su misura, da concordare.",
           "immagini": [
             {
               "percorso": "images/uploads/maglia-papera.jpeg",
-              "tag": []
-            }
-          ],
-          "alt": "Creazione a maglia a forma di papera"
-        },
-        {
-          "id": "pecora",
-          "nome": "Pecora",
-          "descrizione": "Una piccola creazione lavorata a maglia.",
-          "immagini": [
+              "tag": [
+                "Baby",
+                "Peluches",
+                "Maglia"
+              ]
+            },
             {
               "percorso": "images/uploads/maglia-pecora.jpeg",
-              "tag": []
+              "tag": [
+                "Baby",
+                "Peluches",
+                "Maglia"
+              ]
             }
-          ],
-          "alt": "Creazione a maglia a forma di pecora"
+          ]
         }
       ]
     },
     {
       "id": "ricamo",
       "nome": "Ricami Decorativi",
-      "descrizione": "Ricami e decorazioni realizzati punto dopo punto.",
+      "descrizione": "Ricami a mano libera e decorazioni su diversi tessuti e superfici.",
       "elementi": [
         {
-          "id": "astuccio",
-          "nome": "Astucci",
-          "descrizione": "Un astuccio decorato con ricami fatti a mano.",
-          "immagini": [
-            {
-              "percorso": "images/uploads/ricamo-astuccio.jpeg",
-              "tag": []
-            }
-          ],
-          "alt": "Astuccio ricamato"
-        },
-        {
-          "id": "piante-e-animali",
-          "nome": "Piante e Animali",
-          "descrizione": "Alcune proposte di ricami a tema piante e animali.",
-          "immagini": [
-            {
-              "percorso": "images/uploads/ricamo-rane.jpeg",
-              "tag": []
-            },
-            {
-              "percorso": "images/uploads/ricamo-rana_sing.jpeg",
-              "tag": []
-            },
-            {
-              "percorso": "images/uploads/ricamo-pesci.jpeg",
-              "tag": []
-            },
-            {
-              "percorso": "images/uploads/ricamo-frutto0.jpeg",
-              "tag": []
-            },
-            {
-              "percorso": "images/uploads/ricamo-frutto1.jpeg",
-              "tag": []
-            },
-            {
-              "percorso": "images/uploads/ricamo-frutto2.jpeg",
-              "tag": []
-            },
-            {
-              "percorso": "images/uploads/ricamo-frutto3.jpeg",
-              "tag": []
-            },
-            {
-              "percorso": "images/uploads/ricamo-frutto4.jpeg",
-              "tag": []
-            },
-            {
-              "percorso": "images/uploads/ricamo-frutto5.jpeg",
-              "tag": []
-            }
-          ],
-          "alt": "Ricami di piante e animali, con rane, pesci e frutti"
-        },
-        {
-          "id": "decorativi",
-          "nome": "Decorazioni",
-          "descrizione": "Ricami a tema floreale, geometrico, mandala e altri.",
-          "immagini": [
-            {
-              "percorso": "images/uploads/ricamo-uccfoglie.jpeg",
-              "tag": []
-            },
-            {
-              "percorso": "images/uploads/ricamo-mandala.jpeg",
-              "tag": []
-            }
-          ],
-          "alt": "Ricami decorativi con uccello tra le foglie e mandala"
-        },
-        {
-          "id": "frasi-e-figure",
-          "nome": "Frasi e Figure",
-          "descrizione": "Ricami di testi e piccole figure su tessuto. ",
+          "id": "borse",
+          "nome": "Tote-bag e borse",
+          "descrizione": "Ricami di diverso tipo su borse in cotone.",
           "immagini": [
             {
               "percorso": "images/uploads/ricamo-piccoloprincipe.jpeg",
-              "tag": []
+              "tag": [
+                "Tote-Bag",
+                "Ricamo"
+              ]
             },
             {
               "percorso": "images/uploads/ricamo-caminante.jpeg",
-              "tag": []
+              "tag": [
+                "Tote-Bag",
+                "Ricamo"
+              ]
+            },
+            {
+              "percorso": "images/uploads/ricamo-uccfoglie.jpeg",
+              "tag": [
+                "Tote-Bag",
+                "Ricamo"
+              ]
+            },
+            {
+              "percorso": "images/uploads/ricamo-pesci.jpeg",
+              "tag": [
+                "Tote-Bag",
+                "Ricamo"
+              ]
+            },
+            {
+              "percorso": "images/uploads/ricamo-rane.jpeg",
+              "tag": [
+                "Tote-Bag",
+                "Ricamo"
+              ]
+            },
+            {
+              "percorso": "images/uploads/ricamo-mandala.jpeg",
+              "tag": [
+                "Tote-Bag",
+                "Ricamo"
+              ]
             }
-          ],
-          "alt": "Ricami con frasi e figure"
+          ]
+        },
+        {
+          "id": "vari",
+          "nome": "Tessuti e superfici varie",
+          "descrizione": "Astucci, canovacci, cuscini e altri tessuti con ricami.",
+          "immagini": [
+            {
+              "percorso": "images/uploads/ricamo-astuccio.jpeg",
+              "tag": [
+                "Astucci",
+                "Ricamo",
+                "Fiori"
+              ]
+            },
+            {
+              "percorso": "images/uploads/ricamo-rana_sing.jpeg",
+              "tag": [
+                "Cuscini",
+                "Ricamo",
+                "Animali"
+              ]
+            },
+            {
+              "percorso": "images/uploads/ricamo-frutto0.jpeg",
+              "tag": [
+                "Canovacci",
+                "Ricamo",
+                "Frutta"
+              ]
+            },
+            {
+              "percorso": "images/uploads/ricamo-frutto1.jpeg",
+              "tag": [
+                "Canovacci",
+                "Ricamo",
+                "Frutta"
+              ]
+            },
+            {
+              "percorso": "images/uploads/ricamo-frutto2.jpeg",
+              "tag": [
+                "Canovacci",
+                "Ricamo",
+                "Frutta"
+              ]
+            },
+            {
+              "percorso": "images/uploads/ricamo-frutto3.jpeg",
+              "tag": [
+                "Canovacci",
+                "Ricamo",
+                "Frutta"
+              ]
+            },
+            {
+              "percorso": "images/uploads/ricamo-frutto4.jpeg",
+              "tag": [
+                "Canovacci",
+                "Ricamo",
+                "Frutta"
+              ]
+            },
+            {
+              "percorso": "images/uploads/ricamo-frutto5.jpeg",
+              "tag": [
+                "Canovacci",
+                "Ricamo",
+                "Frutta"
+              ]
+            }
+          ]
         }
       ]
     },
