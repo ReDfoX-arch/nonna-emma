@@ -1775,47 +1775,13 @@ main {
     align-items: center;
     min-height: 28px;
     padding: 4px 11px;
-    border: 1px solid;
+    border: 1px solid hsl(var(--tag-hue), 43%, 68%);
     border-radius: 999px;
+    background: hsl(var(--tag-hue), 68%, 92%);
+    color: hsl(var(--tag-hue), 48%, 25%);
     font-size: 0.82rem;
     font-weight: 700;
     line-height: 1.25;
-}
-
-.creation-tag[data-tag-color="0"] {
-    border-color: #e7c2b5;
-    background: #f8e5de;
-    color: #704637;
-}
-
-.creation-tag[data-tag-color="1"] {
-    border-color: #bfd2bd;
-    background: #e7f0e5;
-    color: #3e5b42;
-}
-
-.creation-tag[data-tag-color="2"] {
-    border-color: #c0d0df;
-    background: #e7eff6;
-    color: #3f566b;
-}
-
-.creation-tag[data-tag-color="3"] {
-    border-color: #d3c4df;
-    background: #f0eaf5;
-    color: #5e4a6d;
-}
-
-.creation-tag[data-tag-color="4"] {
-    border-color: #e2d0a6;
-    background: #f7f0dc;
-    color: #68572f;
-}
-
-.creation-tag[data-tag-color="5"] {
-    border-color: #e0bfd0;
-    background: #f5e7ee;
-    color: #69475a;
 }
 
 .tag-filter {

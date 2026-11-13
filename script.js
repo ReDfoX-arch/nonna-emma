@@ -217,7 +217,10 @@ const raccogliTagUnici = (tags) => {
 const creaEtichettaTag = (testo, pulsante = false) => {
     const etichetta = document.createElement(pulsante ? "button" : "span");
     etichetta.className = "creation-tag";
-    etichetta.dataset.tagColor = String(coloriPerTag.get(chiaveTag(testo)) || 0);
+    etichetta.style.setProperty(
+        "--tag-hue",
+        String(coloriPerTag.get(chiaveTag(testo)) || 0)
+    );
     etichetta.textContent = testo;
 
     if (pulsante) {
@@ -457,10 +460,14 @@ const inizializzaCatalogo = async () => {
         const elementiCreazioni = categorieCreazioni.flatMap((categoria) =>
             categoria.elementi.map((elemento) => ({ ...elemento, categoria }))
         );
+        const tagUnici = raccogliTagUnici(
+            elementiCreazioni.flatMap(tagDellaCreazione)
+        );
         coloriPerTag = new Map(
-            raccogliTagUnici(
-                elementiCreazioni.flatMap(tagDellaCreazione)
-            ).map((tag, indice) => [chiaveTag(tag), indice % 6])
+            tagUnici.map((tag, indice) => [
+                chiaveTag(tag),
+                Math.round((indice * 360) / tagUnici.length),
+            ])
         );
 
         if (tagPaginaProdotto) {
