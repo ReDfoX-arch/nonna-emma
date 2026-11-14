@@ -150,8 +150,8 @@ nav a:hover {
     text-align: center;
     padding: clamp(72px, 11vw, 132px) 20px;
     background:
-        linear-gradient(180deg, rgba(255, 253, 249, 0.76), rgba(250, 246, 240, 0.84)),
-        var(--sfondo-hero-immagine, url("images/brand/sfondo.png")) center / cover repeat,
+        var(--gradiente-hero, linear-gradient(180deg, rgba(255, 253, 249, 0.76), rgba(250, 246, 240, 0.84))),
+        var(--sfondo-hero-immagine, url("images/brand/sfondo.png")) center / var(--dimensione-hero-immagine, cover) var(--ripetizione-hero-immagine, no-repeat),
         radial-gradient(ellipse at 50% 20%, rgba(252, 235, 227, 0.96), transparent 68%),
         radial-gradient(ellipse at 12% 100%, rgba(194, 211, 194, 0.24), transparent 42%),
         linear-gradient(180deg, rgba(255, 253, 249, 0.72), rgba(250, 246, 240, 0.36));

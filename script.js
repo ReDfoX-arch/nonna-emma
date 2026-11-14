@@ -459,6 +459,27 @@ const inizializzaCatalogo = async () => {
             );
         }
 
+        const trasparenza = catalogo?.trasparenza_hero || "media";
+        let gradienteHero = "linear-gradient(180deg, rgba(255, 253, 249, 0.76), rgba(250, 246, 240, 0.84))";
+        if (trasparenza === "leggera") {
+            gradienteHero = "linear-gradient(180deg, rgba(255, 253, 249, 0.42), rgba(250, 246, 240, 0.58))";
+        } else if (trasparenza === "forte") {
+            gradienteHero = "linear-gradient(180deg, rgba(255, 253, 249, 0.88), rgba(250, 246, 240, 0.94))";
+        }
+        document.documentElement.style.setProperty("--gradiente-hero", gradienteHero);
+
+        const posizione = catalogo?.posizione_hero || "cover";
+        if (posizione === "repeat") {
+            document.documentElement.style.setProperty("--dimensione-hero-immagine", "auto");
+            document.documentElement.style.setProperty("--ripetizione-hero-immagine", "repeat");
+        } else if (posizione === "contain") {
+            document.documentElement.style.setProperty("--dimensione-hero-immagine", "contain");
+            document.documentElement.style.setProperty("--ripetizione-hero-immagine", "no-repeat");
+        } else {
+            document.documentElement.style.setProperty("--dimensione-hero-immagine", "cover");
+            document.documentElement.style.setProperty("--ripetizione-hero-immagine", "no-repeat");
+        }
+
         if (typeof catalogo?.tema_sfondo === "string" && catalogo.tema_sfondo.trim()) {
             const tema = catalogo.tema_sfondo.trim();
             if (tema !== "sfumatura-crema") {

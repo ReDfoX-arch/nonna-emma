@@ -178,15 +178,58 @@ body {
     color: #A9634D;
 }
 
+#nc-root select {
+    appearance: none !important;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A9634D' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 14px center !important;
+    background-size: 16px !important;
+    padding-right: 40px !important;
+    cursor: pointer;
+}
+
+#nc-root select:hover {
+    border-color: #A9634D !important;
+}
+
 #nc-root [class*="ControlPane"] {
-    padding: 20px 24px;
+    max-width: 980px !important;
+    margin: 0 auto !important;
+    padding: 24px 32px !important;
 }
 
 #nc-root [class*="FieldLabel"] {
     font-weight: 700;
-    color: #6C5549;
+    color: #5A4A42;
     font-size: 0.95rem;
     margin-bottom: 6px;
+}
+
+#nc-root [class*="FieldHint"] {
+    color: #8C786E !important;
+    font-size: 0.82rem !important;
+    line-height: 1.4 !important;
+    margin-top: 5px !important;
+}
+
+#nc-root [class*="Card"] {
+    border-radius: 16px !important;
+    border: 1px solid rgba(179, 139, 125, 0.22) !important;
+    box-shadow: 0 4px 16px rgba(90, 74, 66, 0.05) !important;
+    background: #FFFFFF !important;
+    padding: 16px !important;
+    margin-bottom: 16px !important;
+}
+
+#nc-root button[class*="Button"] {
+    font-family: "Quicksand", Arial, sans-serif !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+    transition: all 160ms ease !important;
+}
+
+#nc-root button[class*="Button"]:hover {
+    transform: translateY(-1px);
 }
 
 #nc-root input:not([type="checkbox"]):not([type="radio"]),

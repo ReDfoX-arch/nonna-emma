@@ -33,8 +33,28 @@ collections:
             widget: image
             required: false
             default: "images/brand/sfondo.png"
-            hint: "Carica l'immagine o motivo da mostrare nella parte alta della Home. Il sito le applica automaticamente un gradiente morbido con trasparenza."
-          - label: "Tema di sfondo del sito"
+            hint: "Carica l'immagine da usare come sfondo dell'intestazione Home."
+          - label: "Trasparenza / Intensità della sfumatura (Hero)"
+            name: trasparenza_hero
+            widget: select
+            required: false
+            default: "media"
+            options:
+              - { label: "Leggera (sfondo molto visibile e contrastato)", value: "leggera" }
+              - { label: "Media (bilanciata con sfumatura morbida)", value: "media" }
+              - { label: "Forte (trasparenza delicata e testo ultra-leggibile)", value: "forte" }
+            hint: "Regola l'intensità del gradiente in trasparenza sopra l'immagine dell'intestazione."
+          - label: "Posizionamento immagine"
+            name: posizione_hero
+            widget: select
+            required: false
+            default: "cover"
+            options:
+              - { label: "Copri intera area (Cover)", value: "cover" }
+              - { label: "Ripeti come motivo / texture (Repeat)", value: "repeat" }
+              - { label: "Centrata e contenuta (Contain)", value: "contain" }
+            hint: "Scegli come deve adattarsi l'immagine alla larghezza dello schermo."
+          - label: "Tema di sfondo generale del sito"
             name: tema_sfondo
             widget: select
             required: false
