@@ -253,16 +253,18 @@
           "descrizione": "Cuscini riscaldabili in microonde, realizzati con tessuto di cotone, riso e sale grosso, personalizzabile (ceci, lenticchie, ...).",
           "immagini": [
             {
-              "percorso": "images/uploads/placeholder.png",
+              "percorso": "images/uploads/cucito-cuscino.jpeg",
               "tag": [
-                "Sartoria"
+                "Sartoria",
+                "Cuscini"
               ]
             },
             {
               "percorso": "images/uploads/ricamo-rana_sing.jpeg",
               "tag": [
                 "Sartoria",
-                "Ricamo"
+                "Ricamo",
+                "Cuscini"
               ]
             }
           ]
