@@ -1,4 +1,20 @@
 {
+  "suggerimenti_tag": [
+    "Accessori",
+    "Animali",
+    "Astucci",
+    "Baby",
+    "Canovacci",
+    "Cucito a mano",
+    "Cuscini",
+    "Fiori",
+    "Frutta",
+    "Maglia",
+    "Peluches",
+    "Ricamo",
+    "Sartoria",
+    "Tote-bag"
+  ],
   "categorie": [
     {
       "id": "maglia",
@@ -8,8 +24,7 @@
         {
           "id": "baby",
           "nome": "Baby",
-          "descrizione": "Accessori e capi per neonati e bambini.",
-          "alt": "Alcuni esempi di accessori per neonati e bambini, tra cui bonnet, calze e altro.",
+          "descrizione": "Accessori e capi per neonati e bambini. Alcuni esempi includono bonnet, calze e altro.",
           "immagini": [
             {
               "tag": [
@@ -30,8 +45,7 @@
         {
           "id": "peluche",
           "nome": "Peluches",
-          "descrizione": "Peluches a maglia imbottiti in cotone.",
-          "alt": "Peluches a maglia, imbottiti in cotone. Disponibili eventualmente anche vestitini appositi su misura, da concordare.",
+          "descrizione": "Peluches a maglia imbottiti in cotone. Disponibili eventualmente anche vestitini appositi su misura, da concordare.",
           "immagini": [
             {
               "percorso": "images/uploads/maglia-papera.jpeg",
@@ -61,8 +75,7 @@
         {
           "id": "borse",
           "nome": "Tote-bag",
-          "descrizione": "Ricami di diverso tipo su borse in cotone.",
-          "alt": "Borse in cotone decorate con ricami artigianali.",
+          "descrizione": "Ricami di diverso tipo su borse in cotone, decorate con ricami artigianali.",
           "immagini": [
             {
               "percorso": "images/uploads/ricamo-piccoloprincipe.jpeg",
@@ -111,8 +124,7 @@
         {
           "id": "vari",
           "nome": "Accessori vari",
-          "descrizione": "Astucci, canovacci, cuscini e altri tessuti con ricami.",
-          "alt": "Astucci, cuscini e canovacci decorati con ricami artigianali.",
+          "descrizione": "Astucci, canovacci, cuscini e altri tessuti decorati con ricami artigianali.",
           "immagini": [
             {
               "percorso": "images/uploads/ricamo-astuccio.jpeg",
@@ -186,6 +198,9 @@
       "id": "cucito",
       "nome": "Taglio e Cucito",
       "descrizione": "Accessori e progetti realizzati con ago e filo su tessuti vari",
+      "tag_generali": [
+        "Sartoria"
+      ],
       "elementi": [
         {
           "id": "fiocco",
@@ -282,7 +297,7 @@
           "descrizione": "Vari accessori di sartoria con cuciture a mano o a macchina (dischetti struccanti, sacchetti portaoggetti, ...) "
         },
         {
-          "id": "segnalibro",
+          "id": "segnalibri-angolo",
           "nome": "Segnalibri ad angolo",
           "descrizione": "Segnalibri ad angolo in pannolenci, cucito a mano. Colori e fantasie personalizzabili.",
           "immagini": [
@@ -306,7 +321,7 @@
         {
           "id": "fiore",
           "nome": "Fiore Ricamato",
-          "descrizione": "Quattro fotografie dello stesso progetto floreale.",
+          "descrizione": "Quattro fotografie dello stesso progetto floreale, un ricamo floreale a punto croce.",
           "immagini": [
             {
               "percorso": "images/uploads/punto-fiore0.jpeg",
@@ -324,13 +339,12 @@
               "percorso": "images/uploads/punto-fiore3.jpeg",
               "tag": []
             }
-          ],
-          "alt": "Ricamo floreale a punto croce"
+          ]
         },
         {
           "id": "segnalibro",
           "nome": "Segnalibro",
-          "descrizione": "Un segnalibro ricamato, mostrato in tre fotografie.",
+          "descrizione": "Un segnalibro ricamato a punto croce, mostrato in tre fotografie.",
           "immagini": [
             {
               "percorso": "images/uploads/punto-segnalibro0.jpeg",
@@ -344,8 +358,7 @@
               "percorso": "images/uploads/punto-segnalibro2.jpeg",
               "tag": []
             }
-          ],
-          "alt": "Segnalibro ricamato a punto croce"
+          ]
         }
       ]
     },
@@ -357,26 +370,24 @@
         {
           "id": "carota",
           "nome": "Carota in Feltro",
-          "descrizione": "Una decorazione a forma di carota in feltro.",
+          "descrizione": "Una decorazione a forma di carota realizzata in feltro.",
           "immagini": [
             {
               "percorso": "images/uploads/feltro-carota.jpeg",
               "tag": []
             }
-          ],
-          "alt": "Carota realizzata in feltro"
+          ]
         },
         {
           "id": "ghiande",
           "nome": "Ghiande in Feltro",
-          "descrizione": "Piccole ghiande decorative in feltro.",
+          "descrizione": "Piccole ghiande decorative realizzate in feltro.",
           "immagini": [
             {
               "percorso": "images/uploads/feltro-ghiande.jpeg",
               "tag": []
             }
-          ],
-          "alt": "Ghiande decorative in feltro"
+          ]
         }
       ]
     },
@@ -388,26 +399,24 @@
         {
           "id": "gioielli-foglia",
           "nome": "Gioiello Foglia",
-          "descrizione": "Un gioiello artigianale con motivo a foglia.",
+          "descrizione": "Un gioiello artigianale a forma di foglia.",
           "immagini": [
             {
               "percorso": "images/uploads/gioielli-gioielli_leaf.jpeg",
               "tag": []
             }
-          ],
-          "alt": "Gioiello artigianale a forma di foglia"
+          ]
         },
         {
           "id": "gioielli-collezione",
           "nome": "Collezione di Gioielli",
-          "descrizione": "Una selezione di gioielli realizzati a mano.",
+          "descrizione": "Una collezione di gioielli artigianali realizzati a mano.",
           "immagini": [
             {
               "percorso": "images/uploads/gioielli-gioielli_tot.jpeg",
               "tag": []
             }
-          ],
-          "alt": "Collezione di gioielli artigianali"
+          ]
         }
       ]
     }

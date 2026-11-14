@@ -120,11 +120,6 @@ const mostraErroreCatalogo = (destinazioni) => {
     });
 };
 
-const testoAlternativoProgetto = (elemento) =>
-    typeof elemento.alt === "string" && elemento.alt.trim()
-        ? elemento.alt.trim()
-        : elemento.nome;
-
 const verificaCatalogo = (catalogo) => {
     if (!catalogo || !Array.isArray(catalogo.categorie) || !catalogo.categorie.length) {
         throw new Error("Il catalogo deve contenere almeno una categoria.");
@@ -143,7 +138,7 @@ const verificaCatalogo = (catalogo) => {
         tags === undefined
         || (
             Array.isArray(tags)
-            && tags.every((tag) => typeof tag === "string" && tag.trim())
+            && tags.every((tag) => typeof tag === "string")
         );
 
     catalogo.categorie.forEach((categoria) => {
@@ -153,6 +148,7 @@ const verificaCatalogo = (catalogo) => {
             || idCategorie.has(categoria.id)
             || typeof categoria.nome !== "string"
             || !categoria.nome.trim()
+            || !tagValidi(categoria.tag_generali)
             || !Array.isArray(categoria.elementi)
             || !categoria.elementi.length
         ) {
@@ -167,11 +163,6 @@ const verificaCatalogo = (catalogo) => {
                 || idProgetti.has(elemento.id)
                 || typeof elemento.nome !== "string"
                 || !elemento.nome.trim()
-                || (
-                    elemento.alt !== undefined
-                    && elemento.alt !== null
-                    && typeof elemento.alt !== "string"
-                )
                 || !Array.isArray(elemento.immagini)
                 || !elemento.immagini.length
                 || !elemento.immagini.every((immagine) =>
@@ -261,8 +252,17 @@ const aggiornaElencoTag = (elenco, tags) => {
     elenco.replaceChildren(...etichette);
 };
 
+const tagDellaFoto = (elemento, immagine) =>
+    raccogliTagUnici([
+        ...(elemento.categoria?.tag_generali || []),
+        ...(immagine.tag || []),
+    ]);
+
 const tagDellaCreazione = (elemento) =>
-    raccogliTagUnici(elemento.immagini.flatMap((immagine) => immagine.tag || []));
+    raccogliTagUnici([
+        ...(elemento.categoria?.tag_generali || []),
+        ...elemento.immagini.flatMap((immagine) => immagine.tag || []),
+    ]);
 
 const inizializzaFiltroTag = (creazioni, griglia) => {
     const barraFiltro = document.querySelector("[data-tag-filter]");
@@ -372,7 +372,7 @@ const creaSchedaCategoria = (categoria) => {
 
     const immagine = document.createElement("img");
     immagine.src = categoria.elementi[0].immagini[0].percorso;
-    immagine.alt = testoAlternativoProgetto(categoria.elementi[0]);
+    immagine.alt = "";
 
     const contenuto = document.createElement("div");
     contenuto.className = "card-info";
@@ -401,7 +401,7 @@ const creaSchedaProgetto = (elemento) => {
 
     const immagine = document.createElement("img");
     immagine.src = elemento.immagini[0].percorso;
-    immagine.alt = testoAlternativoProgetto(elemento);
+    immagine.alt = "";
 
     const contenuto = document.createElement("div");
     contenuto.className = "card-info";
@@ -453,6 +453,10 @@ const inizializzaCatalogo = async () => {
         const catalogo = await risposta.json();
         if (Array.isArray(catalogo?.categorie)) {
             catalogo.categorie.forEach((categoria) => {
+                if (Array.isArray(categoria?.tag_generali)) {
+                    categoria.tag_generali =
+                        categoria.tag_generali.map(normalizzaTag);
+                }
                 if (!Array.isArray(categoria?.elementi)) return;
                 categoria.elementi.forEach((elemento) => {
                     if (!Array.isArray(elemento?.immagini)) return;
@@ -463,6 +467,10 @@ const inizializzaCatalogo = async () => {
                     });
                 });
             });
+        }
+        if (Array.isArray(catalogo?.suggerimenti_tag)) {
+            catalogo.suggerimenti_tag =
+                catalogo.suggerimenti_tag.map(normalizzaTag);
         }
         const categorieCreazioni = verificaCatalogo(catalogo);
         const elementiCreazioni = categorieCreazioni.flatMap((categoria) =>
@@ -487,7 +495,10 @@ const inizializzaCatalogo = async () => {
             }
             aggiornaElencoTag(
                 tagPaginaProdotto,
-                progettoProdotto.immagini[0].tag || []
+                tagDellaFoto(
+                    progettoProdotto,
+                    progettoProdotto.immagini[0]
+                )
             );
         }
 
@@ -521,10 +532,14 @@ const inizializzaCatalogo = async () => {
                     categoria.nome;
                 document.querySelector("[data-category-description]").textContent =
                     categoria.descrizione;
+                const elementiCategoria = categoria.elementi.map((elemento) => ({
+                    ...elemento,
+                    categoria,
+                }));
                 paginaCategoria.replaceChildren(
-                    ...categoria.elementi.map(creaSchedaProgetto)
+                    ...elementiCategoria.map(creaSchedaProgetto)
                 );
-                inizializzaFiltroTag(categoria.elementi, paginaCategoria);
+                inizializzaFiltroTag(elementiCategoria, paginaCategoria);
             } else {
                 document.querySelector("[data-category-eyebrow]").textContent =
                     "Collezioni Nonna Emma";
@@ -571,11 +586,13 @@ const inizializzaCatalogo = async () => {
                         (indice + elemento.immagini.length) % elemento.immagini.length;
                     const foto = elemento.immagini[immagineAttiva];
                     immaginePrincipale.src = foto.percorso;
-                    immaginePrincipale.alt =
-                        `${testoAlternativoProgetto(elemento)}, foto ${immagineAttiva + 1}`;
+                    immaginePrincipale.alt = "";
                     statoGalleria.textContent =
                         `Foto ${immagineAttiva + 1} di ${elemento.immagini.length}`;
-                    aggiornaElencoTag(tagImmagine, foto.tag || []);
+                    aggiornaElencoTag(
+                        tagImmagine,
+                        tagDellaFoto(elemento, foto)
+                    );
                     miniature.querySelectorAll("button").forEach(
                         (pulsante, indiceMiniatura) => {
                             pulsante.setAttribute(

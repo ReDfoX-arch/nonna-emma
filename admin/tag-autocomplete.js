@@ -18,21 +18,13 @@ const inizializzaSuggerimentiTag = async () => {
     }
 
     const catalogo = await risposta.json();
-    const tag = new Set();
-    (catalogo.categorie || []).forEach((categoria) => {
-        (categoria.elementi || []).forEach((elemento) => {
-            (elemento.immagini || []).forEach((immagine) => {
-                (immagine.tag || []).forEach((voce) => {
-                    const testo = normalizzaEtichetta(
-                        typeof voce === "string"
-                            ? voce
-                            : voce && (voce.parola || voce.tag)
-                    );
-                    if (testo) tag.add(testo);
-                });
-            });
-        });
-    });
+    const tag = new Set(
+        (Array.isArray(catalogo.suggerimenti_tag)
+            ? catalogo.suggerimenti_tag
+            : [])
+            .map(normalizzaEtichetta)
+            .filter(Boolean)
+    );
 
     const elenco = document.createElement("datalist");
     elenco.id = "suggerimenti-tag-catalogo";
@@ -49,7 +41,12 @@ const inizializzaSuggerimentiTag = async () => {
                 .trim()
                 .replace(/\s+/g, " ")
                 .replace(/\s*\*$/, "");
-            if (testoEtichetta !== "Parola chiave") return;
+            if (
+                testoEtichetta !== "Parola chiave"
+                && testoEtichetta !== "Tag generale"
+            ) {
+                return;
+            }
 
             const input = etichetta.control
                 || etichetta.parentElement.querySelector('input[type="text"]');

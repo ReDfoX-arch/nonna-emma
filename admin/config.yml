@@ -28,6 +28,18 @@ collections:
         label: Categorie e progetti
         file: content/catalogo.json
         fields:
+          - label: Suggerimenti per i tag
+            name: suggerimenti_tag
+            widget: list
+            required: false
+            collapsed: true
+            label_singular: Aggiungi suggerimento
+            field:
+              label: Tag suggerito
+              name: tag
+              widget: string
+              required: true
+            hint: "Aggiungi i tag da proporre nei campi; elimina una voce per rimuoverla dai suggerimenti."
           - label: Categorie
             name: categorie
             widget: list
@@ -39,7 +51,7 @@ collections:
               - label: Identificativo (URL)
                 name: id
                 widget: string
-                hint: "Minuscolo, senza spazi (es. decorazioni). Non cambiarlo dopo la pubblicazione."
+                hint: "Univoco in tutto il catalogo, minuscolo e senza spazi (es. decorazioni). Non cambiarlo dopo la pubblicazione."
                 pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Usa lettere minuscole, numeri e trattini.']
               - label: Nome categoria
                 name: nome
@@ -47,6 +59,17 @@ collections:
               - label: Descrizione
                 name: descrizione
                 widget: text
+              - label: Tag generali della categoria
+                name: tag_generali
+                widget: list
+                required: false
+                label_singular: Aggiungi tag generale
+                field:
+                  label: Tag generale
+                  name: tag
+                  widget: string
+                  required: true
+                hint: "Questi tag vengono applicati automaticamente a tutti i progetti e alle relative foto della categoria."
               - label: Progetti
                 name: elementi
                 widget: list
@@ -58,7 +81,7 @@ collections:
                   - label: Identificativo (URL)
                     name: id
                     widget: string
-                    hint: "Minuscolo, senza spazi (es. cestino-uncinetto). Non cambiarlo dopo la pubblicazione."
+                    hint: "Univoco in tutto il catalogo, minuscolo e senza spazi (es. cestino-uncinetto). Non cambiarlo dopo la pubblicazione."
                     pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Usa lettere minuscole, numeri e trattini.']
                   - label: Nome progetto
                     name: nome
@@ -66,11 +89,6 @@ collections:
                   - label: Descrizione
                     name: descrizione
                     widget: text
-                  - label: Testo alternativo delle foto
-                    name: alt
-                    widget: string
-                    required: true
-                    hint: Descrivi brevemente il soggetto delle immagini.
                   - label: Foto del progetto
                     name: immagini
                     widget: list
