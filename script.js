@@ -372,7 +372,7 @@ const creaSchedaCategoria = (categoria) => {
 
     const immagine = document.createElement("img");
     immagine.src = categoria.elementi[0].immagini[0].percorso;
-    immagine.alt = "";
+    immagine.alt = (categoria.descrizione || categoria.nome || "").trim();
 
     const contenuto = document.createElement("div");
     contenuto.className = "card-info";
@@ -401,7 +401,7 @@ const creaSchedaProgetto = (elemento) => {
 
     const immagine = document.createElement("img");
     immagine.src = elemento.immagini[0].percorso;
-    immagine.alt = "";
+    immagine.alt = (elemento.descrizione || elemento.nome || "").trim();
 
     const contenuto = document.createElement("div");
     contenuto.className = "card-info";
@@ -584,10 +584,10 @@ const inizializzaCatalogo = async () => {
                 const selezionaImmagine = (indice) => {
                     immagineAttiva =
                         (indice + elemento.immagini.length) % elemento.immagini.length;
-                    const foto = elemento.immagini[immagineAttiva];
-                    immaginePrincipale.src = foto.percorso;
-                    immaginePrincipale.alt = "";
-                    statoGalleria.textContent =
+                        const foto = elemento.immagini[immagineAttiva];
+                        immaginePrincipale.src = foto.percorso;
+                        immaginePrincipale.alt = (elemento.descrizione || elemento.nome || "").trim();
+                        statoGalleria.textContent =
                         `Foto ${immagineAttiva + 1} di ${elemento.immagini.length}`;
                     aggiornaElencoTag(
                         tagImmagine,
