@@ -452,6 +452,13 @@ const inizializzaCatalogo = async () => {
 
         const catalogo = await risposta.json();
 
+        if (typeof catalogo?.sfondo_hero === "string" && catalogo.sfondo_hero.trim()) {
+            document.documentElement.style.setProperty(
+                "--sfondo-hero-immagine",
+                `url("${catalogo.sfondo_hero.trim()}")`
+            );
+        }
+
         if (typeof catalogo?.tema_sfondo === "string" && catalogo.tema_sfondo.trim()) {
             const tema = catalogo.tema_sfondo.trim();
             if (tema !== "sfumatura-crema") {

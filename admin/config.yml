@@ -28,6 +28,12 @@ collections:
         label: Categorie e progetti
         file: content/catalogo.json
         fields:
+          - label: "Sfondo parte alta della home (Hero)"
+            name: sfondo_hero
+            widget: image
+            required: false
+            default: "images/brand/sfondo.png"
+            hint: "Carica l'immagine o motivo da mostrare nella parte alta della Home. Il sito le applica automaticamente un gradiente morbido con trasparenza."
           - label: "Tema di sfondo del sito"
             name: tema_sfondo
             widget: select
