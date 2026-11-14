@@ -60,7 +60,7 @@
       "elementi": [
         {
           "id": "borse",
-          "nome": "Tote-bag e borse",
+          "nome": "Tote-bag",
           "descrizione": "Ricami di diverso tipo su borse in cotone.",
           "alt": "Borse in cotone decorate con ricami artigianali.",
           "immagini": [
@@ -110,7 +110,7 @@
         },
         {
           "id": "vari",
-          "nome": "Tessuti e superfici varie",
+          "nome": "Accessori vari",
           "descrizione": "Astucci, canovacci, cuscini e altri tessuti con ricami.",
           "alt": "Astucci, cuscini e canovacci decorati con ricami artigianali.",
           "immagini": [
@@ -266,6 +266,19 @@
               ]
             }
           ]
+        },
+        {
+          "id": "accessori-vari-sartoria",
+          "nome": "Accessori vari",
+          "immagini": [
+            {
+              "percorso": "images/uploads/cucito-scap_obj.jpeg",
+              "tag": [
+                "Accessori"
+              ]
+            }
+          ],
+          "descrizione": "Vari accessori di sartoria con cuciture a mano o a macchina (dischetti struccanti, sacchetti portaoggetti, ...) "
         }
       ]
     },
