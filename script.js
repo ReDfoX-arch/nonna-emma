@@ -9,9 +9,11 @@ if (filoScroll) {
     let aggiornamentoFiloInAttesa = false;
 
     const aggiornaPosizioneFilo = () => {
+        const altezzaNavbar = intestazione.getBoundingClientRect().height;
+        const extraOffset = window.innerWidth > 768 ? 48 : 12;
         filoScroll.style.setProperty(
             "--filo-top",
-            `${intestazione.getBoundingClientRect().height + 1}px`
+            `${altezzaNavbar + extraOffset}px`
         );
     };
 

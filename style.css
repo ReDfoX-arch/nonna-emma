@@ -512,12 +512,12 @@ html {
 .filo-scroll {
     position: fixed;
     z-index: 2147483647;
-    top: var(--filo-top, 76px);
+    top: var(--filo-top, 120px);
     bottom: 0;
     right: clamp(12px, 1.8vw, 24px);
     left: auto;
-    width: calc((100vh - var(--filo-top, 76px)) * 0.064);
-    height: calc(100vh - var(--filo-top, 76px));
+    width: calc((100vh - var(--filo-top, 120px)) * 0.064);
+    height: calc(100vh - var(--filo-top, 120px));
     pointer-events: none;
     overflow: visible;
 }
@@ -1346,18 +1346,18 @@ main {
 @media (max-width: 768px) {
     .filo-scroll {
         z-index: 1001;
-        right: 28px;
+        right: 12px;
         left: auto;
     }
 
     .bobina-filato image {
-        transform: scale(1);
+        transform: scale(0.95);
         transform-box: fill-box;
         transform-origin: center;
     }
 
     body {
-        --filo-margine-contenuti: max(48px, 6vh);
+        --filo-margine-contenuti: 28px;
     }
 
     .navbar nav,
@@ -2042,11 +2042,28 @@ footer {
 
 @media (max-width: 768px) {
     .portfolio {
-        padding-right: calc(20px + var(--filo-margine-contenuti));
+        padding-right: calc(14px + var(--filo-margine-contenuti));
+        padding-left: 16px;
     }
 
     .portfolio-progetti {
-        padding-right: calc(20px + var(--filo-margine-contenuti));
+        padding-right: calc(14px + var(--filo-margine-contenuti));
+        padding-left: 16px;
+    }
+
+    .hero {
+        padding-right: calc(14px + var(--filo-margine-contenuti));
+        padding-left: 16px;
+    }
+
+    .about {
+        padding-right: calc(14px + var(--filo-margine-contenuti));
+        padding-left: 16px;
+    }
+
+    footer {
+        padding-right: calc(14px + var(--filo-margine-contenuti));
+        padding-left: 16px;
     }
 }
 
