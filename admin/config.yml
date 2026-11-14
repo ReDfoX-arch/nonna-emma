@@ -14,7 +14,7 @@ editor:
   preview: false
 
 logo:
-  src: ../images/decorazioni/logo-dashboard-nonna-emma.png
+  src: ../images/decorazioni/logo.png
   show_in_header: true
 
 media_folder: images/uploads

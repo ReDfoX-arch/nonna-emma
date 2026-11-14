@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" fill="none">
+  <defs>
+    <pattern id="trama" width="240" height="240" patternUnits="userSpaceOnUse">
+      <path d="M-30 120C18 62 61 178 112 120s94-58 142 0" stroke="#B87358" stroke-opacity=".22" stroke-width="2"/>
+      <path d="M-30 132C18 74 61 190 112 132s94-58 142 0" stroke="#C2D3C2" stroke-opacity=".32" stroke-width="2"/>
+      <circle cx="120" cy="48" r="3" fill="#B87358" fill-opacity=".24"/>
+      <circle cx="120" cy="192" r="3" fill="#B87358" fill-opacity=".24"/>
+      <path d="M120 61c9 12 9 23 0 31-9-8-9-19 0-31Zm0 87c9 12 9 23 0 31-9-8-9-19 0-31Z" stroke="#B87358" stroke-opacity=".2" stroke-width="2"/>
+      <path d="M103 120c12-9 23-9 31 0-8 9-19 9-31 0Zm-87 0c12-9 23-9 31 0-8 9-19 9-31 0Z" stroke="#C2D3C2" stroke-opacity=".35" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <path d="M0 0h720v480H0z" fill="url(#trama)"/>
+</svg>

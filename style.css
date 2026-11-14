@@ -126,7 +126,7 @@ nav a:hover {
     background:
         linear-gradient(180deg, rgba(255, 253, 249, 0.72), rgba(250, 246, 240, 0.82)),
         /* Sostituire il placeholder con la foto definitiva nella cartella decorazioni. */
-        url("images/decorazioni/sfondo-home-placeholder.svg") center / cover no-repeat,
+        url("images/decorazioni/sfondo.svg") center / cover no-repeat,
         radial-gradient(ellipse at 50% 20%, rgba(252, 235, 227, 0.96), transparent 68%),
         radial-gradient(ellipse at 12% 100%, rgba(194, 211, 194, 0.24), transparent 42%),
         linear-gradient(180deg, rgba(255, 253, 249, 0.72), rgba(250, 246, 240, 0.36));
