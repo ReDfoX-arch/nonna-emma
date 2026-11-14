@@ -1346,7 +1346,7 @@ main {
 @media (max-width: 768px) {
     .filo-scroll {
         z-index: 1001;
-        right: 14px;
+        right: 8px;
         left: auto;
     }
 
