@@ -191,7 +191,6 @@
           "id": "fiocco",
           "nome": "Fuoriporta nascita",
           "descrizione": "Fuoriporta nascita con tema personalizzabile. ",
-          "alt": "Fuoriporta nascita in tessuto realizzato a mano.",
           "immagini": [
             {
               "percorso": "images/uploads/cucito-luna.jpeg",
@@ -205,9 +204,8 @@
         },
         {
           "id": "giostra",
-          "nome": "Giostrina per culla",
-          "descrizione": "Giostrina da appendere sulla culla, pannolenci con imbottitura di cotone, cucita a mano.",
-          "alt": "Giostrina per culla realizzata in pannolenci e cotone.",
+          "nome": "Giostrine per culla",
+          "descrizione": "Giostrine da appendere sulla culla, pannolenci con imbottitura di cotone, cucite a mano.",
           "immagini": [
             {
               "percorso": "images/uploads/placeholder.png",
@@ -223,7 +221,6 @@
           "id": "portaocchiali",
           "nome": "Portaocchiali",
           "descrizione": "Portaocchiali in pannolenci e imbottito in cotone, personalizzabile.",
-          "alt": "Portaocchiali artigianale in pannolenci.",
           "immagini": [
             {
               "percorso": "images/uploads/placeholder.png",
@@ -239,7 +236,6 @@
           "id": "cuscini",
           "nome": "Cuscini riscaldabili",
           "descrizione": "Cuscini riscaldabili in microonde, realizzati con tessuto di cotone, riso e sale grosso, personalizzabile (ceci, lenticchie, ...).",
-          "alt": "Cuscino riscaldabile in tessuto di cotone, riempito con riso e sale grosso.",
           "immagini": [
             {
               "percorso": "images/uploads/placeholder.png",
@@ -260,7 +256,6 @@
           "id": "portacarte",
           "nome": "Portacarte",
           "descrizione": "Portacarte in pannolenci cucito a mano, personalizzabile in diversi colori e fantasie.",
-          "alt": "Portacarte cucito a mano in pannolenci.",
           "immagini": [
             {
               "percorso": "images/uploads/placeholder.png",
@@ -275,16 +270,31 @@
         {
           "id": "accessori-vari-sartoria",
           "nome": "Accessori vari",
-          "alt": "Accessori di sartoria e piccoli manufatti in tessuto.",
           "immagini": [
             {
               "percorso": "images/uploads/cucito-scap_obj.jpeg",
               "tag": [
-                "Accessori"
+                "Accessori",
+                "Sartoria"
               ]
             }
           ],
           "descrizione": "Vari accessori di sartoria con cuciture a mano o a macchina (dischetti struccanti, sacchetti portaoggetti, ...) "
+        },
+        {
+          "id": "segnalibro",
+          "nome": "Segnalibri ad angolo",
+          "descrizione": "Segnalibri ad angolo in pannolenci, cucito a mano. Colori e fantasie personalizzabili.",
+          "immagini": [
+            {
+              "percorso": "images/uploads/placeholder.png",
+              "tag": [
+                "Accessori",
+                "Cucito a mano",
+                "Sartoria"
+              ]
+            }
+          ]
         }
       ]
     },
