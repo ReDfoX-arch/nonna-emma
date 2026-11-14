@@ -27,7 +27,7 @@ html::-webkit-scrollbar {
 }
 
 body {
-    --filo-margine-contenuti: clamp(48px, 4vw, 64px);
+    --filo-margine-contenuti: clamp(24px, 3vw, 42px);
     font-family: 'Quicksand', sans-serif;
     background-color: var(--bg-cream);
     background-image:
@@ -489,7 +489,7 @@ html {
     z-index: 2147483647;
     top: var(--filo-top, 76px);
     bottom: 0;
-    right: 42px;
+    right: clamp(16px, 2.5vw, 32px);
     left: auto;
     width: calc((100vh - var(--filo-top, 76px)) * 0.064);
     height: calc(100vh - var(--filo-top, 76px));
@@ -506,7 +506,7 @@ html {
 }
 
 .bobina-filato image {
-    transform: scale(2.2) translateY(10px);
+    transform: scale(1.65) translateY(4px);
     transform-box: fill-box;
     transform-origin: center;
 }
@@ -1791,6 +1791,16 @@ main {
     text-align: left;
 }
 
+.home-categories-wrapper {
+    margin-top: 52px;
+}
+
+.home-categories-title {
+    font-size: 2.1rem;
+    color: var(--yarn-terracotta);
+    margin-bottom: 24px;
+}
+
 .tag-filter h2 {
     margin-bottom: 6px;
     color: var(--yarn-terracotta-hover);
@@ -1920,7 +1930,7 @@ main {
 }
 
 .portfolio {
-    padding-right: calc(50px + var(--filo-margine-contenuti));
+    padding-right: calc(32px + var(--filo-margine-contenuti));
 }
 
 .portfolio-progetti {
@@ -1961,6 +1971,6 @@ footer {
 
 @media (min-width: 769px) {
     .pagina-galleria .filo-scroll {
-        right: clamp(88px, 11vw, 148px);
+        right: clamp(48px, 6vw, 84px);
     }
 }
