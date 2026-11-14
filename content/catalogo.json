@@ -294,6 +294,18 @@
                 "Accessori",
                 "Sartoria"
               ]
+            },
+            {
+              "percorso": "images/uploads/cucito-dischi0.jpeg",
+              "tag": [
+                "Accessori"
+              ]
+            },
+            {
+              "percorso": "images/uploads/cucito-dischi1.jpeg",
+              "tag": [
+                "Accessori"
+              ]
             }
           ],
           "descrizione": "Vari accessori di sartoria con cuciture a mano o a macchina (dischetti struccanti, sacchetti portaoggetti, ...) "
