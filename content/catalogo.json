@@ -184,32 +184,88 @@
     },
     {
       "id": "cucito",
-      "nome": "Cucito e Sartoria",
-      "descrizione": "Accessori e progetti realizzati con ago, filo e tessuti.",
+      "nome": "Taglio e Cucito",
+      "descrizione": "Accessori e progetti realizzati con ago e filo su tessuti vari",
       "elementi": [
         {
-          "id": "luna",
-          "nome": "Fiocco Luna",
-          "descrizione": "Un accessorio in stoffa realizzato a mano.",
+          "id": "fiocco",
+          "nome": "Fuoriporta nascita",
+          "descrizione": "Fuoriporta nascita con tema personalizzabile. ",
           "immagini": [
             {
               "percorso": "images/uploads/cucito-luna.jpeg",
-              "tag": []
+              "tag": [
+                "Baby",
+                "Cucito a mano",
+                "Sartoria"
+              ]
             }
-          ],
-          "alt": "Fiocco per neonato in tessuto"
+          ]
         },
         {
-          "id": "scap-obj",
-          "nome": "Progetto di Cucito",
-          "descrizione": "Un progetto sartoriale realizzato a mano.",
+          "id": "giostra",
+          "nome": "Giostrina per culla",
+          "descrizione": "Giostrina da appendere sulla culla, pannolenci con imbottitura di cotone, cucita a mano.",
           "immagini": [
             {
-              "percorso": "images/uploads/cucito-scap_obj.jpeg",
-              "tag": []
+              "percorso": "images/uploads/placeholder.png",
+              "tag": [
+                "Baby",
+                "Cucito a mano",
+                "Sartoria"
+              ]
             }
-          ],
-          "alt": "Progetto di cucito fatto a mano"
+          ]
+        },
+        {
+          "id": "portaocchiali",
+          "nome": "Portaocchiali",
+          "descrizione": "Portaocchiali in pannolenci e imbottito in cotone, personalizzabile.",
+          "immagini": [
+            {
+              "percorso": "images/uploads/placeholder.png",
+              "tag": [
+                "Cucito a mano",
+                "Accessori",
+                "Sartoria"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cuscini",
+          "nome": "Cuscini riscaldabili",
+          "descrizione": "Cuscini riscaldabili in microonde, realizzati con tessuto di cotone, riso e sale grosso, personalizzabile (ceci, lenticchie, ...).",
+          "immagini": [
+            {
+              "percorso": "images/uploads/placeholder.png",
+              "tag": [
+                "Sartoria"
+              ]
+            },
+            {
+              "percorso": "images/uploads/ricamo-rana_sing.jpeg",
+              "tag": [
+                "Sartoria",
+                "Ricamo"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "portacarte",
+          "nome": "Portacarte",
+          "descrizione": "Portacarte in pannolenci cucito a mano, personalizzabile in diversi colori e fantasie.",
+          "immagini": [
+            {
+              "percorso": "images/uploads/placeholder.png",
+              "tag": [
+                "Accessori",
+                "Sartoria",
+                "Cucito a mano"
+              ]
+            }
+          ]
         }
       ]
     },
