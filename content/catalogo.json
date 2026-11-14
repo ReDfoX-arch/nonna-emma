@@ -1,7 +1,7 @@
 {
   "sfondo_hero": "images/uploads/ricamo-caminante.jpeg",
   "trasparenza_hero": "forte",
-  "posizione_hero": "repeat",
+  "posizione_hero": "contain",
   "tema_sfondo": "sfumatura-pesca",
   "suggerimenti_tag": [
     "Accessori",
