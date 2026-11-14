@@ -400,27 +400,33 @@
       "descrizione": "Decorazioni e piccoli oggetti realizzati in feltro.",
       "elementi": [
         {
-          "id": "carota",
-          "nome": "Carota in Feltro",
-          "descrizione": "Una decorazione a forma di carota realizzata in feltro.",
+          "id": "oggetti-feltro",
+          "nome": "Oggetti decorativi",
+          "descrizione": "Oggetti decorativi vari in feltro (bomboniere, addobbi, ...)",
           "immagini": [
             {
               "percorso": "images/uploads/feltro-carota.jpeg",
-              "tag": []
-            }
-          ]
-        },
-        {
-          "id": "ghiande",
-          "nome": "Ghiande in Feltro",
-          "descrizione": "Piccole ghiande decorative realizzate in feltro.",
-          "immagini": [
+              "tag": [
+                "Frutta"
+              ]
+            },
             {
               "percorso": "images/uploads/feltro-ghiande.jpeg",
-              "tag": []
+              "tag": [
+                "Natale"
+              ]
+            },
+            {
+              "tag": [
+                "Bomboniere"
+              ],
+              "percorso": "images/uploads/placeholder.png"
             }
           ]
         }
+      ],
+      "tag_generali": [
+        "Feltro"
       ]
     },
     {
@@ -429,27 +435,21 @@
       "descrizione": "Gioielli artigianali e accessori decorativi.",
       "elementi": [
         {
-          "id": "gioielli-foglia",
-          "nome": "Gioiello Foglia",
-          "descrizione": "Un gioiello artigianale a forma di foglia.",
+          "id": "perle",
+          "nome": "Gioielli e pendenti",
+          "descrizione": "Gioielli artigianali e pendenti realizzati con pietre varie e ottone.",
           "immagini": [
             {
-              "percorso": "images/uploads/gioielli-gioielli_leaf.jpeg",
-              "tag": []
-            }
-          ]
-        },
-        {
-          "id": "gioielli-collezione",
-          "nome": "Collezione di Gioielli",
-          "descrizione": "Una collezione di gioielli artigianali realizzati a mano.",
-          "immagini": [
+              "percorso": "images/uploads/gioielli-gioielli_leaf.jpeg"
+            },
             {
-              "percorso": "images/uploads/gioielli-gioielli_tot.jpeg",
-              "tag": []
+              "percorso": "images/uploads/gioielli-gioielli_tot.jpeg"
             }
           ]
         }
+      ],
+      "tag_generali": [
+        "gioielli"
       ]
     }
   ]
