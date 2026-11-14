@@ -120,6 +120,11 @@ const mostraErroreCatalogo = (destinazioni) => {
     });
 };
 
+const testoAlternativoProgetto = (elemento) =>
+    typeof elemento.alt === "string" && elemento.alt.trim()
+        ? elemento.alt.trim()
+        : elemento.nome;
+
 const verificaCatalogo = (catalogo) => {
     if (!catalogo || !Array.isArray(catalogo.categorie) || !catalogo.categorie.length) {
         throw new Error("Il catalogo deve contenere almeno una categoria.");
@@ -162,8 +167,11 @@ const verificaCatalogo = (catalogo) => {
                 || idProgetti.has(elemento.id)
                 || typeof elemento.nome !== "string"
                 || !elemento.nome.trim()
-                || typeof elemento.alt !== "string"
-                || !elemento.alt.trim()
+                || (
+                    elemento.alt !== undefined
+                    && elemento.alt !== null
+                    && typeof elemento.alt !== "string"
+                )
                 || !Array.isArray(elemento.immagini)
                 || !elemento.immagini.length
                 || !elemento.immagini.every((immagine) =>
@@ -364,7 +372,7 @@ const creaSchedaCategoria = (categoria) => {
 
     const immagine = document.createElement("img");
     immagine.src = categoria.elementi[0].immagini[0].percorso;
-    immagine.alt = categoria.elementi[0].alt;
+    immagine.alt = testoAlternativoProgetto(categoria.elementi[0]);
 
     const contenuto = document.createElement("div");
     contenuto.className = "card-info";
@@ -393,7 +401,7 @@ const creaSchedaProgetto = (elemento) => {
 
     const immagine = document.createElement("img");
     immagine.src = elemento.immagini[0].percorso;
-    immagine.alt = elemento.alt;
+    immagine.alt = testoAlternativoProgetto(elemento);
 
     const contenuto = document.createElement("div");
     contenuto.className = "card-info";
@@ -564,7 +572,7 @@ const inizializzaCatalogo = async () => {
                     const foto = elemento.immagini[immagineAttiva];
                     immaginePrincipale.src = foto.percorso;
                     immaginePrincipale.alt =
-                        `${elemento.alt}, foto ${immagineAttiva + 1}`;
+                        `${testoAlternativoProgetto(elemento)}, foto ${immagineAttiva + 1}`;
                     statoGalleria.textContent =
                         `Foto ${immagineAttiva + 1} di ${elemento.immagini.length}`;
                     aggiornaElencoTag(tagImmagine, foto.tag || []);
