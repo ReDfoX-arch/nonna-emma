@@ -128,7 +128,7 @@ body {
 }
 
 #nc-root [class*="AppHeader"] {
-    min-height: 64px;
+    min-height: 56px;
     border-bottom: 1px solid rgba(179, 139, 125, 0.24);
     background: #FFFCF8 !important;
     box-shadow: 0 3px 14px rgba(90, 74, 66, 0.06);
@@ -136,19 +136,19 @@ body {
 
 #nc-root [class*="AppHeader"] [class*="CustomIconWrapper"] {
     display: flex;
-    width: 190px;
-    height: 48px;
+    width: auto;
+    height: 44px;
     align-items: center;
-    gap: 8px;
-    padding: 4px 10px;
+    gap: 10px;
+    padding: 2px 10px;
     border: 0;
     background: transparent;
     box-shadow: none;
 }
 
 #nc-root [class*="AppHeader"] [class*="CustomIconWrapper"] img {
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
     object-fit: contain;
 }
 
@@ -156,27 +156,65 @@ body {
     content: "Nonna Emma";
     color: #A9634D;
     font-family: "Satisfy", cursive;
-    font-size: 1.65rem;
+    font-size: 1.55rem;
     white-space: nowrap;
 }
 
 #nc-root [class*="Sidebar"] {
     background: #F7F1E9;
+    border-right: 1px solid rgba(179, 139, 125, 0.2);
+}
+
+#nc-root [class*="Sidebar"] a {
+    font-weight: 600;
+    border-radius: 8px;
+    margin: 4px 8px;
+    padding: 10px 14px;
+    transition: all 140ms ease;
+}
+
+#nc-root [class*="Sidebar"] a:hover {
+    background: rgba(212, 140, 112, 0.14);
+    color: #A9634D;
+}
+
+#nc-root [class*="ControlPane"] {
+    padding: 20px 24px;
+}
+
+#nc-root [class*="FieldLabel"] {
+    font-weight: 700;
+    color: #6C5549;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
 }
 
 #nc-root input:not([type="checkbox"]):not([type="radio"]),
 #nc-root textarea,
 #nc-root select {
-    border-color: #DDC8BD;
-    border-radius: 8px;
+    border: 1px solid #D8C3B6 !important;
+    border-radius: 10px !important;
+    padding: 10px 14px !important;
+    font-size: 0.95rem !important;
+    background: #FFFEFB !important;
     font-family: "Quicksand", Arial, sans-serif;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
 }
 
 #nc-root input:focus,
 #nc-root textarea:focus,
 #nc-root select:focus {
-    border-color: #A9634D;
-    box-shadow: 0 0 0 2px rgba(212, 140, 112, 0.18);
+    border-color: #A9634D !important;
+    box-shadow: 0 0 0 3px rgba(212, 140, 112, 0.2) !important;
+}
+
+#nc-root [class*="ListItem"] {
+    border: 1px solid rgba(179, 139, 125, 0.25) !important;
+    border-radius: 14px !important;
+    background: #FFFDF9 !important;
+    box-shadow: 0 2px 8px rgba(90, 74, 66, 0.04) !important;
+    margin-bottom: 12px !important;
+    padding: 12px 14px !important;
 }
 
 #nc-root [class*="MediaLibrary"] img,

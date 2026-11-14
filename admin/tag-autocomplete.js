@@ -55,13 +55,15 @@ const inizializzaSuggerimentiTag = async () => {
             input.dataset.tagAutocomplete = "true";
             input.placeholder = "Es. Baby";
             input.setAttribute("list", elenco.id);
-            input.addEventListener("change", () => {
+            input.setAttribute("autocomplete", "off");
+            input.addEventListener("input", () => {
                 const testo = normalizzaEtichetta(input.value);
-                if (!testo || tag.has(testo)) return;
-                tag.add(testo);
-                const opzione = document.createElement("option");
-                opzione.value = testo;
-                elenco.append(opzione);
+                if (testo && !tag.has(testo)) {
+                    tag.add(testo);
+                    const opzione = document.createElement("option");
+                    opzione.value = testo;
+                    elenco.append(opzione);
+                }
             });
         });
     };

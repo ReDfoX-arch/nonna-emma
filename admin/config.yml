@@ -21,11 +21,11 @@ media_folder: images/uploads
 public_folder: images/uploads
 
 collections:
-  - name: catalogo
-    label: Catalogo del sito
+  - name: impostazioni
+    label: "Grafica e Sfondo"
     files:
-      - name: catalogo
-        label: Categorie e progetti
+      - name: aspetto
+        label: "Sfondo e Stile Home"
         file: content/catalogo.json
         fields:
           - label: "Sfondo parte alta della home (Hero)"
@@ -40,23 +40,19 @@ collections:
             required: false
             default: "sfumatura-crema"
             options:
-              - { label: "Sfumatura Crema Delicata (Standard con trasparenza)", value: "sfumatura-crema" }
+              - { label: "Sfumatura Crema Delicata (Standard)", value: "sfumatura-crema" }
               - { label: "Sfumatura Pesca e Salvia (Morbida e pastello)", value: "sfumatura-pesca" }
               - { label: "Sfumatura Neutra Elegante (Lino chiaro)", value: "sfumatura-neutra" }
               - { label: "Trama Lino e Cotone (Texture artigianale)", value: "trama-lino" }
             hint: "Scegli l'atmosfera e il gradiente di sfondo visibile in tutte le pagine del sito."
-          - label: Suggerimenti per i tag
-            name: suggerimenti_tag
-            widget: list
-            required: false
-            collapsed: true
-            label_singular: Aggiungi suggerimento
-            field:
-              label: Tag suggerito
-              name: tag
-              widget: string
-              required: true
-            hint: "Aggiungi i tag da proporre nei campi; elimina una voce per rimuoverla dai suggerimenti."
+
+  - name: catalogo
+    label: "Catalogo Creazioni"
+    files:
+      - name: catalogo
+        label: "Categorie e Progetti"
+        file: content/catalogo.json
+        fields:
           - label: Categorie
             name: categorie
             widget: list
@@ -135,3 +131,15 @@ collections:
                     required: false
                     hint: "Lascia vuoto per la galleria standard. Usa prodotto.html solo per le calzine."
                     pattern: ['^prodotto\.html$', 'Lascia vuoto oppure inserisci prodotto.html.']
+          - label: "Suggerimenti per i tag (in fondo)"
+            name: suggerimenti_tag
+            widget: list
+            required: false
+            collapsed: true
+            label_singular: Aggiungi suggerimento
+            field:
+              label: Tag suggerito
+              name: tag
+              widget: string
+              required: true
+            hint: "Aggiungi i tag da proporre nei campi; elimina una voce per rimuoverla dai suggerimenti."
