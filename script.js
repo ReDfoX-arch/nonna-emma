@@ -636,6 +636,43 @@ const inizializzaCatalogo = async () => {
                     .addEventListener("click", () =>
                         selezionaImmagine(immagineAttiva + 1)
                     );
+
+                const visore = paginaElemento.querySelector("[data-item-viewer]");
+                if (visore) {
+                    let coordinataInizioX = null;
+                    let coordinataInizioY = null;
+                    let trascinamentoInCorso = false;
+
+                    visore.addEventListener("pointerdown", (evento) => {
+                        coordinataInizioX = evento.clientX;
+                        coordinataInizioY = evento.clientY;
+                        trascinamentoInCorso = true;
+                    });
+
+                    visore.addEventListener("pointerup", (evento) => {
+                        if (!trascinamentoInCorso || coordinataInizioX === null) return;
+                        const deltaX = evento.clientX - coordinataInizioX;
+                        const deltaY = evento.clientY - (coordinataInizioY || 0);
+                        trascinamentoInCorso = false;
+
+                        if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+                            if (deltaX < 0) {
+                                selezionaImmagine(immagineAttiva + 1);
+                            } else {
+                                selezionaImmagine(immagineAttiva - 1);
+                            }
+                        }
+                        coordinataInizioX = null;
+                        coordinataInizioY = null;
+                    });
+
+                    visore.addEventListener("pointercancel", () => {
+                        trascinamentoInCorso = false;
+                        coordinataInizioX = null;
+                        coordinataInizioY = null;
+                    });
+                }
+
                 paginaElemento.querySelector("[data-order-link]").href =
                     "ordine.html";
                 selezionaImmagine(0);
