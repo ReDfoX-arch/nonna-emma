@@ -40,6 +40,32 @@ body {
     color: var(--text-brown);
     line-height: 1.6;
     scroll-behavior: smooth;
+    transition: background 300ms ease;
+}
+
+body.tema-sfumatura-pesca {
+    background-color: #FFF9F5;
+    background-image:
+        radial-gradient(ellipse at 18% 12%, rgba(249, 219, 205, 0.8), transparent 38rem),
+        radial-gradient(ellipse at 85% 55%, rgba(215, 233, 218, 0.45), transparent 36rem),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 247, 242, 0.2) 50%, rgba(248, 225, 214, 0.4));
+}
+
+body.tema-sfumatura-neutra {
+    background-color: #FAF8F5;
+    background-image:
+        radial-gradient(ellipse at 25% 15%, rgba(240, 234, 225, 0.85), transparent 40rem),
+        radial-gradient(ellipse at 80% 60%, rgba(230, 225, 216, 0.5), transparent 38rem),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(250, 248, 245, 0.1) 60%, rgba(235, 228, 218, 0.35));
+}
+
+body.tema-trama-lino {
+    background-color: #F8F4EE;
+    background-image:
+        repeating-linear-gradient(0deg, rgba(140, 110, 95, 0.035) 0, rgba(140, 110, 95, 0.035) 1px, transparent 1px, transparent 3px),
+        repeating-linear-gradient(90deg, rgba(140, 110, 95, 0.035) 0, rgba(140, 110, 95, 0.035) 1px, transparent 1px, transparent 3px),
+        radial-gradient(ellipse at 20% 10%, rgba(255, 243, 235, 0.6), transparent 35rem),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(248, 244, 238, 0.2) 50%, rgba(245, 236, 226, 0.4));
 }
 
 h1, h2, h3 {
@@ -126,7 +152,7 @@ nav a:hover {
     background:
         linear-gradient(180deg, rgba(255, 253, 249, 0.72), rgba(250, 246, 240, 0.82)),
         /* Sostituire il placeholder con la foto definitiva nella cartella decorazioni. */
-        url("images/decorazioni/sfondo.svg") center / cover no-repeat,
+        url("images/brand/sfondo.svg") center / cover no-repeat,
         radial-gradient(ellipse at 50% 20%, rgba(252, 235, 227, 0.96), transparent 68%),
         radial-gradient(ellipse at 12% 100%, rgba(194, 211, 194, 0.24), transparent 42%),
         linear-gradient(180deg, rgba(255, 253, 249, 0.72), rgba(250, 246, 240, 0.36));

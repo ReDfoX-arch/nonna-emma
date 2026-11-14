@@ -14,7 +14,7 @@ editor:
   preview: false
 
 logo:
-  src: ../images/decorazioni/logo.png
+  src: ../images/brand/logo.png
   show_in_header: true
 
 media_folder: images/uploads
@@ -28,6 +28,17 @@ collections:
         label: Categorie e progetti
         file: content/catalogo.json
         fields:
+          - label: "Tema di sfondo del sito"
+            name: tema_sfondo
+            widget: select
+            required: false
+            default: "sfumatura-crema"
+            options:
+              - { label: "Sfumatura Crema Delicata (Standard con trasparenza)", value: "sfumatura-crema" }
+              - { label: "Sfumatura Pesca e Salvia (Morbida e pastello)", value: "sfumatura-pesca" }
+              - { label: "Sfumatura Neutra Elegante (Lino chiaro)", value: "sfumatura-neutra" }
+              - { label: "Trama Lino e Cotone (Texture artigianale)", value: "trama-lino" }
+            hint: "Scegli l'atmosfera e il gradiente di sfondo visibile in tutte le pagine del sito."
           - label: Suggerimenti per i tag
             name: suggerimenti_tag
             widget: list

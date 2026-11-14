@@ -451,6 +451,14 @@ const inizializzaCatalogo = async () => {
         }
 
         const catalogo = await risposta.json();
+
+        if (typeof catalogo?.tema_sfondo === "string" && catalogo.tema_sfondo.trim()) {
+            const tema = catalogo.tema_sfondo.trim();
+            if (tema !== "sfumatura-crema") {
+                document.body.classList.add(`tema-${tema}`);
+            }
+        }
+
         if (Array.isArray(catalogo?.categorie)) {
             catalogo.categorie.forEach((categoria) => {
                 if (Array.isArray(categoria?.tag_generali)) {
