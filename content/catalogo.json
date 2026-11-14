@@ -1,7 +1,7 @@
 {
   "sfondo_hero": "images/uploads/cucito-dischi0.jpeg",
   "trasparenza_hero": "media",
-  "posizione_hero": "cover",
+  "posizione_hero": "repeat",
   "tema_sfondo": "sfumatura-pesca",
   "suggerimenti_tag": [
     "Accessori",
