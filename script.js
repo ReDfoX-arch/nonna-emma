@@ -10,7 +10,7 @@ if (filoScroll) {
 
     const aggiornaPosizioneFilo = () => {
         const altezzaNavbar = intestazione.getBoundingClientRect().height;
-        const extraOffset = window.innerWidth > 768 ? 48 : 12;
+        const extraOffset = window.innerWidth > 768 ? 26 : 10;
         filoScroll.style.setProperty(
             "--filo-top",
             `${altezzaNavbar + extraOffset}px`

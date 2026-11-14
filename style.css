@@ -512,12 +512,12 @@ html {
 .filo-scroll {
     position: fixed;
     z-index: 2147483647;
-    top: var(--filo-top, 120px);
+    top: var(--filo-top, 98px);
     bottom: 0;
     right: clamp(12px, 1.8vw, 24px);
     left: auto;
-    width: calc((100vh - var(--filo-top, 120px)) * 0.064);
-    height: calc(100vh - var(--filo-top, 120px));
+    width: calc((100vh - var(--filo-top, 98px)) * 0.064);
+    height: calc(100vh - var(--filo-top, 98px));
     pointer-events: none;
     overflow: visible;
 }
@@ -1346,7 +1346,7 @@ main {
 @media (max-width: 768px) {
     .filo-scroll {
         z-index: 1001;
-        right: 12px;
+        right: 14px;
         left: auto;
     }
 
@@ -1357,7 +1357,7 @@ main {
     }
 
     body {
-        --filo-margine-contenuti: 28px;
+        --filo-margine-contenuti: 36px;
     }
 
     .navbar nav,
@@ -2042,28 +2042,28 @@ footer {
 
 @media (max-width: 768px) {
     .portfolio {
-        padding-right: calc(14px + var(--filo-margine-contenuti));
-        padding-left: 16px;
+        padding-right: calc(18px + var(--filo-margine-contenuti));
+        padding-left: 20px;
     }
 
     .portfolio-progetti {
-        padding-right: calc(14px + var(--filo-margine-contenuti));
-        padding-left: 16px;
+        padding-right: calc(18px + var(--filo-margine-contenuti));
+        padding-left: 20px;
     }
 
     .hero {
-        padding-right: calc(14px + var(--filo-margine-contenuti));
-        padding-left: 16px;
+        padding-right: calc(18px + var(--filo-margine-contenuti));
+        padding-left: 20px;
     }
 
     .about {
-        padding-right: calc(14px + var(--filo-margine-contenuti));
-        padding-left: 16px;
+        padding-right: calc(18px + var(--filo-margine-contenuti));
+        padding-left: 20px;
     }
 
     footer {
-        padding-right: calc(14px + var(--filo-margine-contenuti));
-        padding-left: 16px;
+        padding-right: calc(18px + var(--filo-margine-contenuti));
+        padding-left: 20px;
     }
 }
 
