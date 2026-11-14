@@ -573,6 +573,14 @@ const inizializzaCatalogo = async () => {
 
                 const immaginePrincipale =
                     document.querySelector("[data-item-image]");
+                const anteprimaPrec =
+                    document.querySelector("[data-item-prev-preview]");
+                const anteprimaSucc =
+                    document.querySelector("[data-item-next-preview]");
+                const frecciaPrec =
+                    paginaElemento.querySelector("[data-item-previous]");
+                const frecciaSucc =
+                    paginaElemento.querySelector("[data-item-next]");
                 const statoGalleria =
                     document.querySelector("[data-item-status]");
                 const tagImmagine =
@@ -582,13 +590,32 @@ const inizializzaCatalogo = async () => {
                 let immagineAttiva = 0;
 
                 const selezionaImmagine = (indice) => {
-                    immagineAttiva =
-                        (indice + elemento.immagini.length) % elemento.immagini.length;
-                        const foto = elemento.immagini[immagineAttiva];
-                        immaginePrincipale.src = foto.percorso;
-                        immaginePrincipale.alt = (elemento.descrizione || elemento.nome || "").trim();
-                        statoGalleria.textContent =
-                        `Foto ${immagineAttiva + 1} di ${elemento.immagini.length}`;
+                    const totale = elemento.immagini.length;
+                    immagineAttiva = (indice + totale) % totale;
+                    const foto = elemento.immagini[immagineAttiva];
+                    immaginePrincipale.src = foto.percorso;
+                    immaginePrincipale.alt = (elemento.descrizione || elemento.nome || "").trim();
+
+                    if (anteprimaPrec && anteprimaSucc) {
+                        if (totale > 1) {
+                            const fotoPrec = elemento.immagini[(immagineAttiva - 1 + totale) % totale];
+                            const fotoSucc = elemento.immagini[(immagineAttiva + 1) % totale];
+                            anteprimaPrec.src = fotoPrec.percorso;
+                            anteprimaSucc.src = fotoSucc.percorso;
+                            anteprimaPrec.hidden = false;
+                            anteprimaSucc.hidden = false;
+                            if (frecciaPrec) frecciaPrec.hidden = false;
+                            if (frecciaSucc) frecciaSucc.hidden = false;
+                        } else {
+                            anteprimaPrec.hidden = true;
+                            anteprimaSucc.hidden = true;
+                            if (frecciaPrec) frecciaPrec.hidden = true;
+                            if (frecciaSucc) frecciaSucc.hidden = true;
+                        }
+                    }
+
+                    statoGalleria.textContent =
+                        `Foto ${immagineAttiva + 1} di ${totale}`;
                     aggiornaElencoTag(
                         tagImmagine,
                         tagDellaFoto(elemento, foto)
@@ -655,7 +682,7 @@ const inizializzaCatalogo = async () => {
                         const deltaY = evento.clientY - (coordinataInizioY || 0);
                         trascinamentoInCorso = false;
 
-                        if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+                        if (Math.abs(deltaX) > 30 && Math.abs(deltaX) > Math.abs(deltaY)) {
                             if (deltaX < 0) {
                                 selezionaImmagine(immagineAttiva + 1);
                             } else {
@@ -671,6 +698,13 @@ const inizializzaCatalogo = async () => {
                         coordinataInizioX = null;
                         coordinataInizioY = null;
                     });
+                }
+
+                if (anteprimaPrec) {
+                    anteprimaPrec.addEventListener("click", () => selezionaImmagine(immagineAttiva - 1));
+                }
+                if (anteprimaSucc) {
+                    anteprimaSucc.addEventListener("click", () => selezionaImmagine(immagineAttiva + 1));
                 }
 
                 paginaElemento.querySelector("[data-order-link]").href =

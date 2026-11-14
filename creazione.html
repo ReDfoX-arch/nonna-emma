@@ -64,11 +64,13 @@
         <section data-item-content>
             <div class="single-item-gallery">
                 <div class="single-item-stage">
-                    <button class="carousel-arrow" type="button" data-item-previous aria-label="Foto precedente">←</button>
+                    <button class="carousel-arrow carousel-arrow-prev" type="button" data-item-previous aria-label="Foto precedente">←</button>
                     <div class="single-item-viewer" data-item-viewer>
+                        <img class="single-item-prev-preview" data-item-prev-preview src="" alt="" aria-hidden="true">
                         <img class="single-item-image" data-item-image src="" alt="">
+                        <img class="single-item-next-preview" data-item-next-preview src="" alt="" aria-hidden="true">
                     </div>
-                    <button class="carousel-arrow" type="button" data-item-next aria-label="Foto successiva">→</button>
+                    <button class="carousel-arrow carousel-arrow-next" type="button" data-item-next aria-label="Foto successiva">→</button>
                 </div>
                 <p class="carousel-status" data-item-status aria-live="polite"></p>
                 <div class="creation-tags" data-item-tags role="list" aria-label="Parole chiave della foto" hidden></div>
