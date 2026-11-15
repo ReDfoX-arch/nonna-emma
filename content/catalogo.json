@@ -122,6 +122,35 @@
                 "Tote-Bag",
                 "Ricamo"
               ]
+            },
+            {
+              "percorso": "images/uploads/ricamo-bello-gatti.jpeg",
+              "tag": [
+                "Fiori",
+                "Animali",
+                "Tote-bag"
+              ]
+            },
+            {
+              "percorso": "images/uploads/ricamo-fiori.jpeg",
+              "tag": [
+                "Fiori",
+                "Animali",
+                "Tote-bag"
+              ]
+            },
+            {
+              "percorso": "images/uploads/ricamo-gatti.jpeg",
+              "tag": [
+                "Animali",
+                "Tote-bag"
+              ]
+            },
+            {
+              "percorso": "images/uploads/ricamo-kindness.jpeg",
+              "tag": [
+                "Tote-bag"
+              ]
             }
           ]
         },
@@ -196,6 +225,9 @@
             }
           ]
         }
+      ],
+      "tag_generali": [
+        "Ricamo"
       ]
     },
     {
