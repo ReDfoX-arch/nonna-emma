@@ -635,18 +635,20 @@ const inizializzaCatalogo = async () => {
                     immaginePrincipale.alt = (elemento.descrizione || elemento.nome || "").trim();
 
                     if (anteprimaPrec && anteprimaSucc) {
+                        const slotPrec = paginaElemento.querySelector("[data-item-prev-slot]");
+                        const slotSucc = paginaElemento.querySelector("[data-item-next-slot]");
                         if (totale > 1) {
                             const fotoPrec = elemento.immagini[(immagineAttiva - 1 + totale) % totale];
                             const fotoSucc = elemento.immagini[(immagineAttiva + 1) % totale];
                             anteprimaPrec.src = fotoPrec.percorso;
                             anteprimaSucc.src = fotoSucc.percorso;
-                            anteprimaPrec.hidden = false;
-                            anteprimaSucc.hidden = false;
+                            if (slotPrec) slotPrec.hidden = false;
+                            if (slotSucc) slotSucc.hidden = false;
                             if (frecciaPrec) frecciaPrec.hidden = false;
                             if (frecciaSucc) frecciaSucc.hidden = false;
                         } else {
-                            anteprimaPrec.hidden = true;
-                            anteprimaSucc.hidden = true;
+                            if (slotPrec) slotPrec.hidden = true;
+                            if (slotSucc) slotSucc.hidden = true;
                             if (frecciaPrec) frecciaPrec.hidden = true;
                             if (frecciaSucc) frecciaSucc.hidden = true;
                         }
@@ -738,15 +740,17 @@ const inizializzaCatalogo = async () => {
                     });
                 }
 
-                if (anteprimaPrec) {
-                    anteprimaPrec.addEventListener("click", () => selezionaImmagine(immagineAttiva - 1));
+                const slotPrec = paginaElemento.querySelector("[data-item-prev-slot]");
+                const slotSucc = paginaElemento.querySelector("[data-item-next-slot]");
+                if (slotPrec) {
+                    slotPrec.addEventListener("click", () => selezionaImmagine(immagineAttiva - 1));
                 }
-                if (anteprimaSucc) {
-                    anteprimaSucc.addEventListener("click", () => selezionaImmagine(immagineAttiva + 1));
+                if (slotSucc) {
+                    slotSucc.addEventListener("click", () => selezionaImmagine(immagineAttiva + 1));
                 }
 
                 paginaElemento.querySelector("[data-order-link]").href =
-                    "ordine.html";
+                    `ordine.html?prodotto=${encodeURIComponent(elemento.id)}`;
                 selezionaImmagine(0);
             } else {
                 document.querySelector("[data-item-category]").textContent =
@@ -925,6 +929,14 @@ document.querySelectorAll("[data-color-picker]").forEach((selettore) => {
     });
 });
 
+const generaIdUnivoco = (prefisso = "NE") => {
+    const ora = new Date();
+    const dataStr = ora.toISOString().slice(0, 10).replace(/-/g, "");
+    const timeSalt = (Date.now() % 1000000).toString(36).toUpperCase();
+    const randomSalt = Math.random().toString(36).substring(2, 6).toUpperCase();
+    return `${prefisso}-${dataStr}-${timeSalt}${randomSalt}`;
+};
+
 const moduloOrdine = document.querySelector("#order-form");
 
 if (moduloOrdine) {
@@ -932,29 +944,14 @@ if (moduloOrdine) {
         "prodotto"
     );
     const sceltaProdotto = moduloOrdine.elements.namedItem("prodotto");
-    const prodottiDisponibili = Array.from(sceltaProdotto.options).map(
-        (opzione) => opzione.value
-    );
 
-    if (prodottoRichiesto && prodottiDisponibili.includes(prodottoRichiesto)) {
-        sceltaProdotto.value = prodottoRichiesto;
-    }
-
-    const coloreRichiesto = new URLSearchParams(window.location.search).get(
-        "colore"
-    );
-    const campoColore = moduloOrdine.querySelector("[data-color-input]");
-    const selettoreColore = moduloOrdine.querySelector("[data-color-picker]");
-    const opzioneColore = Array.from(
-        selettoreColore.querySelectorAll("[data-color-value]")
-    ).find((campione) => campione.dataset.colorValue === coloreRichiesto);
-
-    if (opzioneColore) opzioneColore.click();
-
-    if (campoColore && !opzioneColore && coloreRichiesto) {
-        campoColore.value = coloreRichiesto;
-        selettoreColore.querySelector("[data-selected-color]").textContent =
-            coloreRichiesto;
+    if (sceltaProdotto && prodottoRichiesto) {
+        const opzioneValida = Array.from(sceltaProdotto.options).some(
+            (opz) => opz.value === prodottoRichiesto
+        );
+        if (opzioneValida) {
+            sceltaProdotto.value = prodottoRichiesto;
+        }
     }
 
     moduloOrdine.addEventListener("submit", (evento) => {
@@ -962,18 +959,39 @@ if (moduloOrdine) {
         if (!moduloOrdine.reportValidity()) return;
 
         const dati = new FormData(moduloOrdine);
-        const righe = Array.from(dati.entries()).map(([campo, valore]) => {
-            const testo =
-                campo === "prodotto"
-                    ? sceltaProdotto.selectedOptions[0].textContent
-                    : valore;
-            return `${campo}: ${testo}`;
-        });
-        const oggetto = encodeURIComponent("Richiesta personalizzata | Nonna Emma");
-        const corpo = encodeURIComponent(righe.join("\n"));
+        const orderId = generaIdUnivoco("ORD");
+        const nomeCliente = (dati.get("Nome") || "").toString().trim();
+        const emailCliente = (dati.get("Email") || "").toString().trim();
+        const telefonoCliente = (dati.get("Telefono") || "").toString().trim() || "Non indicato";
+        const nomeProdotto = sceltaProdotto && sceltaProdotto.selectedOptions[0]
+            ? sceltaProdotto.selectedOptions[0].textContent.trim()
+            : (dati.get("prodotto") || "Non specificato");
+        const codiceProdotto = dati.get("prodotto") || "";
+        const misura = (dati.get("Misura o taglia") || "").toString().trim() || "Standard / Da concordare";
+        const dettagli = (dati.get("Dettagli") || "").toString().trim() || "Nessun dettaglio aggiuntivo";
+        const timestamp = new Date().toLocaleString("it-IT");
 
-        window.location.href =
-            `mailto:nonnaemma.site@gmail.com?subject=${oggetto}&body=${corpo}`;
+        const corpoMail = [
+            "========================================",
+            `ORDINE ID: ${orderId}`,
+            `DATA: ${timestamp}`,
+            "========================================",
+            `CLIENTE: ${nomeCliente}`,
+            `EMAIL: ${emailCliente}`,
+            `TELEFONO: ${telefonoCliente}`,
+            `PRODOTTO: ${nomeProdotto}`,
+            `CODICE_PRODOTTO: ${codiceProdotto}`,
+            `MISURA_TAGLIA: ${misura}`,
+            "----------------------------------------",
+            "DETTAGLI RICHIESTA:",
+            dettagli,
+            "========================================"
+        ].join("\n");
+
+        const oggetto = encodeURIComponent(`[${orderId}] Richiesta ordine: ${nomeProdotto} - ${nomeCliente}`);
+        const corpo = encodeURIComponent(corpoMail);
+
+        window.location.href = `mailto:nonnaemma.site@gmail.com?subject=${oggetto}&body=${corpo}`;
     });
 }
 
@@ -984,13 +1002,31 @@ if (moduloContattoHome) {
         evento.preventDefault();
         if (!moduloContattoHome.reportValidity()) return;
 
-        const righe = Array.from(new FormData(moduloContattoHome).entries()).map(
-            ([campo, valore]) => `${campo}: ${valore}`
-        );
-        const oggetto = encodeURIComponent("Una nuova idea | Nonna Emma");
-        const corpo = encodeURIComponent(righe.join("\n"));
+        const dati = new FormData(moduloContattoHome);
+        const contactId = generaIdUnivoco("CONT");
+        const nomeCliente = (dati.get("Nome") || "").toString().trim();
+        const emailCliente = (dati.get("Email") || "").toString().trim();
+        const progetto = (dati.get("Progetto") || "").toString().trim() || "Idea libera";
+        const dettagli = (dati.get("Dettagli") || "").toString().trim() || "Nessun messaggio";
+        const timestamp = new Date().toLocaleString("it-IT");
 
-        window.location.href =
-            `mailto:nonnaemma.site@gmail.com?subject=${oggetto}&body=${corpo}`;
+        const corpoMail = [
+            "========================================",
+            `RICHIESTA INFO ID: ${contactId}`,
+            `DATA: ${timestamp}`,
+            "========================================",
+            `CLIENTE: ${nomeCliente}`,
+            `EMAIL: ${emailCliente}`,
+            `AMBITO_PROGETTO: ${progetto}`,
+            "----------------------------------------",
+            "MESSAGGIO:",
+            dettagli,
+            "========================================"
+        ].join("\n");
+
+        const oggetto = encodeURIComponent(`[${contactId}] Nuova idea / richiesta info - ${nomeCliente}`);
+        const corpo = encodeURIComponent(corpoMail);
+
+        window.location.href = `mailto:nonnaemma.site@gmail.com?subject=${oggetto}&body=${corpo}`;
     });
 }

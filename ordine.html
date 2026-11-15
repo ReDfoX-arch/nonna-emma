@@ -82,27 +82,36 @@
                 <label for="prodotto-scelto">Che cosa vorresti?
                     <select id="prodotto-scelto" name="prodotto" required>
                         <option value="" disabled selected>Seleziona una creazione</option>
-                        <option value="calzine">Calzine di lana</option>
-                        <option value="cappellino">Cappellino Baby</option>
-                        <option value="ricamo">Ricamo personalizzato</option>
-                        <option value="cucito">Cucito e sartoria</option>
-                        <option value="punto-croce">Punto croce</option>
-                        <option value="borsa">Borsa / tote bag su richiesta</option>
-                        <option value="altro">Un'altra idea</option>
+                        <optgroup label="Lavori a Maglia">
+                            <option value="baby">Baby (bonnet, scarpine e accessori)</option>
+                            <option value="peluche">Peluches a maglia</option>
+                        </optgroup>
+                        <optgroup label="Ricami Decorativi">
+                            <option value="borse">Tote-bag ricamate</option>
+                            <option value="vari">Accessori vari ricamati</option>
+                        </optgroup>
+                        <optgroup label="Taglio e Cucito">
+                            <option value="fiocco">Fuoriporta nascita</option>
+                            <option value="giostra">Giostrina per culla</option>
+                            <option value="portaocchiali">Portaocchiali</option>
+                            <option value="cuscini">Cuscini riscaldabili</option>
+                            <option value="portacarte">Portacarte</option>
+                            <option value="accessori-vari-sartoria">Accessori sartoria</option>
+                            <option value="segnalibri-angolo">Segnalibri ad angolo</option>
+                        </optgroup>
+                        <optgroup label="Punto Croce">
+                            <option value="quadri">Quadretti a punto croce</option>
+                            <option value="segnalibri-punto">Segnalibri ricamati</option>
+                        </optgroup>
+                        <optgroup label="Creazioni in Feltro">
+                            <option value="oggetti-feltro">Oggetti decorativi in feltro</option>
+                        </optgroup>
+                        <optgroup label="Gioielli">
+                            <option value="perle">Gioielli e pendenti artigianali</option>
+                        </optgroup>
+                        <option value="altro">Un'altra idea / Su misura</option>
                     </select>
                 </label>
-
-                <fieldset data-color-picker>
-                    <legend>Colore del filato o del tessuto</legend>
-                    <input type="hidden" name="Colore" value="Panna" data-color-input>
-                    <div class="campioni-filato" role="group" aria-label="Scegli un colore indicativo">
-                        <button class="campione-lana" type="button" style="--colore-campione:#F0E2CB" data-color-value="Panna" aria-label="Seleziona il colore panna" aria-pressed="true"></button>
-                        <button class="campione-lana" type="button" style="--colore-campione:#C77C61" data-color-value="Terracotta" aria-label="Seleziona il colore terracotta" aria-pressed="false"></button>
-                        <button class="campione-lana" type="button" style="--colore-campione:#A8BDA9" data-color-value="Verde salvia" aria-label="Seleziona il colore verde salvia" aria-pressed="false"></button>
-                        <button class="campione-lana" type="button" style="--colore-campione:#E9B99F" data-color-value="Pesca" aria-label="Seleziona il colore pesca" aria-pressed="false"></button>
-                    </div>
-                    <p class="testo-colore" aria-live="polite">Colore indicativo: <span data-selected-color>Panna</span></p>
-                </fieldset>
 
                 <label for="misura">Misura o taglia (facoltativa)
                     <input id="misura" name="Misura o taglia" type="text" maxlength="100" placeholder="Per esempio: età, circonferenza o taglia">
@@ -112,12 +121,7 @@
                     <textarea id="dettagli" name="Dettagli" maxlength="2000" placeholder="Descrivi l'idea, l'occasione, i colori o altri dettagli utili."></textarea>
                 </label>
 
-                <label class="consenso" for="ricontatto">
-                    <input id="ricontatto" name="Consenso al ricontatto" type="checkbox" value="Sì" required>
-                    <span>Acconsento a essere ricontattato per rispondere a questa richiesta.</span>
-                </label>
-
-                <p class="nota-modulo">Premendo il pulsante si aprirà il programma email del tuo dispositivo con la richiesta già preparata. L'invio avviene solo dopo la tua conferma.</p>
+                <p class="nota-modulo">Premendo il pulsante si aprirà la tua app email con la richiesta già compilata e ordinata con codice di riferimento univoco.</p>
                 <button class="btn-primary" type="submit">Prepara la richiesta ✉</button>
                 <p class="feedback-modulo" id="form-feedback" aria-live="polite"></p>
             </form>
