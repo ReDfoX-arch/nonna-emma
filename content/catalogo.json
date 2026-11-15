@@ -56,7 +56,7 @@
               "tag": [
                 "Baby",
                 "Peluches",
-                "Maglia"
+                "Animali"
               ]
             },
             {
@@ -64,11 +64,14 @@
               "tag": [
                 "Baby",
                 "Peluches",
-                "Maglia"
+                "Animali"
               ]
             }
           ]
         }
+      ],
+      "tag_generali": [
+        "Maglia"
       ]
     },
     {
