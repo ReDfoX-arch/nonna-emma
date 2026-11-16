@@ -411,18 +411,25 @@ const creaSchedaProgetto = (elemento) => {
     titolo.textContent = elemento.nome;
     const descrizione = document.createElement("p");
     descrizione.textContent = elemento.descrizione;
+
+    const blocchiContenuto = [titolo, descrizione];
+
+    if (elemento.prezzo && elemento.prezzo.toString().trim()) {
+        const prezzoEl = document.createElement("span");
+        prezzoEl.className = "card-price";
+        const valPrezzo = elemento.prezzo.toString().trim();
+        prezzoEl.textContent = `Fascia di prezzo: ${valPrezzo.includes("€") ? valPrezzo : valPrezzo + "€"}`;
+        blocchiContenuto.push(prezzoEl);
+    }
+
     const invito = document.createElement("span");
     invito.className = "card-cta";
     invito.textContent = elemento.immagini.length > 1
         ? `${elemento.immagini.length} foto · Guarda il progetto →`
         : "Guarda il progetto →";
 
-    contenuto.append(
-        titolo,
-        descrizione,
-        creaElencoTag(tagDellaCreazione(elemento)),
-        invito
-    );
+    blocchiContenuto.push(creaElencoTag(tagDellaCreazione(elemento)), invito);
+    contenuto.append(...blocchiContenuto);
     collegamento.append(immagine, contenuto);
     return collegamento;
 };
@@ -606,6 +613,18 @@ const inizializzaCatalogo = async () => {
                     elemento.nome;
                 document.querySelector("[data-item-description]").textContent =
                     elemento.descrizione || "";
+
+                const elementoPrezzo = document.querySelector("[data-item-price]");
+                if (elementoPrezzo) {
+                    if (elemento.prezzo && elemento.prezzo.toString().trim()) {
+                        const valPrezzo = elemento.prezzo.toString().trim();
+                        elementoPrezzo.textContent = `Fascia di prezzo: ${valPrezzo.includes("€") ? valPrezzo : valPrezzo + "€"}`;
+                        elementoPrezzo.hidden = false;
+                    } else {
+                        elementoPrezzo.hidden = true;
+                    }
+                }
+
                 document.querySelector("[data-item-category-link]").href =
                     `categoria.html?categoria=${encodeURIComponent(elemento.categoria.id)}`;
 
@@ -937,6 +956,56 @@ const generaIdUnivoco = (prefisso = "NE") => {
     return `${prefisso}-${dataStr}-${timeSalt}${randomSalt}`;
 };
 
+const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwmkMGuEsWHxT_7Dt5j2TqjnMFD2PnczqTtFk-9H3tV9tt19pXJ7MEWkBhECBKCKbho/exec";
+
+const inviaModuloConFeedback = async ({ url, datiJson, elementoFeedback, testoCaricamento, testoSuccesso, resetForm }) => {
+    if (elementoFeedback) {
+        elementoFeedback.textContent = testoCaricamento;
+        elementoFeedback.style.color = "var(--yarn-terracotta)";
+    }
+
+    try {
+        if (!url || url.includes("PLACEHOLDER")) {
+            // Se l'URL non è ancora configurato, usa mailto come fallback di sicurezza
+            throw new Error("WEBAPP_URL_NOT_CONFIGURED");
+        }
+
+        const risposta = await fetch(url, {
+            method: "POST",
+            mode: "no-cors", // Per Web App Apps Script senza problemi di CORS
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(datiJson)
+        });
+
+        if (elementoFeedback) {
+            elementoFeedback.textContent = testoSuccesso;
+            elementoFeedback.style.color = "#03543F";
+        }
+        if (typeof resetForm === "function") {
+            resetForm();
+        }
+    } catch (errore) {
+        if (errore.message === "WEBAPP_URL_NOT_CONFIGURED") {
+            // Fallback trasparente su mailto se non è stato ancora pubblicato l'Apps Script
+            console.warn("Apps Script Web App URL non ancora configurato. Utilizzo fallback mailto.");
+            const oggetto = encodeURIComponent(`[${datiJson.orderId}] ${datiJson.tipo === "ordine" ? "Richiesta ordine" : "Richiesta info"}: ${datiJson.prodotto || datiJson.progetto} - ${datiJson.nome}`);
+            const corpo = encodeURIComponent(datiJson.corpoMail);
+            window.location.href = `mailto:nonnaemma.site@gmail.com?subject=${oggetto}&body=${corpo}`;
+            if (elementoFeedback) {
+                elementoFeedback.textContent = "Apertura client email in corso...";
+            }
+        } else {
+            console.error("Errore invio richiesta:", errore);
+            if (elementoFeedback) {
+                elementoFeedback.textContent = "Errore durante l'invio. Riprova o scrivici direttamente via email.";
+                elementoFeedback.style.color = "#771D1D";
+            }
+        }
+    }
+};
+
 const moduloOrdine = document.querySelector("#order-form");
 
 if (moduloOrdine) {
@@ -954,7 +1023,10 @@ if (moduloOrdine) {
         }
     }
 
-    moduloOrdine.addEventListener("submit", (evento) => {
+    const feedbackEl = document.querySelector("#form-feedback");
+    const pulsanteSubmit = moduloOrdine.querySelector("button[type='submit']");
+
+    moduloOrdine.addEventListener("submit", async (evento) => {
         evento.preventDefault();
         if (!moduloOrdine.reportValidity()) return;
 
@@ -988,17 +1060,40 @@ if (moduloOrdine) {
             "========================================"
         ].join("\n");
 
-        const oggetto = encodeURIComponent(`[${orderId}] Richiesta ordine: ${nomeProdotto} - ${nomeCliente}`);
-        const corpo = encodeURIComponent(corpoMail);
+        if (pulsanteSubmit) pulsanteSubmit.disabled = true;
 
-        window.location.href = `mailto:nonnaemma.site@gmail.com?subject=${oggetto}&body=${corpo}`;
+        await inviaModuloConFeedback({
+            url: WEBAPP_URL,
+            datiJson: {
+                tipo: "ordine",
+                orderId,
+                timestamp,
+                nome: nomeCliente,
+                email: emailCliente,
+                telefono: telefonoCliente,
+                prodotto: nomeProdotto,
+                codiceProdotto,
+                misura,
+                dettagli,
+                corpoMail
+            },
+            elementoFeedback: feedbackEl,
+            testoCaricamento: "Invio richiesta in corso... ✨",
+            testoSuccesso: `Grazie ${nomeCliente}! La tua richiesta [${orderId}] è stata inviata con successo. Ti ricontatteremo al più presto!`,
+            resetForm: () => moduloOrdine.reset()
+        });
+
+        if (pulsanteSubmit) pulsanteSubmit.disabled = false;
     });
 }
 
 const moduloContattoHome = document.querySelector("#home-contact-form");
 
 if (moduloContattoHome) {
-    moduloContattoHome.addEventListener("submit", (evento) => {
+    const feedbackHomeEl = document.querySelector("#home-contact-feedback");
+    const pulsanteHomeSubmit = moduloContattoHome.querySelector("button[type='submit']");
+
+    moduloContattoHome.addEventListener("submit", async (evento) => {
         evento.preventDefault();
         if (!moduloContattoHome.reportValidity()) return;
 
@@ -1024,9 +1119,27 @@ if (moduloContattoHome) {
             "========================================"
         ].join("\n");
 
-        const oggetto = encodeURIComponent(`[${contactId}] Nuova idea / richiesta info - ${nomeCliente}`);
-        const corpo = encodeURIComponent(corpoMail);
+        if (pulsanteHomeSubmit) pulsanteHomeSubmit.disabled = true;
 
-        window.location.href = `mailto:nonnaemma.site@gmail.com?subject=${oggetto}&body=${corpo}`;
+        await inviaModuloConFeedback({
+            url: WEBAPP_URL,
+            datiJson: {
+                tipo: "contatto",
+                orderId: contactId,
+                timestamp,
+                nome: nomeCliente,
+                email: emailCliente,
+                telefono: "Non indicato",
+                progetto,
+                dettagli,
+                corpoMail
+            },
+            elementoFeedback: feedbackHomeEl,
+            testoCaricamento: "Invio in corso... 🧶",
+            testoSuccesso: `Grazie ${nomeCliente}! Il tuo messaggio [${contactId}] è stato inviato con successo. Ti risponderemo prestissimo!`,
+            resetForm: () => moduloContattoHome.reset()
+        });
+
+        if (pulsanteHomeSubmit) pulsanteHomeSubmit.disabled = false;
     });
 }

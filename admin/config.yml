@@ -122,6 +122,11 @@ collections:
                   - label: Descrizione
                     name: descrizione
                     widget: text
+                  - label: Fascia di prezzo
+                    name: prezzo
+                    widget: string
+                    required: false
+                    hint: "Es. 15-25 oppure 20 (senza o con simbolo €). Lascia vuoto se non applicabile."
                   - label: Foto del progetto
                     name: immagini
                     widget: list
