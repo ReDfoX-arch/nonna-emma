@@ -44,7 +44,8 @@
                 "Maglia"
               ]
             }
-          ]
+          ],
+          "prezzo": "15-20"
         },
         {
           "id": "peluche",
@@ -255,7 +256,8 @@
                 "Sartoria"
               ]
             }
-          ]
+          ],
+          "prezzo": "35"
         },
         {
           "id": "giostra",
