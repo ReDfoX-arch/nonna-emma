@@ -319,6 +319,9 @@ const inizializzaFiltroTag = (creazioni, griglia) => {
             const mostraCarosello = selezionati.size > 0 && visibili > 0;
             griglia.hidden = !mostraCarosello;
             carosello.hidden = !mostraCarosello;
+            if (mostraCarosello) {
+                griglia.scrollTo({ left: 0, behavior: "auto" });
+            }
         }
     };
 
