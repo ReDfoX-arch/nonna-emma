@@ -45,7 +45,7 @@
               ]
             }
           ],
-          "prezzo": "15-20"
+          "prezzo": "15-25"
         },
         {
           "id": "peluche",
@@ -68,7 +68,8 @@
                 "Animali"
               ]
             }
-          ]
+          ],
+          "prezzo": "30-35"
         }
       ],
       "tag_generali": [
@@ -157,7 +158,8 @@
                 "Tote-bag"
               ]
             }
-          ]
+          ],
+          "prezzo": "20-30"
         },
         {
           "id": "vari",
@@ -228,7 +230,8 @@
                 "Frutta"
               ]
             }
-          ]
+          ],
+          "prezzo": "10-20"
         }
       ],
       "tag_generali": [
@@ -272,7 +275,8 @@
                 "Sartoria"
               ]
             }
-          ]
+          ],
+          "prezzo": "45"
         },
         {
           "id": "portaocchiali",
@@ -287,7 +291,8 @@
                 "Sartoria"
               ]
             }
-          ]
+          ],
+          "prezzo": "8-15"
         },
         {
           "id": "cuscini",
@@ -309,7 +314,8 @@
                 "Cuscini"
               ]
             }
-          ]
+          ],
+          "prezzo": "10"
         },
         {
           "id": "portacarte",
@@ -324,7 +330,8 @@
                 "Cucito a mano"
               ]
             }
-          ]
+          ],
+          "prezzo": "10-16"
         },
         {
           "id": "accessori-vari-sartoria",
@@ -350,7 +357,8 @@
               ]
             }
           ],
-          "descrizione": "Vari accessori di sartoria con cuciture a mano o a macchina (dischetti struccanti, sacchetti portaoggetti, ...) "
+          "descrizione": "Vari accessori di sartoria con cuciture a mano o a macchina (dischetti struccanti, sacchetti portaoggetti, ...) ",
+          "prezzo": "10"
         },
         {
           "id": "segnalibri-angolo",
@@ -366,7 +374,8 @@
                 "Segnalibro"
               ]
             }
-          ]
+          ],
+          "prezzo": "4-8"
         }
       ]
     },
@@ -404,7 +413,8 @@
                 "Fiori"
               ]
             }
-          ]
+          ],
+          "prezzo": "15-30"
         },
         {
           "id": "segnalibri-punto",
@@ -432,7 +442,8 @@
                 "Fiori"
               ]
             }
-          ]
+          ],
+          "prezzo": "20-30"
         }
       ],
       "tag_generali": [
@@ -467,7 +478,8 @@
               ],
               "percorso": "images/uploads/placeholder.png"
             }
-          ]
+          ],
+          "prezzo": "A partire da 6"
         }
       ],
       "tag_generali": [
@@ -490,7 +502,8 @@
             {
               "percorso": "images/uploads/gioielli-gioielli_tot.jpeg"
             }
-          ]
+          ],
+          "prezzo": "2-5"
         }
       ],
       "tag_generali": [
